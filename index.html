@@ -1,0 +1,339 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>Paté for my Caté — Cuisine féline. Without the c'est cher.</title>
+<meta name="description" content="Hand-crafted French-style paté for the cat who deserves better. Real meat first. Vet-approved. Under $2 a tin." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600;1,700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0a1628;
+    --navy-2:#0e1c33;
+    --burgundy:#5c1f2e;
+    --burgundy-2:#3d141f;
+    --gold:#c9a961;
+    --gold-2:#a88636;
+    --gold-bright:#e0c587;
+    --cream:#f5ebd6;
+    --cream-2:#ece1c4;
+    --ink:#1a1a1a;
+    --rose:#e8a4a4;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{background:var(--navy);color:var(--cream);font-family:'Inter',sans-serif;font-weight:300;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  img{max-width:100%;display:block;height:auto}
+  a{color:inherit;text-decoration:none}
+
+  /* ============= ORNAMENTAL HELPERS ============= */
+  .script{font-family:'Playfair Display',serif;font-style:italic;font-weight:600;letter-spacing:.005em}
+  .display{font-family:'Cormorant Garamond',serif;font-weight:500;letter-spacing:.02em}
+  .eyebrow{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:500;letter-spacing:.32em;text-transform:uppercase;font-size:11px;color:var(--gold)}
+
+  /* Gold flourish divider */
+  .flourish{display:flex;align-items:center;justify-content:center;gap:18px;margin:28px 0;color:var(--gold)}
+  .flourish::before,.flourish::after{content:"";flex:0 1 80px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+  .flourish svg{width:26px;height:26px;opacity:.9}
+
+  /* Wavy Viennetta ribbon — used as section transitions */
+  .ribbon{display:block;width:100%;height:36px}
+  .ribbon path{fill:var(--burgundy)}
+  .ribbon-gold path{fill:var(--gold)}
+
+  /* ============= NAV ============= */
+  nav{position:absolute;top:0;left:0;right:0;z-index:10;padding:22px 40px;display:flex;justify-content:space-between;align-items:center}
+  nav .brand{font-family:'Playfair Display',serif;font-style:italic;font-size:22px;color:var(--gold);letter-spacing:.01em}
+  nav ul{display:flex;gap:34px;list-style:none}
+  nav ul a{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:15px;letter-spacing:.18em;text-transform:uppercase;color:var(--cream);opacity:.85;transition:opacity .2s}
+  nav ul a:hover{opacity:1;color:var(--gold)}
+  nav .basket{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:14px;color:var(--gold);letter-spacing:.16em;text-transform:uppercase}
+
+  /* ============= HERO ============= */
+  .hero{position:relative;min-height:100vh;background:radial-gradient(ellipse at 30% 50%, var(--navy-2) 0%, var(--navy) 60%, #06101e 100%);display:grid;grid-template-columns:1.05fr 1fr;align-items:center;padding:140px 80px 80px;gap:60px;overflow:hidden}
+  .hero::before{content:"";position:absolute;inset:0;background:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="60" height="60"><circle cx="30" cy="30" r="1" fill="%23c9a961" opacity="0.06"/></svg>');pointer-events:none}
+  .hero-copy{position:relative;z-index:2}
+  .hero h1{font-family:'Playfair Display',serif;font-style:italic;font-weight:600;color:var(--gold-bright);font-size:clamp(56px,7.5vw,118px);line-height:.92;letter-spacing:-.01em;margin:18px 0 6px;text-shadow:0 2px 24px rgba(0,0,0,.4)}
+  .hero h1 .small{font-size:.42em;font-weight:400;color:var(--cream);font-style:italic;display:block;margin-top:8px;letter-spacing:.04em}
+  .hero .tag{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:22px;color:var(--cream-2);margin:22px 0 10px;max-width:520px;line-height:1.45}
+  .hero .sub{font-size:15px;color:var(--cream);opacity:.7;max-width:480px;margin-bottom:36px}
+  .cta-row{display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+  .btn{display:inline-block;padding:16px 38px;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:17px;letter-spacing:.22em;text-transform:uppercase;border-radius:2px;transition:all .25s;cursor:pointer;border:none}
+  .btn-gold{background:linear-gradient(180deg,var(--gold-bright),var(--gold) 50%,var(--gold-2));color:var(--burgundy-2);box-shadow:0 8px 28px -10px rgba(201,169,97,.5),inset 0 1px 0 rgba(255,255,255,.4)}
+  .btn-gold:hover{transform:translateY(-2px);box-shadow:0 14px 32px -10px rgba(201,169,97,.7),inset 0 1px 0 rgba(255,255,255,.5)}
+  .btn-ghost{color:var(--gold);border:1px solid var(--gold);background:transparent}
+  .btn-ghost:hover{background:rgba(201,169,97,.08)}
+  .hero-img{position:relative;border-radius:3px;overflow:hidden;aspect-ratio:3/2;background:linear-gradient(135deg,#1a2540,#0c1830);box-shadow:0 30px 80px -20px rgba(0,0,0,.7),0 0 0 1px rgba(201,169,97,.18)}
+  .hero-img::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 60%,rgba(10,22,40,.6))}
+  .hero-img .ph{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;color:var(--gold);opacity:.5;font-family:'Cormorant Garamond',serif;font-style:italic}
+  .corner{position:absolute;width:50px;height:50px;border:1px solid var(--gold);opacity:.7}
+  .corner.tl{top:14px;left:14px;border-right:0;border-bottom:0}
+  .corner.tr{top:14px;right:14px;border-left:0;border-bottom:0}
+  .corner.bl{bottom:14px;left:14px;border-right:0;border-top:0}
+  .corner.br{bottom:14px;right:14px;border-left:0;border-top:0}
+  .stamp{position:absolute;top:32px;left:32px;background:rgba(10,22,40,.7);border:1px solid var(--gold);padding:8px 14px;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:12px;letter-spacing:.28em;color:var(--gold);text-transform:uppercase;z-index:3}
+
+  /* ============= COLLECTION ============= */
+  .section{padding:120px 80px;position:relative}
+  .section-head{text-align:center;max-width:760px;margin:0 auto 60px}
+  .section-head h2{font-family:'Cormorant Garamond',serif;font-weight:500;color:var(--gold-bright);font-size:clamp(40px,4.6vw,64px);line-height:1.05;margin:14px 0 18px}
+  .section-head h2 em{font-family:'Playfair Display',serif;font-style:italic;font-weight:600}
+  .section-head p{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:19px;color:var(--cream);opacity:.78;max-width:560px;margin:0 auto}
+
+  .collection{background:linear-gradient(180deg,var(--navy) 0%,#0c1a30 100%);position:relative}
+  .tins{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;max-width:1200px;margin:0 auto}
+  .tin-card{position:relative;background:linear-gradient(180deg,rgba(245,235,214,.04),rgba(245,235,214,.02));border:1px solid rgba(201,169,97,.22);padding:36px 30px 32px;text-align:center;transition:all .35s;border-radius:2px}
+  .tin-card::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+  .tin-card:hover{transform:translateY(-6px);border-color:var(--gold);box-shadow:0 30px 60px -25px rgba(201,169,97,.3)}
+  .tin-img{aspect-ratio:1;background:linear-gradient(135deg,#1a2540,#0c1830);margin-bottom:24px;border-radius:2px;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
+  .tin-img .ph{color:var(--gold);opacity:.4;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:14px;letter-spacing:.2em;text-transform:uppercase}
+  .tin-card h3{font-family:'Playfair Display',serif;font-style:italic;font-weight:600;font-size:30px;color:var(--gold-bright);margin-bottom:6px}
+  .tin-card .desc{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:16px;color:var(--cream);opacity:.75;margin-bottom:18px;min-height:48px}
+  .price{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:22px;color:var(--gold);letter-spacing:.04em}
+  .price small{font-size:13px;color:var(--cream);opacity:.6;letter-spacing:.1em;text-transform:uppercase;font-style:italic;margin-left:6px}
+
+  /* ============= HISTOIRE ============= */
+  .histoire{background:linear-gradient(180deg,#0c1a30 0%,var(--burgundy-2) 100%);display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;padding:120px 80px}
+  .histoire-img{aspect-ratio:16/9;background:linear-gradient(135deg,#2d0e18,#1a0710);position:relative;overflow:hidden;border-radius:2px;box-shadow:0 30px 80px -20px rgba(0,0,0,.7),0 0 0 1px rgba(201,169,97,.18)}
+  .histoire-img .ph{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:var(--gold);opacity:.5;font-family:'Cormorant Garamond',serif;font-style:italic}
+  .histoire-copy h2{font-family:'Cormorant Garamond',serif;font-weight:500;color:var(--gold-bright);font-size:clamp(38px,4.2vw,58px);line-height:1.05;margin:14px 0 24px}
+  .histoire-copy h2 em{font-family:'Playfair Display',serif;font-style:italic}
+  .histoire-copy p{font-size:16px;line-height:1.8;color:var(--cream);opacity:.85;margin-bottom:16px;max-width:520px}
+  .histoire-copy .sig{font-family:'Playfair Display',serif;font-style:italic;font-weight:600;font-size:32px;color:var(--gold);margin-top:24px}
+
+  /* ============= BENEFITS ============= */
+  .benefits{background:var(--navy);padding:120px 80px}
+  .benefit-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:36px;max-width:1200px;margin:0 auto}
+  .benefit{text-align:center;padding:24px 14px}
+  .benefit-icon{width:64px;height:64px;margin:0 auto 22px;display:flex;align-items:center;justify-content:center;color:var(--gold);border:1px solid var(--gold);border-radius:50%;background:radial-gradient(circle,rgba(201,169,97,.08),transparent)}
+  .benefit-icon svg{width:30px;height:30px}
+  .benefit h4{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:22px;color:var(--gold-bright);margin-bottom:10px;letter-spacing:.02em}
+  .benefit p{font-size:14px;color:var(--cream);opacity:.75;line-height:1.6;max-width:230px;margin:0 auto}
+
+  /* ============= TESTIMONIALS ============= */
+  .testimonials{background:linear-gradient(180deg,var(--navy) 0%,var(--burgundy-2) 100%);padding:120px 80px;position:relative}
+  .quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:36px;max-width:1180px;margin:0 auto}
+  .quote{background:rgba(245,235,214,.03);border:1px solid rgba(201,169,97,.2);padding:44px 34px 36px;position:relative;border-radius:2px}
+  .quote::before{content:"\201C";position:absolute;top:-6px;left:22px;font-family:'Playfair Display',serif;font-style:italic;font-size:90px;color:var(--gold);line-height:1;opacity:.9}
+  .quote p{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:19px;line-height:1.55;color:var(--cream);margin-bottom:26px;margin-top:6px}
+  .quote .name{font-family:'Playfair Display',serif;font-style:italic;font-weight:600;color:var(--gold-bright);font-size:18px}
+  .quote .breed{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:13px;color:var(--cream);opacity:.6;letter-spacing:.12em;text-transform:uppercase;margin-top:3px}
+  .stars{color:var(--gold);letter-spacing:.18em;font-size:13px;margin-bottom:14px}
+
+  /* ============= FINAL CTA ============= */
+  .final{background:linear-gradient(180deg,var(--burgundy-2) 0%,var(--burgundy) 100%);padding:140px 80px;text-align:center;position:relative;overflow:hidden}
+  .final::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(201,169,97,.1),transparent 60%);pointer-events:none}
+  .final h2{font-family:'Playfair Display',serif;font-style:italic;font-weight:600;color:var(--gold-bright);font-size:clamp(48px,6vw,88px);line-height:1;letter-spacing:-.01em;margin-bottom:24px;position:relative}
+  .final p{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:22px;color:var(--cream);opacity:.9;max-width:580px;margin:0 auto 40px;position:relative}
+  .final .btn-gold{font-size:18px;padding:20px 60px;position:relative}
+  .final .ship{margin-top:24px;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:14px;color:var(--cream);opacity:.55;letter-spacing:.16em;text-transform:uppercase;position:relative}
+
+  /* ============= FOOTER ============= */
+  footer{background:#06101e;padding:50px 80px 36px;text-align:center;border-top:1px solid rgba(201,169,97,.18)}
+  footer .mark{font-family:'Playfair Display',serif;font-style:italic;font-size:26px;color:var(--gold);margin-bottom:14px}
+  footer .links{display:flex;gap:30px;justify-content:center;margin-bottom:24px;flex-wrap:wrap}
+  footer .links a{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:14px;letter-spacing:.18em;text-transform:uppercase;color:var(--cream);opacity:.7;transition:opacity .2s}
+  footer .links a:hover{opacity:1;color:var(--gold)}
+  footer .fine{font-size:12px;color:var(--cream);opacity:.4;letter-spacing:.06em}
+
+  /* ============= RESPONSIVE ============= */
+  @media (max-width:900px){
+    nav{padding:18px 22px}
+    nav ul{display:none}
+    .hero{grid-template-columns:1fr;padding:110px 24px 60px;gap:40px;min-height:auto}
+    .hero h1{font-size:64px}
+    .hero .tag{font-size:19px}
+    .section{padding:80px 24px}
+    .tins{grid-template-columns:1fr;gap:24px}
+    .histoire{grid-template-columns:1fr;gap:40px;padding:80px 24px}
+    .benefit-grid{grid-template-columns:repeat(2,1fr);gap:30px}
+    .benefits{padding:80px 24px}
+    .quotes{grid-template-columns:1fr;gap:24px}
+    .testimonials{padding:80px 24px}
+    .final{padding:90px 24px}
+    .final h2{font-size:48px}
+    footer{padding:40px 24px 30px}
+  }
+  @media (max-width:480px){
+    .hero h1{font-size:54px}
+    .benefit-grid{grid-template-columns:1fr;gap:30px}
+    .cta-row{flex-direction:column;align-items:stretch}
+    .btn{text-align:center}
+  }
+</style>
+</head>
+<body>
+
+<!-- ============== NAV ============== -->
+<nav>
+  <div class="brand">Pat&eacute;</div>
+  <ul>
+    <li><a href="#collection">La Collection</a></li>
+    <li><a href="#histoire">Notre Histoire</a></li>
+    <li><a href="#why">Pourquoi</a></li>
+    <li><a href="#order">Commander</a></li>
+  </ul>
+  <div class="basket">Panier (0)</div>
+</nav>
+
+<!-- ============== HERO ============== -->
+<section class="hero">
+  <div class="hero-copy">
+    <div class="eyebrow">&mdash;&nbsp;&nbsp;Est. 1995 &middot; Hand-Spooned in Small Batches&nbsp;&nbsp;&mdash;</div>
+    <h1>Pat&eacute;<br><span style="font-size:.78em;color:var(--cream);font-weight:400">for my</span><br>Cat&eacute;<span class="small">&mdash; cuisine f&eacute;line, sans le c'est cher.</span></h1>
+    <p class="tag">The cat who graces your sofa deserves a tin worth opening. So we made one. Then we made it affordable.</p>
+    <p class="sub">Real meat first. Vet-approved. No fillers, no mystery, no apologies. Three flavors. Under $2 a tin. Shipped in a velvet-lined box because <em>obviously</em>.</p>
+    <div class="cta-row">
+      <a href="#order" class="btn btn-gold">Shop the Collection</a>
+      <a href="#histoire" class="btn btn-ghost">Our Story</a>
+    </div>
+  </div>
+  <div class="hero-img">
+    <span class="stamp">No. 01 &middot; Le Chat Royal</span>
+    <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
+    <div class="ph">[ images/01-hero-le-chat-royal.jpg ]</div>
+  </div>
+</section>
+
+<!-- ============== COLLECTION ============== -->
+<section class="section collection" id="collection">
+  <div class="section-head">
+    <div class="eyebrow">La Collection</div>
+    <h2>Three flavors. <em>Zero compromises.</em></h2>
+    <div class="flourish">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l1.5 4.5L18 8l-4.5 1.5L12 14l-1.5-4.5L6 8l4.5-1.5z"/></svg>
+    </div>
+    <p>Each tin is hand-spooned and sealed with a gold foil rosette. Then it's priced like it isn't. Because feeding your cat well shouldn't require a second mortgage.</p>
+  </div>
+
+  <div class="tins">
+    <article class="tin-card">
+      <div class="tin-img"><span class="ph">[ images/02a-saumon.jpg ]</span></div>
+      <div class="eyebrow" style="margin-bottom:6px">No. 01</div>
+      <h3>Saumon Royale</h3>
+      <p class="desc">Wild-caught Atlantic salmon, a whisper of dill, a kiss of olive oil.</p>
+      <div class="price">$1.89<small>/ tin</small></div>
+    </article>
+    <article class="tin-card">
+      <div class="tin-img"><span class="ph">[ images/02b-thon.jpg ]</span></div>
+      <div class="eyebrow" style="margin-bottom:6px">No. 02</div>
+      <h3>Thon Proven&ccedil;al</h3>
+      <p class="desc">Sustainably-caught tuna, sun-ripened tomato, fresh thyme.</p>
+      <div class="price">$1.89<small>/ tin</small></div>
+    </article>
+    <article class="tin-card">
+      <div class="tin-img"><span class="ph">[ images/02c-poulet.jpg ]</span></div>
+      <div class="eyebrow" style="margin-bottom:6px">No. 03</div>
+      <h3>Poulet Champignon</h3>
+      <p class="desc">Free-range chicken, cremini mushroom, parsley, a tiny gold thread of love.</p>
+      <div class="price">$1.89<small>/ tin</small></div>
+    </article>
+  </div>
+</section>
+
+<!-- ============== HISTOIRE ============== -->
+<section class="histoire" id="histoire">
+  <div class="histoire-img">
+    <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
+    <div class="ph">[ images/05-latelier-kitchen.jpg ]</div>
+  </div>
+  <div class="histoire-copy">
+    <div class="eyebrow">Une Histoire</div>
+    <h2>For Mademoiselle &mdash; <em>and every cat after her.</em></h2>
+    <p>It started, of course, with a cat. A small grey Russian Blue named Mademoiselle who refused to eat anything from a can that didn't taste like food. The shelf at the grocery store was full of $0.79 mystery and $5.99 boutique. There was nothing in the middle.</p>
+    <p>So we built the middle. A proper paté &mdash; real meat first, no fillers, no marketing math &mdash; that costs what cat food <em>should</em> cost. We named it the only way a French cat would have it.</p>
+    <p class="sig">&mdash; for Mademoiselle &mdash;</p>
+  </div>
+</section>
+
+<!-- ============== BENEFITS ============== -->
+<section class="benefits section" id="why">
+  <div class="section-head">
+    <div class="eyebrow">Pourquoi Pat&eacute;</div>
+    <h2>Why your cat <em>will purr.</em></h2>
+  </div>
+  <div class="benefit-grid">
+    <div class="benefit">
+      <div class="benefit-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C8 6 6 9 6 13c0 4 3 7 6 7s6-3 6-7c0-4-2-7-6-11z"/></svg>
+      </div>
+      <h4>Real Meat First</h4>
+      <p>The first ingredient is the meat on the label. Always. No mystery proteins, no by-product confetti.</p>
+    </div>
+    <div class="benefit">
+      <div class="benefit-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l3 6 6 1-4.5 4.5L18 20l-6-3-6 3 1.5-6.5L3 9l6-1z"/></svg>
+      </div>
+      <h4>Vet-Approved</h4>
+      <p>Formulated with feline nutritionists. Balanced for adult cats. Nothing weird, nothing trendy.</p>
+    </div>
+    <div class="benefit">
+      <div class="benefit-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 12h16M9 6l-5 6 5 6M15 6l5 6-5 6"/></svg>
+      </div>
+      <h4>No Fillers</h4>
+      <p>No corn, no soy, no wheat, no carrageenan, no artificial colors. If you can't pronounce it, it's not in there.</p>
+    </div>
+    <div class="benefit">
+      <div class="benefit-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+      </div>
+      <h4>Under $2 a Tin</h4>
+      <p>Hand-spooned, gold-foiled, and somehow still cheaper than the bag of treats your cat ignored.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============== TESTIMONIALS ============== -->
+<section class="testimonials section">
+  <div class="section-head">
+    <div class="eyebrow">Les Critiques F&eacute;lines</div>
+    <h2>Reviews from the <em>discerning.</em></h2>
+  </div>
+  <div class="quotes">
+    <article class="quote">
+      <div class="stars">&#9733; &#9733; &#9733; &#9733; &#9733;</div>
+      <p>Refused her old food on principle the moment she smelled the Saumon. She is 14 and she has standards. We respect this.</p>
+      <div class="name">Monsieur Whiskers</div>
+      <div class="breed">Maine Coon &middot; Brooklyn, NY</div>
+    </article>
+    <article class="quote">
+      <div class="stars">&#9733; &#9733; &#9733; &#9733; &#9733;</div>
+      <p>I have spent more on her wet food than my own coffee for years. This is the first time I have spent less without feeling like a monster.</p>
+      <div class="name">Mademoiselle Fluff</div>
+      <div class="breed">Ragdoll &middot; Austin, TX</div>
+    </article>
+    <article class="quote">
+      <div class="stars">&#9733; &#9733; &#9733; &#9733; &#9733;</div>
+      <p>He ate it. He <em>looked up at me.</em> He ate the rest. I have not seen this man look up from a dish since 2019.</p>
+      <div class="name">Capitaine Biscuit</div>
+      <div class="breed">Tuxedo Shorthair &middot; Portland, OR</div>
+    </article>
+  </div>
+</section>
+
+<!-- ============== FINAL CTA ============== -->
+<section class="final" id="order">
+  <div class="eyebrow" style="color:var(--gold-bright);position:relative">&mdash;&nbsp;&nbsp;Free shipping over $40 &middot; Velvet-lined box &middot; Cancel anytime&nbsp;&nbsp;&mdash;</div>
+  <h2>Bon app&eacute;tit,<br>mon chaton.</h2>
+  <p>Try all three flavors. If your cat doesn't purr, we'll refund the tin and apologize to her personally.</p>
+  <a href="#" class="btn btn-gold">Order the Trio &mdash; $19.99</a>
+  <div class="ship">Ships within 48 hours &middot; from our atelier to your sofa</div>
+</section>
+
+<!-- ============== FOOTER ============== -->
+<footer>
+  <div class="mark">Pat&eacute; for my Cat&eacute;</div>
+  <div class="links">
+    <a href="#">Ingredients</a>
+    <a href="#">Subscribe & Save</a>
+    <a href="#">Wholesale</a>
+    <a href="#">Contact</a>
+    <a href="#">FAQ</a>
+  </div>
+  <div class="fine">&copy; 2026 Pat&eacute; pour mon Cat&eacute;, Ltd. &middot; All cats reserved.</div>
+</footer>
+
+</body>
+</html>
