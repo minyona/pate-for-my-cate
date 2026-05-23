@@ -4,1957 +4,1013 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <title>Paté for my Caté — Issue No. 02, The Snap-Pack</title>
-<meta name="description" content="A profile of Le Comte de Whiskersworth III, who has never paid for a single thing in his life, and yet — somehow — has standards. Hand-spooned French paté in a snap-pack, from $1.89 a tray." />
+<meta name="description" content="A profile of Le Comte de Whiskersworth III, who has never paid for a single thing in his life, and yet — somehow — has standards. Featuring the Paté for my Caté snap-pack." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..900,0..100;1,9..144,300..900,0..100&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,800;1,400;1,700;1,800&family=Source+Serif+4:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500;1,600&display=swap" rel="stylesheet">
 <style>
   :root{
-    --paper:#f1e7d2;
-    --paper-2:#e8dcbb;
-    --paper-3:#dccba2;
-    --ink:#16100c;
-    --ink-soft:#4d4032;
-    --ink-mute:#7c6c55;
-    --rule:#b29a72;
-    --rule-soft:#cbb892;
-    --burgundy:#5e1924;
-    --burgundy-deep:#3d0e16;
-    --navy:#0c1729;
-    --foil:#c9a560;
-    --foil-bright:#e0c587;
-    --shadow:0 30px 80px -34px rgba(22,16,12,.45);
-    --shadow-sm:0 8px 24px -10px rgba(22,16,12,.18);
+    --paper:#efe5cf;
+    --paper-2:#e7dabc;
+    --paper-deep:#d8c89e;
+    --ink:#1c1612;
+    --ink-soft:#5b4d3c;
+    --rule:#b9a47e;
+    --rule-soft:#c9b896;
+    --burgundy:#6b1f2d;
+    --burgundy-d:#4a1620;
+    --plate:#0a1628;
+    --foil:#c9a961;
   }
-
-  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-  html{background:var(--paper);scroll-behavior:smooth}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{background:var(--paper)}
   body{
     background:var(--paper);
     color:var(--ink);
-    font-family:'Fraunces',Cardo,Georgia,serif;
-    font-feature-settings:'ss01','onum';
+    font-family:'Source Serif 4', 'EB Garamond', Georgia, serif;
     font-weight:400;
     font-size:17px;
-    font-variation-settings:'opsz' 14, 'SOFT' 50;
-    line-height:1.6;
+    line-height:1.65;
     -webkit-font-smoothing:antialiased;
     overflow-x:hidden;
   }
   img{max-width:100%;display:block;height:auto}
   a{color:inherit;text-decoration:none}
-  button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
-  input,select,textarea{font:inherit;color:inherit}
-  ::selection{background:var(--burgundy);color:var(--paper)}
+  a:hover{color:var(--burgundy)}
 
-  /* ============== ATMOSPHERE: paper grain (subtle multiply layer) ============== */
+  /* Paper grain — subtle multiply texture so it doesn't read as flat-rectangle CSS */
   body::before{
     content:'';
     position:fixed;inset:0;
-    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.94' numOctaves='2' seed='6'/><feColorMatrix values='0 0 0 0 0.10  0 0 0 0 0.07  0 0 0 0 0.04  0 0 0 0.26 0'/></filter><rect width='240' height='240' filter='url(%23n)'/></svg>");
-    opacity:.55;
+    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' seed='4'/><feColorMatrix values='0 0 0 0 0.11  0 0 0 0 0.08  0 0 0 0 0.05  0 0 0 0.22 0'/></filter><rect width='220' height='220' filter='url(%23n)'/></svg>");
+    opacity:.6;
     mix-blend-mode:multiply;
     pointer-events:none;
-    z-index:200;
+    z-index:9;
   }
 
-  /* ============== TYPE PRIMITIVES ============== */
-  .display{
-    font-family:'Fraunces',Cardo,serif;
-    font-variation-settings:'opsz' 144, 'SOFT' 30;
-    font-weight:700;
-    letter-spacing:-0.012em;
-    line-height:.92;
+  /* Folio (section numbering, magazine-style) */
+  .folio{
+    font-family:'Source Serif 4',serif;
+    font-style:italic;
+    font-weight:400;
+    font-size:14px;
+    color:var(--ink-soft);
+    margin-bottom:18px;
+    letter-spacing:.01em;
   }
-  .display em{
+  .folio.light{color:var(--paper);opacity:.82}
+  .folio .num{
+    color:var(--burgundy);
+    font-style:normal;
+    font-weight:600;
+    margin-right:4px;
+    letter-spacing:.04em;
+  }
+
+  /* Headings */
+  h1,h2,h3,h4{
+    font-family:'Playfair Display',serif;
+    color:var(--ink);
+    font-weight:700;
+    letter-spacing:-.01em;
+  }
+  h2 em, h1 em, h3 em{
     font-style:italic;
     font-weight:400;
     color:var(--burgundy);
   }
-  .smallcaps{
-    font-variant-caps:all-small-caps;
-    letter-spacing:.14em;
-    font-weight:500;
-  }
-  .folio{
-    font-style:italic;
-    font-weight:500;
-    font-size:13.5px;
-    letter-spacing:.01em;
-    color:var(--ink-soft);
-    margin-bottom:24px;
-    display:flex;
-    align-items:baseline;
-    gap:10px;
-  }
-  .folio .num{
-    font-style:normal;
-    font-weight:700;
-    color:var(--burgundy);
-    font-variation-settings:'opsz' 14;
-    letter-spacing:0;
-  }
-  .folio .rule{
-    display:inline-block;
-    flex:0 0 38px;
-    height:1px;
-    background:var(--rule);
-    align-self:center;
-  }
-  .folio.light{color:var(--paper)}
-  .folio.light .num{color:var(--foil-bright)}
-  .folio.light .rule{background:var(--foil)}
+  .light h2, h2.light{color:var(--paper)}
+  .light h2 em{color:var(--foil)}
 
-  /* ============== ANNOUNCEMENT BAR (tiny, dark navy) ============== */
-  .announce{
-    background:var(--navy);
-    color:var(--paper);
-    text-align:center;
-    padding:9px 20px;
-    font-size:12.5px;
-    font-style:italic;
-    letter-spacing:.01em;
-    position:relative;
-    z-index:60;
-  }
-  .announce strong{font-style:normal;font-weight:600;color:var(--foil-bright)}
-  .announce a{border-bottom:1px solid rgba(245,229,207,.4);padding-bottom:1px;margin-left:6px}
-
-  /* ============== MASTHEAD ============== */
+  /* ============ MASTHEAD ============ */
   .masthead{
-    position:sticky;
-    top:0;
-    z-index:50;
-    background:var(--paper);
-    border-bottom:1px solid var(--rule);
-    backdrop-filter:saturate(120%);
-  }
-  .masthead-inner{
     display:grid;
     grid-template-columns:1fr auto 1fr;
     align-items:center;
-    padding:18px 48px;
-    gap:30px;
+    padding:22px 56px;
+    border-bottom:1px solid var(--rule);
+    position:relative;
+    z-index:5;
   }
-  .mark{
-    display:flex;align-items:center;gap:12px;
+  .masthead .m-l{
+    font-family:'Playfair Display',serif;
     font-style:italic;
-    font-weight:700;
-    font-variation-settings:'opsz' 60, 'SOFT' 30;
-    font-size:23px;
-    color:var(--ink);
+    font-weight:800;
+    font-size:24px;
     letter-spacing:-.005em;
   }
-  .mark .seal{
-    width:36px;height:36px;
-    flex:0 0 36px;
-    border-radius:50%;
-    background:radial-gradient(circle at 35% 30%, var(--foil-bright), var(--foil) 55%, #8a6f30 100%);
-    box-shadow:inset 0 0 0 1px rgba(0,0,0,.18), inset 0 2px 4px rgba(255,255,255,.4), 0 1px 2px rgba(0,0,0,.15);
-    display:flex;align-items:center;justify-content:center;
-    color:var(--burgundy-deep);
-    font-style:normal;
-    font-weight:700;
-    font-size:14px;
-    font-variation-settings:'opsz' 14;
-    letter-spacing:-.03em;
-  }
-  .mark .punct{color:var(--burgundy)}
-
-  .topnav{display:flex;gap:30px;list-style:none}
-  .topnav a{
-    font-size:13.5px;
-    font-weight:500;
-    font-variant-caps:all-small-caps;
-    letter-spacing:.16em;
-    color:var(--ink-soft);
-    transition:color .2s;
-    padding:6px 0;
-    border-bottom:1px solid transparent;
-  }
-  @media (hover:hover){
-    .topnav a:hover{color:var(--ink);border-bottom-color:var(--burgundy)}
-  }
-
-  .toptools{display:flex;justify-content:flex-end;align-items:center;gap:22px}
-  .tool{
-    display:inline-flex;align-items:center;gap:6px;
-    font-size:13px;font-style:italic;color:var(--ink-soft);
-    padding:6px 0;
-    border-bottom:1px solid transparent;
-    transition:color .2s, border-color .2s;
-  }
-  @media (hover:hover){
-    .tool:hover{color:var(--burgundy);border-color:var(--rule)}
-  }
-  .cart-btn{
-    display:inline-flex;align-items:center;gap:10px;
-    padding:9px 16px 9px 14px;
-    border:1px solid var(--ink);
-    background:var(--paper);
-    color:var(--ink);
+  .masthead .m-l .punct{color:var(--burgundy);font-weight:700}
+  .masthead .m-c{
+    text-align:center;
+    font-family:'Source Serif 4',serif;
+    font-style:italic;
     font-size:13px;
-    font-weight:500;
-    font-variant-caps:all-small-caps;
-    letter-spacing:.14em;
-    transition:background .2s, color .2s, border-color .2s;
-    position:relative;
+    color:var(--ink-soft);
   }
-  .cart-btn svg{width:16px;height:16px;flex:0 0 16px}
-  @media (hover:hover){
-    .cart-btn:hover{background:var(--ink);color:var(--paper)}
+  .masthead .m-r{
+    text-align:right;
+    font-family:'Source Serif 4',serif;
+    font-size:13px;
+    color:var(--ink-soft);
   }
-  .cart-count{
-    display:inline-flex;align-items:center;justify-content:center;
-    min-width:18px;height:18px;padding:0 5px;
-    background:var(--burgundy);
-    color:var(--paper);
-    font-style:normal;
-    font-weight:600;
-    font-size:11px;
-    letter-spacing:0;
-    border-radius:9px;
-    font-variant-caps:normal;
+  .masthead .m-r a{
+    text-decoration:none;
+    border-bottom:1px solid var(--rule);
+    padding-bottom:1px;
+    margin-left:14px;
   }
 
-  .nav-toggle{display:none;background:transparent;border:0;padding:6px 0;color:var(--ink)}
-
-  /* ============== COVER ============== */
+  /* ============ COVER ============ */
   .cover{
-    padding:84px 48px 110px;
     display:grid;
-    grid-template-columns:1.05fr 1fr;
-    gap:64px;
-    align-items:center;
+    grid-template-columns:0.88fr 1.12fr;
+    gap:72px;
+    align-items:end;
+    padding:88px 56px 110px;
     position:relative;
   }
-  .cover-text{position:relative}
+  .cover-left{padding-bottom:18px}
   .cover h1{
-    font-family:'Fraunces',serif;
-    font-variation-settings:'opsz' 144, 'SOFT' 25;
-    font-weight:700;
-    font-size:clamp(76px, 11vw, 196px);
-    line-height:.86;
-    letter-spacing:-.022em;
-    color:var(--ink);
-    margin:20px 0 28px;
+    font-size:clamp(56px,7.2vw,118px);
+    line-height:.92;
+    font-weight:800;
+    margin:18px 0 32px;
+    letter-spacing:-.015em;
   }
   .cover h1 em{
-    font-style:italic;
-    font-weight:400;
-    color:var(--burgundy);
-    font-variation-settings:'opsz' 144, 'SOFT' 100;
     display:inline-block;
-  }
-  .cover h1 .l2{margin-left:1.4em;display:block}
-  .cover h1 .l3{margin-left:.45em;display:block}
-  .deck{
+    font-weight:400;
     font-style:italic;
-    font-size:21px;
+    color:var(--burgundy);
+    transform:translateY(-0.04em);
+    margin-right:.05em;
+  }
+  .cover .swash{
+    display:inline-block;
+    width:90px;
+    height:1px;
+    background:var(--burgundy);
+    margin:0 0 22px 4px;
+    position:relative;
+  }
+  .cover .swash::after{
+    content:'';
+    position:absolute;
+    right:-1px;top:-3px;
+    width:7px;height:7px;
+    background:var(--burgundy);
+    transform:rotate(45deg);
+  }
+  .cover .deck{
+    font-family:'Source Serif 4',serif;
+    font-size:22px;
+    font-style:italic;
     line-height:1.45;
     color:var(--ink-soft);
-    max-width:500px;
+    max-width:480px;
     margin-bottom:34px;
-    font-variation-settings:'opsz' 24, 'SOFT' 80;
   }
-  .deck em{color:var(--burgundy);font-style:italic}
-
-  /* PRIMARY CTA — the signature interaction (foil-stamp slide) */
-  .cta-row{display:flex;align-items:center;gap:24px;flex-wrap:wrap;margin-bottom:30px}
-  .cta-primary{
-    position:relative;
-    display:inline-flex;
-    align-items:center;
-    gap:14px;
-    padding:18px 30px 18px 28px;
-    background:var(--ink);
-    color:var(--paper);
-    border:0;
-    font-size:14px;
-    font-weight:600;
-    font-variant-caps:all-small-caps;
-    letter-spacing:.18em;
-    overflow:hidden;
-    cursor:pointer;
-    transition:transform .2s ease;
+  .cover .credit{
+    font-family:'Source Serif 4',serif;
+    font-size:12.5px;
+    font-style:italic;
+    color:var(--ink-soft);
+    opacity:.8;
+    line-height:1.5;
   }
-  .cta-primary .label{position:relative;z-index:2}
-  .cta-primary .price{position:relative;z-index:2;color:var(--foil-bright);font-style:italic;font-variant-caps:normal;letter-spacing:0;font-size:15px}
-  .cta-primary::before{
-    content:'';
-    position:absolute;
-    inset:0;
-    background:linear-gradient(115deg, var(--foil) 0%, var(--foil-bright) 45%, var(--foil) 90%);
-    transform:translateX(-105%);
-    transition:transform .55s cubic-bezier(.7,0,.3,1);
-    z-index:1;
-  }
-  .cta-primary::after{
-    content:'';
-    position:absolute;
-    inset:0;
-    background:linear-gradient(115deg, transparent 40%, rgba(255,255,255,.45) 50%, transparent 60%);
-    transform:translateX(-105%);
-    transition:transform .65s cubic-bezier(.7,0,.3,1) .04s;
-    z-index:2;
-    mix-blend-mode:overlay;
-  }
-  @media (hover:hover){
-    .cta-primary:hover::before{transform:translateX(105%)}
-    .cta-primary:hover::after{transform:translateX(105%)}
-    .cta-primary:hover{transform:translateY(-1px)}
-    .cta-primary:hover .price{color:var(--burgundy-deep)}
-    .cta-primary:hover .label{color:var(--burgundy-deep)}
-  }
-  .cta-secondary{
-    display:inline-flex;align-items:center;gap:8px;
-    font-style:italic;font-size:15px;color:var(--ink-soft);
-    border-bottom:1px solid var(--rule);
-    padding-bottom:3px;
-    transition:color .2s,border-color .2s;
-  }
-  @media (hover:hover){
-    .cta-secondary:hover{color:var(--burgundy);border-color:var(--burgundy)}
-  }
-
-  /* Star rating block */
-  .rating{
-    display:flex;align-items:center;gap:12px;
-    font-size:13px;font-style:italic;color:var(--ink-soft);
-  }
-  .stars{display:inline-flex;gap:1px;color:var(--burgundy)}
-  .stars svg{width:14px;height:14px}
-  .rating .count{font-style:italic}
-
-  /* Cover image */
-  .cover-figure{
-    position:relative;
-    margin:0;
-  }
+  .cover-figure{margin:0}
   .cover-figure img{
-    width:100%;display:block;
-    box-shadow:var(--shadow);
+    width:100%;
+    display:block;
+    box-shadow:0 30px 80px -34px rgba(28,22,18,.45);
   }
   .cover-figure figcaption{
+    font-family:'Source Serif 4',serif;
+    font-size:13px;
+    font-style:italic;
+    color:var(--ink-soft);
     margin-top:14px;
     padding-left:14px;
     border-left:1px solid var(--rule);
-    font-size:13px;font-style:italic;color:var(--ink-soft);
-    max-width:500px;
-  }
-  .cover-credit{
-    margin-top:18px;
-    font-size:12.5px;font-style:italic;color:var(--ink-mute);
-    line-height:1.55;
+    max-width:520px;
   }
 
-  /* ============== TRUST STRIP ============== */
-  .trust{
-    border-top:1px solid var(--rule);
-    border-bottom:1px solid var(--rule);
-    background:var(--paper-2);
-    padding:18px 48px;
-    display:flex;justify-content:center;align-items:center;
-    gap:36px;flex-wrap:wrap;
-    font-size:12.5px;font-style:italic;color:var(--ink-soft);
-  }
-  .trust span{display:inline-flex;align-items:center;gap:8px}
-  .trust .dot{width:4px;height:4px;border-radius:50%;background:var(--burgundy);display:inline-block;flex:0 0 4px}
-  .trust strong{font-style:normal;font-weight:600;color:var(--ink);font-variant-caps:all-small-caps;letter-spacing:.14em;font-size:12.5px}
-
-  /* ============== SECTION (default container) ============== */
-  .section{padding:130px 48px;position:relative;border-top:1px solid var(--rule)}
-  .section-head{margin-bottom:60px;max-width:880px}
-  .section-head h2{
-    font-family:'Fraunces',serif;
-    font-variation-settings:'opsz' 96, 'SOFT' 25;
-    font-weight:700;
-    font-size:clamp(40px,5.2vw,80px);
-    line-height:.96;
-    letter-spacing:-.014em;
-    color:var(--ink);
-  }
-  .section-head h2 em{font-style:italic;font-weight:400;color:var(--burgundy)}
-  .section-head p{margin-top:18px;font-size:19px;font-style:italic;color:var(--ink-soft);max-width:640px;line-height:1.5}
-
-  /* ============== THE PROFILE (Section 02) ============== */
+  /* ============ PROFILE ============ */
   .profile{
     display:grid;
-    grid-template-columns:1.4fr .9fr;
+    grid-template-columns:1.35fr 0.85fr;
     gap:90px;
-    align-items:start;
+    padding:110px 56px;
+    border-top:1px solid var(--rule);
+    position:relative;
   }
   .profile h2{
-    font-family:'Fraunces',serif;
-    font-variation-settings:'opsz' 96, 'SOFT' 25;
-    font-weight:700;
-    font-size:clamp(40px,5.2vw,76px);
-    line-height:.94;
-    letter-spacing:-.014em;
-    margin-bottom:44px;
-    max-width:700px;
+    font-size:clamp(40px,4.6vw,72px);
+    line-height:.98;
+    margin-bottom:40px;
+    max-width:780px;
   }
-  .profile h2 em{font-style:italic;font-weight:400;color:var(--burgundy)}
   .prose p{
     margin-bottom:20px;
-    font-size:19px;
-    line-height:1.65;
+    font-size:18.5px;
+    line-height:1.7;
     color:var(--ink);
-    max-width:600px;
+    max-width:580px;
   }
-  .prose .lead{font-size:20.5px}
-  .prose em{font-style:italic;color:var(--burgundy)}
+  .prose .lead{
+    font-size:20px;
+  }
   .dropcap{
     float:left;
-    font-family:'Fraunces',serif;
-    font-variation-settings:'opsz' 144, 'SOFT' 50;
-    font-style:italic;
+    font-family:'Playfair Display',serif;
     font-weight:700;
-    font-size:96px;
+    font-size:92px;
     line-height:.82;
-    margin:8px 14px 0 0;
+    margin:6px 14px 0 0;
     color:var(--burgundy);
+    font-style:italic;
   }
+  .prose em{color:var(--burgundy);font-style:italic}
 
-  /* Dossier — sidebar */
-  .dossier{align-self:start;padding-top:8px}
+  /* Dossier — magazine sidebar style, not a "card" */
+  .dossier{
+    align-self:start;
+    padding-top:6px;
+  }
   .dossier h3{
-    font-family:'Fraunces',serif;
+    font-family:'Playfair Display',serif;
     font-style:italic;
     font-weight:700;
     font-size:30px;
     line-height:1.05;
     margin-bottom:8px;
-    font-variation-settings:'opsz' 36, 'SOFT' 60;
   }
   .dossier .title{
-    font-size:13.5px;
+    font-family:'Source Serif 4',serif;
     font-style:italic;
+    font-size:13.5px;
     color:var(--ink-soft);
+    margin-bottom:20px;
     padding-bottom:22px;
-    margin-bottom:0;
     border-bottom:1px solid var(--rule);
-    line-height:1.45;
+    letter-spacing:.02em;
   }
-  .dossier ul{list-style:none;margin:0}
+  .dossier ul{list-style:none}
   .dossier ul li{
+    font-family:'Source Serif 4',serif;
     font-style:italic;
     font-size:16px;
     color:var(--ink);
-    padding:13px 0;
+    padding:11px 0;
     border-bottom:1px dotted var(--rule-soft);
     line-height:1.5;
   }
   .dossier .pull{
     margin-top:30px;
-    padding-left:22px;
-    border-left:2px solid var(--burgundy);
-    font-family:'Fraunces',serif;
-    font-style:italic;
-    font-weight:500;
-    font-size:23px;
-    line-height:1.3;
-    color:var(--ink);
-    font-variation-settings:'opsz' 36, 'SOFT' 80;
-  }
-  .dossier .pull cite{
-    display:block;
+    font-family:'Playfair Display',serif;
     font-style:italic;
     font-weight:400;
-    font-size:13px;
+    font-size:23px;
+    color:var(--ink);
+    line-height:1.32;
+    padding-left:22px;
+    border-left:2px solid var(--burgundy);
+  }
+  .dossier .pull span{
+    display:block;
+    font-family:'Source Serif 4',serif;
+    font-size:12.5px;
+    font-style:italic;
     color:var(--ink-soft);
     margin-top:12px;
-    font-variation-settings:'opsz' 12;
+    font-weight:400;
   }
 
-  /* ============== SNAP-PACK (plate / dark section) ============== */
-  .plate{background:var(--navy);color:var(--paper)}
-  .plate h2{color:var(--paper)}
-  .plate h2 em{color:var(--foil-bright)}
-  .plate .prose p,.plate .narration{color:var(--paper)}
-
+  /* ============ SNAP-PACK (PLATE) ============ */
+  .plate{
+    background:var(--plate);
+    color:var(--paper);
+    position:relative;
+  }
+  .plate::before{
+    /* tiny variance in the plate so it doesn't feel like a flat fill */
+    content:'';
+    position:absolute;inset:0;
+    background:radial-gradient(ellipse at 20% 30%, rgba(255,235,200,.04), transparent 60%);
+    pointer-events:none;
+  }
   .snap{
     display:grid;
-    grid-template-columns:1.06fr .94fr;
+    grid-template-columns:1.05fr 0.95fr;
     gap:0;
+    align-items:stretch;
     border-top:1px solid var(--rule);
   }
   .snap-figure{margin:0;position:relative}
-  .snap-figure img{width:100%;height:100%;object-fit:cover;min-height:600px;display:block}
+  .snap-figure img{
+    width:100%;height:100%;
+    object-fit:cover;
+    min-height:560px;
+  }
   .snap-text{
-    padding:120px 80px;
+    padding:96px 72px;
     align-self:center;
-    color:var(--paper);
+    position:relative;
+    z-index:2;
   }
   .snap-text h2{
-    font-family:'Fraunces',serif;
-    font-variation-settings:'opsz' 96, 'SOFT' 25;
-    font-weight:700;
-    font-size:clamp(40px,5vw,70px);
-    line-height:.98;
-    margin-bottom:48px;
-    letter-spacing:-.012em;
+    color:var(--paper);
+    font-size:clamp(38px,4.4vw,62px);
+    line-height:1.02;
+    margin-bottom:42px;
   }
-  .snap-text h2 em{font-style:italic;font-weight:400;color:var(--foil-bright)}
+  .snap-text h2 em{color:var(--foil);font-style:italic;font-weight:400}
   .steps{list-style:none}
   .steps li{
-    display:grid;grid-template-columns:64px 1fr;gap:22px;
+    display:grid;
+    grid-template-columns:64px 1fr;
+    gap:18px;
     padding:24px 0;
-    border-top:1px solid rgba(225,210,180,.18);
+    border-top:1px solid rgba(245,229,207,.18);
     align-items:baseline;
   }
-  .steps li:last-child{border-bottom:1px solid rgba(225,210,180,.18)}
+  .steps li:last-child{border-bottom:1px solid rgba(245,229,207,.18)}
   .steps .rn{
-    font-family:'Fraunces',serif;
+    font-family:'Playfair Display',serif;
     font-style:italic;
-    font-weight:500;
+    font-weight:400;
     font-size:38px;
-    color:var(--foil-bright);
+    color:var(--foil);
     line-height:1;
-    font-variation-settings:'opsz' 48, 'SOFT' 60;
   }
   .steps h4{
-    font-family:'Fraunces',serif;
+    font-family:'Playfair Display',serif;
     font-style:italic;
     font-weight:700;
     font-size:24px;
     color:var(--paper);
     margin-bottom:5px;
-    font-variation-settings:'opsz' 36, 'SOFT' 40;
   }
   .steps p{
-    font-style:italic;
+    font-family:'Source Serif 4',serif;
     font-size:15.5px;
     color:var(--paper);
-    opacity:.82;
+    opacity:.78;
     line-height:1.6;
     max-width:420px;
   }
   .snap-aside{
-    margin-top:36px;font-style:italic;font-size:13.5px;
-    color:var(--foil-bright);opacity:.85;line-height:1.6;max-width:440px;
+    margin-top:36px;
+    font-family:'Source Serif 4',serif;
+    font-style:italic;
+    font-size:13px;
+    color:var(--foil);
+    opacity:.85;
+    line-height:1.5;
+    max-width:420px;
   }
 
-  /* ============== THE COLLECTION (real product cards w/ ATC) ============== */
-  .collection{}
-  .trio-figure{margin:0 0 80px;position:relative}
-  .trio-figure img{width:100%;display:block;box-shadow:var(--shadow)}
-  .trio-figure figcaption{margin-top:14px;padding-left:14px;border-left:1px solid var(--rule);font-size:13px;font-style:italic;color:var(--ink-soft);max-width:560px}
-
-  .products{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:34px;
-  }
-  .product{
-    background:var(--paper-2);
-    border:1px solid var(--rule);
-    padding:24px 24px 26px;
-    display:flex;flex-direction:column;
-    position:relative;
-    transition:transform .35s cubic-bezier(.2,.7,.2,1), box-shadow .35s, border-color .35s;
-  }
-  @media (hover:hover){
-    .product:hover{transform:translateY(-6px);box-shadow:var(--shadow);border-color:var(--burgundy)}
-  }
-  .product .ribbon{
-    position:absolute;top:18px;right:-1px;
-    background:var(--burgundy);color:var(--paper);
-    padding:5px 12px;
-    font-size:10.5px;font-weight:600;font-variant-caps:all-small-caps;letter-spacing:.18em;
-    z-index:2;
-  }
-  .product-img{
-    background:linear-gradient(165deg, #fff5e0 0%, #efe2c0 100%);
-    aspect-ratio:1;
-    margin:0 -8px 22px;
-    border-bottom:1px solid var(--rule-soft);
-    padding:20px;
-    display:flex;align-items:center;justify-content:center;
-    position:relative;
-  }
-  .product-img img{
-    width:100%;height:100%;object-fit:cover;
-    object-position:center;
-    transition:transform .55s cubic-bezier(.2,.7,.2,1);
-  }
-  @media (hover:hover){
-    .product:hover .product-img img{transform:scale(1.04)}
-  }
-  /* Crop each product image to show a single tray from the trio shot */
-  .product[data-flavor="saumon"] .product-img img{object-position:14% 50%;transform:scale(2.4);transform-origin:14% 50%}
-  .product[data-flavor="thon"] .product-img img{object-position:50% 50%;transform:scale(2.4);transform-origin:50% 50%}
-  .product[data-flavor="poulet"] .product-img img{object-position:84% 50%;transform:scale(2.4);transform-origin:84% 50%}
-  @media (hover:hover){
-    .product[data-flavor="saumon"]:hover .product-img img{transform:scale(2.55);transform-origin:14% 50%}
-    .product[data-flavor="thon"]:hover .product-img img{transform:scale(2.55);transform-origin:50% 50%}
-    .product[data-flavor="poulet"]:hover .product-img img{transform:scale(2.55);transform-origin:84% 50%}
-  }
-  .product-meta{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:10px}
-  .product-no{font-size:12px;font-style:italic;color:var(--ink-mute);font-variant-caps:all-small-caps;letter-spacing:.14em}
-  .product-rating{display:flex;align-items:center;gap:5px;color:var(--burgundy);font-size:12px;font-style:italic}
-  .product-rating svg{width:11px;height:11px}
-  .product h3{
-    font-family:'Fraunces',serif;
-    font-style:italic;font-weight:700;
-    font-size:26px;line-height:1.1;
-    margin-bottom:10px;
-    font-variation-settings:'opsz' 36, 'SOFT' 60;
-  }
-  .product .desc{
-    font-style:italic;font-size:14.5px;color:var(--ink-soft);
-    line-height:1.5;margin-bottom:20px;flex:1 1 auto;
-  }
-  .product-foot{
-    display:flex;align-items:center;justify-content:space-between;
-    padding-top:18px;border-top:1px dotted var(--rule);
-    gap:12px;
-  }
-  .product-price{
-    font-family:'Fraunces',serif;
-    font-weight:700;
-    font-size:24px;
-    color:var(--burgundy);
-    font-variation-settings:'opsz' 36;
-  }
-  .product-price small{
-    font-style:italic;font-weight:400;font-size:11.5px;color:var(--ink-mute);
-    margin-left:5px;letter-spacing:.04em;
-    font-variant-caps:all-small-caps;letter-spacing:.14em;
-  }
-  .add-btn{
-    background:var(--ink);color:var(--paper);
-    padding:11px 18px;
-    font-size:11.5px;font-weight:600;font-variant-caps:all-small-caps;letter-spacing:.16em;
-    border:0;cursor:pointer;
-    transition:background .2s;
-  }
-  @media (hover:hover){
-    .add-btn:hover{background:var(--burgundy)}
-  }
-  .add-btn.added{background:var(--burgundy);position:relative}
-  .add-btn.added::after{content:' ✓';font-variant-caps:normal;margin-left:4px}
-
-  /* ============== BUILD A BOX ============== */
-  .build{
-    background:var(--paper-2);
+  /* ============ COLLECTION ============ */
+  .collection{
+    padding:110px 56px;
     border-top:1px solid var(--rule);
-    padding:120px 48px;
   }
-  .build-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;max-width:1200px;margin:0 auto}
-  .build-grid h2{
-    font-family:'Fraunces',serif;
-    font-variation-settings:'opsz' 96, 'SOFT' 25;
-    font-weight:700;
-    font-size:clamp(38px,5vw,70px);
-    line-height:.96;
-    margin-bottom:24px;
-    letter-spacing:-.014em;
+  .collection h2{
+    font-size:clamp(40px,4.6vw,72px);
+    line-height:.98;
+    margin-bottom:48px;
+    max-width:780px;
   }
-  .build-grid h2 em{font-style:italic;font-weight:400;color:var(--burgundy)}
-  .build-grid p{font-size:18px;font-style:italic;color:var(--ink-soft);line-height:1.5;margin-bottom:18px;max-width:480px}
-
-  .box-builder{
-    background:var(--paper);
-    border:1px solid var(--rule);
-    padding:36px 32px;
-    box-shadow:var(--shadow);
+  .trio{margin:0 0 56px;position:relative}
+  .trio img{width:100%;display:block;box-shadow:0 30px 80px -34px rgba(28,22,18,.45)}
+  .trio figcaption{
+    font-family:'Source Serif 4',serif;
+    font-size:13px;
+    font-style:italic;
+    color:var(--ink-soft);
+    margin-top:14px;
+    padding-left:14px;
+    border-left:1px solid var(--rule);
+    max-width:560px;
   }
-  .box-builder h4{
-    font-family:'Fraunces',serif;
-    font-style:italic;font-weight:700;
-    font-size:20px;
-    margin-bottom:6px;
-  }
-  .box-builder .helper{
-    font-size:13px;font-style:italic;color:var(--ink-soft);
-    margin-bottom:22px;
-  }
-  .box-flavor{
+  .menu{border-top:1px solid var(--rule)}
+  .menu-row{
     display:grid;
-    grid-template-columns:1fr auto;
-    align-items:center;
-    padding:14px 0;
+    grid-template-columns:42px minmax(180px,auto) 1fr auto 80px;
+    gap:18px;
+    padding:22px 0;
+    border-bottom:1px solid var(--rule);
+    align-items:baseline;
+  }
+  .menu-no{
+    font-family:'Source Serif 4',serif;
+    font-style:italic;
+    color:var(--ink-soft);
+    font-size:15px;
+  }
+  .menu-name{
+    font-family:'Playfair Display',serif;
+    font-style:italic;
+    font-weight:700;
+    font-size:26px;
+    color:var(--ink);
+    line-height:1.1;
+  }
+  .menu-leader{
     border-bottom:1px dotted var(--rule);
-    gap:14px;
+    align-self:end;
+    margin-bottom:8px;
+    height:1px;
   }
-  .box-flavor:last-of-type{border-bottom:0}
-  .box-flavor .name{
-    font-family:'Fraunces',serif;font-style:italic;font-weight:600;font-size:18px;
+  .menu-desc{
+    font-family:'Source Serif 4',serif;
+    font-style:italic;
+    font-size:15.5px;
+    color:var(--ink-soft);
+    max-width:440px;
+    text-align:left;
+    line-height:1.5;
   }
-  .box-flavor .note{font-size:12px;font-style:italic;color:var(--ink-mute);display:block;margin-top:2px;font-weight:400}
-  .qty-stepper{
-    display:inline-flex;align-items:center;
-    border:1px solid var(--ink);background:var(--paper);
-  }
-  .qty-stepper button{
-    width:32px;height:32px;
-    font-size:18px;font-weight:500;color:var(--ink);
-    line-height:1;display:flex;align-items:center;justify-content:center;
-    transition:background .15s;
-  }
-  @media (hover:hover){
-    .qty-stepper button:hover{background:var(--ink);color:var(--paper)}
-  }
-  .qty-stepper .val{
-    min-width:34px;text-align:center;font-style:italic;font-size:16px;
-    border-left:1px solid var(--ink);border-right:1px solid var(--ink);
-    padding:7px 0;background:var(--paper);
-  }
-  .box-summary{
-    margin-top:24px;padding-top:22px;border-top:1px solid var(--rule);
-    display:flex;justify-content:space-between;align-items:baseline;
-  }
-  .box-summary .lbl{font-style:italic;font-size:14px;color:var(--ink-soft)}
-  .box-summary .total{
-    font-family:'Fraunces',serif;font-weight:700;font-size:28px;color:var(--burgundy);
-    font-variation-settings:'opsz' 36;
-  }
-  .box-summary .total small{
-    font-style:italic;font-weight:400;font-size:13px;color:var(--ink-mute);margin-left:4px;
-  }
-  .build-cta{
-    display:flex;gap:14px;margin-top:22px;flex-wrap:wrap;
-  }
-  .build-cta .btn{
-    flex:1;
-    padding:15px 22px;
-    background:var(--ink);color:var(--paper);
-    font-size:12px;font-weight:600;font-variant-caps:all-small-caps;letter-spacing:.18em;
-    cursor:pointer;border:0;
-    transition:background .2s;
-    text-align:center;
-  }
-  @media (hover:hover){
-    .build-cta .btn:hover{background:var(--burgundy)}
-  }
-  .build-cta .btn.alt{background:var(--paper);color:var(--ink);border:1px solid var(--ink)}
-  @media (hover:hover){
-    .build-cta .btn.alt:hover{background:var(--ink);color:var(--paper)}
-  }
-  .build-cta .save{
-    font-size:11px;font-style:italic;color:var(--burgundy);text-align:right;
-    display:block;margin-top:6px;width:100%;
+  .menu-price{
+    font-family:'Playfair Display',serif;
+    font-weight:700;
+    font-size:22px;
+    color:var(--burgundy);
+    text-align:right;
   }
 
-  /* ============== LIFESTYLE (full-bleed plate) ============== */
+  /* ============ LIFESTYLE (PLATE) ============ */
   .lifestyle{
     position:relative;
     min-height:88vh;
     overflow:hidden;
     border-top:1px solid var(--rule);
-    background:var(--navy);
+    background:var(--plate);
   }
   .lifestyle .bg{
-    position:absolute;inset:0;width:100%;height:100%;
-    object-fit:cover;z-index:0;
+    position:absolute;inset:0;
+    width:100%;height:100%;
+    object-fit:cover;
+    z-index:0;
   }
   .lifestyle::after{
     content:'';
     position:absolute;inset:0;
-    background:linear-gradient(110deg,rgba(12,23,41,.78) 0%, rgba(12,23,41,.3) 42%, rgba(12,23,41,0) 68%);
+    background:linear-gradient(115deg, rgba(10,22,40,.75) 0%, rgba(10,22,40,.3) 42%, rgba(10,22,40,0) 68%);
     z-index:1;
   }
   .lifestyle-overlay{
-    position:relative;z-index:2;
-    padding:130px 48px;
-    max-width:640px;
+    position:relative;
+    z-index:2;
+    padding:110px 56px;
+    max-width:620px;
   }
-  .lifestyle-overlay h2{
-    font-family:'Fraunces',serif;
-    font-style:italic;font-weight:700;
+  .lifestyle h2{
+    font-family:'Playfair Display',serif;
+    font-weight:700;
+    font-style:italic;
     color:var(--paper);
-    font-size:clamp(40px,5.4vw,76px);
-    line-height:1.02;letter-spacing:-.012em;
-    margin-bottom:32px;
-    font-variation-settings:'opsz' 144, 'SOFT' 50;
+    font-size:clamp(38px,4.8vw,68px);
+    line-height:1.02;
+    margin-bottom:30px;
+    letter-spacing:-.005em;
   }
-  .narration{
-    font-style:italic;font-size:20px;
-    color:var(--paper);line-height:1.55;
-    max-width:500px;opacity:.95;
+  .lifestyle .narration{
+    font-family:'Source Serif 4',serif;
+    font-style:italic;
+    font-size:20px;
+    color:var(--paper);
+    line-height:1.55;
+    max-width:500px;
+    opacity:.94;
   }
-  .byline{
-    margin-top:32px;
-    font-style:italic;font-size:13px;
-    color:var(--foil-bright);opacity:.92;
+  .lifestyle .byline{
+    font-family:'Source Serif 4',serif;
+    font-style:italic;
+    font-size:13px;
+    color:var(--foil);
+    margin-top:30px;
+    opacity:.92;
     letter-spacing:.02em;
   }
 
-  /* ============== INGREDIENTS ============== */
+  /* ============ INGREDIENTS ============ */
   .ingredients{
+    padding:110px 56px;
     display:grid;
-    grid-template-columns:1.05fr .95fr;
-    gap:80px;align-items:start;
+    grid-template-columns:1.05fr 0.95fr;
+    gap:80px;
+    align-items:start;
+    border-top:1px solid var(--rule);
   }
   .ing-text h2{
-    font-family:'Fraunces',serif;
-    font-variation-settings:'opsz' 96, 'SOFT' 25;
-    font-weight:700;
-    font-size:clamp(40px,5vw,72px);
-    line-height:.96;
-    letter-spacing:-.014em;
-    margin-bottom:26px;
+    font-size:clamp(40px,4.6vw,68px);
+    line-height:.98;
+    margin-bottom:22px;
   }
-  .ing-text h2 em{font-style:italic;font-weight:400;color:var(--burgundy)}
   .ing-text .lead{
-    font-size:20px;font-style:italic;color:var(--burgundy);
-    margin-bottom:20px;line-height:1.45;max-width:520px;
+    font-family:'Source Serif 4',serif;
+    font-style:italic;
+    font-size:20px;
+    color:var(--burgundy);
+    margin-bottom:20px;
+    line-height:1.45;
+    max-width:520px;
   }
-  .ing-text p{font-size:17px;margin-bottom:20px;line-height:1.7;max-width:520px}
-  .ing-list{list-style:none;border-top:1px solid var(--rule);margin-top:30px;max-width:540px}
+  .ing-text p{
+    font-size:17px;
+    margin-bottom:18px;
+    color:var(--ink);
+    line-height:1.7;
+    max-width:520px;
+  }
+  .ing-list{
+    list-style:none;
+    border-top:1px solid var(--rule);
+    margin-top:30px;
+    max-width:520px;
+  }
   .ing-list li{
-    display:grid;grid-template-columns:1fr auto;gap:14px;
-    padding:13px 0;border-bottom:1px dotted var(--rule-soft);
-    font-size:16.5px;font-style:italic;color:var(--ink);
+    display:grid;
+    grid-template-columns:1fr auto;
+    padding:12px 0;
+    border-bottom:1px dotted var(--rule-soft);
+    font-family:'Source Serif 4',serif;
+    font-style:italic;
+    font-size:16.5px;
+    color:var(--ink);
     align-items:baseline;
   }
-  .ing-list li .src{font-size:13px;color:var(--ink-soft);letter-spacing:.02em}
-  .ing-fig{margin:0;position:sticky;top:96px}
-  .ing-fig img{width:100%;box-shadow:var(--shadow)}
-  .ing-fig figcaption{margin-top:14px;padding-left:14px;border-left:1px solid var(--rule);font-size:13px;font-style:italic;color:var(--ink-soft)}
+  .ing-list li span:last-child{
+    color:var(--ink-soft);
+    font-size:13px;
+    letter-spacing:.02em;
+    font-style:italic;
+  }
+  .ing-fig{margin:0;position:sticky;top:30px}
+  .ing-fig img{width:100%;box-shadow:0 30px 80px -34px rgba(28,22,18,.4)}
+  .ing-fig figcaption{
+    font-family:'Source Serif 4',serif;
+    font-size:13px;
+    font-style:italic;
+    color:var(--ink-soft);
+    margin-top:14px;
+    padding-left:14px;
+    border-left:1px solid var(--rule);
+  }
 
-  /* ============== RECEPTION (reviews module) ============== */
+  /* ============ RECEPTION ============ */
   .reception{
-    background:var(--paper-2);
+    padding:120px 56px;
     border-top:1px solid var(--rule);
-    padding:130px 48px;
+    background:var(--paper-2);
+    position:relative;
   }
-  .review-summary{
-    max-width:1180px;margin:0 auto 70px;
-    display:grid;grid-template-columns:auto 1fr;gap:60px;align-items:center;
+  .big-quote{
+    max-width:900px;
+    margin:0 auto 70px;
+    position:relative;
   }
-  .summary-score{
-    display:flex;flex-direction:column;align-items:flex-start;gap:8px;
-    padding-right:60px;border-right:1px solid var(--rule);
-  }
-  .summary-score .num{
-    font-family:'Fraunces',serif;
-    font-weight:700;
-    font-size:88px;line-height:.9;color:var(--burgundy);
-    font-variation-settings:'opsz' 144, 'SOFT' 25;
-    letter-spacing:-.02em;
-  }
-  .summary-score .stars-lg{display:inline-flex;gap:2px;color:var(--burgundy)}
-  .summary-score .stars-lg svg{width:18px;height:18px}
-  .summary-score .qty{font-size:13px;font-style:italic;color:var(--ink-soft);margin-top:3px}
-  .summary-blurb{
-    font-family:'Fraunces',serif;
-    font-style:italic;font-weight:500;
-    font-size:clamp(22px,2.4vw,32px);
-    line-height:1.3;color:var(--ink);
-    font-variation-settings:'opsz' 36, 'SOFT' 80;
-  }
-  .big-quote{max-width:1000px;margin:0 auto 70px;position:relative}
   .big-quote::before{
     content:'\201C';
-    position:absolute;top:-40px;left:-14px;
-    font-family:'Fraunces',serif;font-style:italic;font-weight:700;
-    font-size:140px;line-height:1;color:var(--burgundy);opacity:.22;
+    position:absolute;
+    top:-44px;left:-22px;
+    font-family:'Playfair Display',serif;
+    font-style:italic;
+    font-size:160px;
+    line-height:1;
+    color:var(--burgundy);
+    opacity:.28;
   }
   .big-quote p{
-    font-family:'Fraunces',serif;font-style:italic;font-weight:500;
-    font-size:clamp(28px,3.6vw,50px);line-height:1.18;color:var(--ink);
-    font-variation-settings:'opsz' 96, 'SOFT' 80;
+    font-family:'Playfair Display',serif;
+    font-style:italic;
+    font-weight:400;
+    font-size:clamp(30px,3.8vw,54px);
+    line-height:1.15;
+    color:var(--ink);
     position:relative;
   }
   .big-quote footer{
-    margin-top:24px;font-style:italic;font-size:14.5px;color:var(--ink-soft);
+    font-family:'Source Serif 4',serif;
+    font-style:italic;
+    font-size:15px;
+    color:var(--ink-soft);
+    margin-top:28px;
   }
   .small-quotes{
-    display:grid;grid-template-columns:1fr 1fr;gap:60px;
-    max-width:1040px;margin:0 auto;
-    padding-top:54px;border-top:1px solid var(--rule);
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:70px;
+    max-width:1040px;
+    margin:0 auto;
+    padding-top:54px;
+    border-top:1px solid var(--rule);
   }
   .small-quotes blockquote p{
-    font-family:'Fraunces',serif;font-style:italic;font-size:19px;line-height:1.55;color:var(--ink);
+    font-family:'Source Serif 4',serif;
+    font-style:italic;
+    font-size:19px;
+    line-height:1.55;
+    color:var(--ink);
     margin-bottom:16px;
   }
   .small-quotes blockquote p em{font-style:normal;font-weight:600}
-  .small-quotes blockquote footer{font-style:italic;font-size:13px;color:var(--ink-soft);line-height:1.5}
-  .verified{display:inline-flex;align-items:center;gap:5px;color:var(--burgundy);font-size:11px;font-variant-caps:all-small-caps;letter-spacing:.16em;font-style:normal;font-weight:600;margin-bottom:6px}
-  .verified::before{content:'';width:5px;height:5px;background:var(--burgundy);border-radius:50%}
-
-  /* ============== FAQ ============== */
-  .faq{
-    padding:130px 48px;border-top:1px solid var(--rule);
-  }
-  .faq-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:80px;max-width:1240px;margin:0 auto;align-items:start}
-  .faq h2{
-    font-family:'Fraunces',serif;
-    font-variation-settings:'opsz' 96, 'SOFT' 25;
-    font-weight:700;font-size:clamp(40px,5vw,72px);line-height:.96;
-    letter-spacing:-.014em;
-  }
-  .faq h2 em{font-style:italic;font-weight:400;color:var(--burgundy)}
-  .faq-sub{margin-top:22px;font-size:18px;font-style:italic;color:var(--ink-soft);max-width:380px;line-height:1.5}
-  .faq-list{border-top:1px solid var(--rule)}
-  .faq-q{
-    border-bottom:1px solid var(--rule);
-    padding:24px 0;cursor:pointer;
-    display:grid;grid-template-columns:1fr auto;gap:24px;
-    align-items:flex-start;
-  }
-  .faq-q-text{
-    font-family:'Fraunces',serif;font-style:italic;font-weight:500;
-    font-size:21px;line-height:1.3;color:var(--ink);
-    font-variation-settings:'opsz' 36, 'SOFT' 60;
-  }
-  .faq-q .toggle{
-    width:32px;height:32px;flex:0 0 32px;
-    border:1px solid var(--ink);border-radius:50%;
-    display:flex;align-items:center;justify-content:center;
-    transition:background .2s, color .2s, transform .3s;
-    color:var(--ink);
-  }
-  .faq-q .toggle svg{width:14px;height:14px;transition:transform .3s}
-  .faq-a{
-    grid-column:1/-1;
-    font-size:17px;line-height:1.65;color:var(--ink-soft);
-    max-height:0;overflow:hidden;transition:max-height .35s ease, margin-top .35s ease;
-    max-width:680px;
-  }
-  .faq-q.open .faq-a{max-height:300px;margin-top:14px}
-  .faq-q.open .toggle{background:var(--burgundy);color:var(--paper);border-color:var(--burgundy)}
-  .faq-q.open .toggle svg{transform:rotate(45deg)}
-  @media (hover:hover){
-    .faq-q:hover .toggle{background:var(--ink);color:var(--paper)}
-    .faq-q.open:hover .toggle{background:var(--burgundy)}
+  .small-quotes blockquote footer{
+    font-family:'Source Serif 4',serif;
+    font-style:italic;
+    font-size:13px;
+    color:var(--ink-soft);
+    line-height:1.5;
   }
 
-  /* ============== SUBSCRIBE / PRICING ============== */
+  /* ============ SUBSCRIBE ============ */
   .subscribe{
-    background:var(--paper-3);
+    padding:120px 56px;
     border-top:1px solid var(--rule);
-    padding:130px 48px;
+    background:var(--paper-deep);
   }
   .sub-grid{
-    display:grid;grid-template-columns:1.05fr .95fr;gap:80px;align-items:center;
-    max-width:1280px;margin:0 auto;
+    display:grid;
+    grid-template-columns:1.3fr 0.7fr;
+    gap:90px;
+    align-items:center;
+    max-width:1180px;
+    margin:0 auto;
   }
   .sub-text h2{
-    font-family:'Fraunces',serif;
-    font-variation-settings:'opsz' 96, 'SOFT' 25;
-    font-weight:700;font-size:clamp(40px,5vw,72px);line-height:.96;
-    letter-spacing:-.014em;margin-bottom:24px;
+    font-size:clamp(40px,4.6vw,66px);
+    line-height:.98;
+    margin-bottom:24px;
   }
-  .sub-text h2 em{font-style:italic;font-weight:400;color:var(--burgundy)}
-  .sub-text p{font-size:19px;font-style:italic;color:var(--ink-soft);line-height:1.55;max-width:480px;margin-bottom:14px}
-  .sub-bullets{list-style:none;margin-top:22px;border-top:1px solid var(--rule);max-width:460px}
-  .sub-bullets li{padding:11px 0;border-bottom:1px dotted var(--rule-soft);font-size:15.5px;font-style:italic;color:var(--ink);padding-left:22px;position:relative}
-  .sub-bullets li::before{
-    content:'';position:absolute;left:0;top:18px;
-    width:10px;height:1px;background:var(--burgundy);
+  .sub-text p{
+    font-family:'Source Serif 4',serif;
+    font-style:italic;
+    font-size:19px;
+    color:var(--ink-soft);
+    max-width:480px;
+    line-height:1.5;
   }
-
-  /* Pricing comparison */
-  .price-card{
-    background:var(--paper);
-    border:1px solid var(--rule);
-    box-shadow:var(--shadow);
-    padding:0;
-    overflow:hidden;
+  .sub-price{text-align:left}
+  .sub-price .amt{
+    font-family:'Playfair Display',serif;
+    font-weight:800;
+    font-size:96px;
+    color:var(--burgundy);
+    line-height:.9;
+    margin-bottom:4px;
+    letter-spacing:-.02em;
   }
-  .price-tabs{display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid var(--rule)}
-  .price-tab{
-    padding:18px 16px;text-align:center;cursor:pointer;
-    font-size:12.5px;font-weight:600;font-variant-caps:all-small-caps;letter-spacing:.16em;
-    color:var(--ink-soft);background:var(--paper-2);
-    border:0;border-right:1px solid var(--rule);
-    transition:background .2s, color .2s;
-    position:relative;
+  .sub-price .amt sub{
+    font-family:'Source Serif 4',serif;
+    font-weight:400;
+    font-style:italic;
+    font-size:18px;
+    color:var(--ink-soft);
+    margin-left:6px;
+    vertical-align:baseline;
   }
-  .price-tab:last-child{border-right:0}
-  .price-tab.active{background:var(--paper);color:var(--ink)}
-  .price-tab .save{
-    display:block;font-size:10px;font-style:italic;color:var(--burgundy);
-    margin-top:3px;font-variant-caps:normal;letter-spacing:.04em;font-weight:500;
+  .sub-cta{
+    display:inline-block;
+    margin:18px 0 16px;
+    font-family:'Playfair Display',serif;
+    font-style:italic;
+    font-weight:700;
+    font-size:24px;
+    color:var(--ink);
+    border-bottom:2px solid var(--burgundy);
+    text-decoration:none;
+    padding-bottom:3px;
+    transition:color .2s, border-color .2s;
   }
-  .price-body{padding:36px 36px 38px}
-  .price-line{
-    display:flex;align-items:baseline;justify-content:space-between;
-    padding-bottom:18px;border-bottom:1px solid var(--rule);
-    margin-bottom:22px;
-  }
-  .price-line .amt{
-    font-family:'Fraunces',serif;font-weight:700;
-    font-size:64px;line-height:.92;color:var(--burgundy);
-    font-variation-settings:'opsz' 144, 'SOFT' 25;
-    letter-spacing:-.018em;
-  }
-  .price-line .amt sub{
-    font-style:italic;font-weight:400;font-size:15px;color:var(--ink-soft);
-    margin-left:6px;vertical-align:baseline;
-  }
-  .price-line .original{
-    font-style:italic;font-size:14px;color:var(--ink-mute);
-    text-decoration:line-through;
-  }
-  .price-features{list-style:none;margin-bottom:26px}
-  .price-features li{
-    padding:7px 0 7px 22px;font-size:14.5px;font-style:italic;color:var(--ink);
-    position:relative;line-height:1.5;
-  }
-  .price-features li::before{
-    content:'✓';position:absolute;left:0;top:7px;
-    color:var(--burgundy);font-style:normal;font-weight:700;
-  }
-  .price-cta{
-    width:100%;padding:18px;
-    background:var(--ink);color:var(--paper);
-    font-size:13px;font-weight:600;font-variant-caps:all-small-caps;letter-spacing:.2em;
-    border:0;cursor:pointer;
-    transition:background .2s;
-    text-align:center;
-  }
-  @media (hover:hover){
-    .price-cta:hover{background:var(--burgundy)}
-  }
-  .price-foot{
-    padding:14px 20px;background:var(--paper-2);text-align:center;
-    font-size:12px;font-style:italic;color:var(--ink-soft);
+  .sub-cta:hover{color:var(--burgundy);border-color:var(--ink)}
+  .sub-cta .arr{display:inline-block;margin-left:6px;font-family:'Source Serif 4',serif;font-style:italic}
+  .sub-price .ship{
+    font-family:'Source Serif 4',serif;
+    font-size:13px;
+    font-style:italic;
+    color:var(--ink-soft);
+    max-width:340px;
+    line-height:1.55;
+    margin-top:4px;
   }
 
-  /* ============== FOOTER ============== */
-  footer{
-    background:var(--ink);
-    color:var(--paper);
-    padding:90px 48px 30px;
-    border-top:1px solid var(--burgundy);
-  }
-  .foot-grid{
+  /* ============ COLOPHON ============ */
+  .colophon{
+    padding:40px 56px 50px;
+    border-top:1px solid var(--rule);
     display:grid;
-    grid-template-columns:1.5fr 1fr 1fr 1fr;
-    gap:60px;
-    max-width:1320px;margin:0 auto 70px;
+    grid-template-columns:auto 1fr auto;
+    gap:30px;
+    align-items:center;
+    font-family:'Source Serif 4',serif;
+    font-style:italic;
+    font-size:13px;
+    color:var(--ink-soft);
   }
-  .foot-brand h3{
-    font-family:'Fraunces',serif;font-style:italic;font-weight:700;
-    font-size:32px;color:var(--paper);
-    font-variation-settings:'opsz' 60, 'SOFT' 30;
-    margin-bottom:14px;
+  .colophon .mark{
+    font-family:'Playfair Display',serif;
+    font-style:italic;
+    font-weight:700;
+    font-size:18px;
+    color:var(--ink);
   }
-  .foot-brand h3 .punct{color:var(--foil-bright)}
-  .foot-brand p{font-style:italic;font-size:15px;color:rgba(241,231,210,.7);line-height:1.55;max-width:340px;margin-bottom:24px}
-  .newsletter{display:flex;gap:0;max-width:360px;border-bottom:1px solid var(--paper);padding-bottom:12px}
-  .newsletter input{
-    flex:1;background:transparent;border:0;
-    color:var(--paper);font-style:italic;font-size:15px;padding:10px 0;
-  }
-  .newsletter input::placeholder{color:rgba(241,231,210,.55)}
-  .newsletter input:focus{outline:0}
-  .newsletter button{
-    color:var(--foil-bright);font-style:italic;font-size:14px;
-    padding:10px 4px 10px 18px;
-    transition:color .2s;
-  }
-  @media (hover:hover){
-    .newsletter button:hover{color:var(--paper)}
-  }
-  .nl-helper{font-size:12px;font-style:italic;color:rgba(241,231,210,.5);margin-top:10px}
+  .colophon .mark .punct{color:var(--burgundy)}
+  .colophon .note{text-align:center;max-width:580px;justify-self:center;line-height:1.55}
+  .colophon .note a{border-bottom:1px solid var(--rule);padding-bottom:1px}
+  .colophon .yr{text-align:right;letter-spacing:.04em}
 
-  .foot-col h4{
-    font-family:'Fraunces',serif;font-style:italic;font-weight:700;
-    font-size:17px;color:var(--foil-bright);margin-bottom:18px;
+  /* ============ RESPONSIVE ============ */
+  @media (max-width:1024px){
+    .cover{padding:72px 40px 90px;gap:48px}
+    .profile{padding:90px 40px;gap:60px}
+    .snap-text{padding:80px 48px}
+    .collection,.ingredients,.reception,.subscribe{padding:90px 40px}
+    .lifestyle-overlay{padding:90px 40px}
+    .masthead{padding:20px 40px}
+    .colophon{padding:32px 40px 40px}
   }
-  .foot-col ul{list-style:none}
-  .foot-col li{margin-bottom:9px}
-  .foot-col a{
-    font-size:14.5px;font-style:italic;color:rgba(241,231,210,.78);
-    transition:color .2s;
-  }
-  @media (hover:hover){
-    .foot-col a:hover{color:var(--foil-bright)}
-  }
+  @media (max-width:780px){
+    .masthead{grid-template-columns:1fr auto;padding:16px 22px;gap:14px}
+    .masthead .m-c{display:none}
+    .masthead .m-r{font-size:12px}
+    .masthead .m-r a{margin-left:10px}
 
-  .foot-bottom{
-    border-top:1px solid rgba(241,231,210,.18);
-    padding-top:24px;
-    max-width:1320px;margin:0 auto;
-    display:grid;grid-template-columns:auto 1fr auto;gap:24px;align-items:center;
-    font-size:12px;font-style:italic;color:rgba(241,231,210,.6);
-  }
-  .foot-bottom .note{text-align:center;max-width:600px;justify-self:center;line-height:1.55}
-  .foot-bottom a{border-bottom:1px solid rgba(241,231,210,.3);padding-bottom:1px}
-  .pay-icons{display:flex;gap:10px;color:rgba(241,231,210,.5)}
-  .pay-icons span{
-    border:1px solid rgba(241,231,210,.25);
-    padding:4px 8px;font-size:9px;letter-spacing:.16em;font-style:normal;
-    font-variant-caps:all-small-caps;font-weight:600;
-  }
-
-  /* ============== STICKY MOBILE ATC BAR ============== */
-  .sticky-bar{
-    display:none;
-    position:fixed;left:0;right:0;bottom:0;z-index:55;
-    background:var(--ink);color:var(--paper);
-    padding:12px 16px;
-    grid-template-columns:1fr auto;gap:14px;align-items:center;
-    border-top:1px solid var(--foil);
-    box-shadow:0 -8px 24px -8px rgba(0,0,0,.3);
-  }
-  .sticky-bar .pname{font-style:italic;font-size:14.5px}
-  .sticky-bar .pname strong{display:block;font-style:normal;font-weight:700;font-size:13px;color:var(--foil-bright);letter-spacing:.02em;margin-bottom:2px}
-  .sticky-bar button{
-    background:var(--burgundy);color:var(--paper);
-    padding:13px 22px;
-    font-size:12px;font-weight:600;font-variant-caps:all-small-caps;letter-spacing:.18em;
-    border:0;cursor:pointer;
-  }
-
-  /* ============== CART DRAWER ============== */
-  .drawer-bg{
-    position:fixed;inset:0;background:rgba(22,16,12,.55);
-    opacity:0;pointer-events:none;
-    transition:opacity .3s;z-index:99;
-  }
-  .drawer-bg.open{opacity:1;pointer-events:auto}
-  .drawer{
-    position:fixed;top:0;right:0;bottom:0;
-    width:min(440px,100%);
-    background:var(--paper);
-    z-index:100;
-    transform:translateX(100%);
-    transition:transform .35s cubic-bezier(.4,0,.2,1);
-    display:flex;flex-direction:column;
-    box-shadow:-20px 0 60px -20px rgba(0,0,0,.3);
-  }
-  .drawer.open{transform:translateX(0)}
-  .drawer-head{
-    padding:24px 28px;border-bottom:1px solid var(--rule);
-    display:flex;justify-content:space-between;align-items:center;
-  }
-  .drawer-head h3{
-    font-family:'Fraunces',serif;font-style:italic;font-weight:700;
-    font-size:22px;
-  }
-  .drawer-close{
-    width:32px;height:32px;border:1px solid var(--ink);border-radius:50%;
-    display:flex;align-items:center;justify-content:center;color:var(--ink);
-    cursor:pointer;transition:background .2s,color .2s;
-  }
-  @media (hover:hover){
-    .drawer-close:hover{background:var(--ink);color:var(--paper)}
-  }
-  .drawer-body{flex:1;overflow-y:auto;padding:24px 28px}
-  .drawer-empty{
-    padding:60px 0;text-align:center;color:var(--ink-soft);font-style:italic;
-  }
-  .drawer-empty p{font-size:17px;margin-bottom:14px}
-  .drawer-empty .sub{font-size:13.5px;color:var(--ink-mute)}
-  .drawer-item{
-    display:grid;grid-template-columns:60px 1fr auto;gap:14px;
-    padding:18px 0;border-bottom:1px dotted var(--rule);align-items:center;
-  }
-  .drawer-item .thumb{
-    width:60px;height:60px;background:linear-gradient(165deg, #fff5e0, #efe2c0);
-    border:1px solid var(--rule-soft);
-  }
-  .drawer-item .info{font-style:italic;font-size:15px}
-  .drawer-item .info strong{display:block;font-style:normal;font-weight:600;font-size:15px;margin-bottom:2px}
-  .drawer-item .info .qty-line{font-size:12.5px;color:var(--ink-soft)}
-  .drawer-item .price{font-family:'Fraunces',serif;font-weight:700;font-size:17px;color:var(--burgundy)}
-  .drawer-foot{
-    padding:22px 28px;border-top:1px solid var(--rule);background:var(--paper-2);
-  }
-  .drawer-total{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:14px}
-  .drawer-total .lbl{font-style:italic;font-size:14px;color:var(--ink-soft)}
-  .drawer-total .num{font-family:'Fraunces',serif;font-weight:700;font-size:26px;color:var(--burgundy)}
-  .drawer-cta{
-    width:100%;padding:16px;background:var(--ink);color:var(--paper);
-    font-size:12.5px;font-weight:600;font-variant-caps:all-small-caps;letter-spacing:.2em;
-    border:0;cursor:pointer;transition:background .2s;
-  }
-  @media (hover:hover){
-    .drawer-cta:hover{background:var(--burgundy)}
-  }
-  .drawer-ship{font-size:11.5px;font-style:italic;color:var(--ink-mute);text-align:center;margin-top:10px}
-
-  /* ============== TOAST ============== */
-  .toast{
-    position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(40px);
-    background:var(--ink);color:var(--paper);
-    padding:14px 24px;
-    border-left:3px solid var(--foil);
-    font-size:13.5px;font-style:italic;
-    z-index:120;
-    opacity:0;
-    transition:opacity .25s, transform .25s;
-    pointer-events:none;
-    box-shadow:0 14px 40px -10px rgba(0,0,0,.3);
-  }
-  .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
-
-  /* ============== RESPONSIVE ============== */
-  @media (max-width:1100px){
-    .masthead-inner,.section,.build,.reception,.faq,.subscribe,.lifestyle-overlay,.cover,.trust,footer{
-      padding-left:40px;padding-right:40px;
-    }
-    .snap-text{padding:90px 48px}
-    .cover{gap:48px;padding-top:64px;padding-bottom:84px}
-    .profile,.ingredients,.faq-grid,.sub-grid,.build-grid{gap:60px}
-    .review-summary{gap:40px}
-    .summary-score{padding-right:40px}
-    .foot-grid{gap:40px;grid-template-columns:1.4fr 1fr 1fr 1fr}
-  }
-  @media (max-width:880px){
-    .topnav{display:none}
-    .masthead-inner{grid-template-columns:1fr auto;gap:14px;padding:14px 22px}
-    .nav-toggle{display:inline-flex;align-items:center;gap:8px}
-    .toptools{gap:14px}
-    .tool.acct{display:none}
-    .cover{grid-template-columns:1fr;padding:36px 22px 64px;gap:34px;align-items:start}
+    .cover{grid-template-columns:1fr;padding:48px 22px 64px;gap:34px;align-items:start}
+    .cover h1{font-size:60px;margin:14px 0 22px}
+    .cover .deck{font-size:19px}
     .cover-figure{order:-1}
-    .cover h1{font-size:60px;margin:14px 0 22px;line-height:.92}
-    .cover h1 .l2{margin-left:1em}
-    .cover h1 .l3{margin-left:.3em}
-    .deck{font-size:18px}
-    .cta-row{gap:18px;margin-bottom:24px}
-    .cta-primary{padding:16px 22px;font-size:12.5px;width:100%;justify-content:space-between}
-    .cta-secondary{font-size:14px}
-    .trust{padding:14px 22px;gap:18px;font-size:11.5px}
 
-    .section{padding:80px 22px}
-    .section-head{margin-bottom:42px}
-    .section-head h2{font-size:42px}
-    .section-head p{font-size:17px}
-
-    .profile{grid-template-columns:1fr;gap:48px}
-    .profile h2{font-size:42px;margin-bottom:30px}
-    .prose p{font-size:17.5px}
-    .dropcap{font-size:72px}
-    .dossier{padding-top:24px;border-top:1px solid var(--rule)}
+    .profile{grid-template-columns:1fr;padding:64px 22px;gap:48px}
+    .profile h2{font-size:42px}
+    .prose p{font-size:17px}
+    .dossier{padding-top:30px;border-top:1px solid var(--rule)}
 
     .snap{grid-template-columns:1fr}
-    .snap-figure img{min-height:0;aspect-ratio:4/3}
-    .snap-text{padding:64px 22px}
-    .snap-text h2{font-size:36px;margin-bottom:34px}
-    .steps li{grid-template-columns:46px 1fr;gap:14px;padding:20px 0}
+    .snap-figure img{min-height:0;aspect-ratio:16/10}
+    .snap-text{padding:56px 22px}
+    .snap-text h2{font-size:36px}
+    .steps li{grid-template-columns:46px 1fr;gap:12px;padding:18px 0}
     .steps .rn{font-size:30px}
-    .steps h4{font-size:20px}
+    .steps h4{font-size:21px}
     .steps p{font-size:14.5px}
 
-    .products{grid-template-columns:1fr;gap:22px}
-    .trio-figure{margin-bottom:42px}
-
-    .build{padding:80px 22px}
-    .build-grid{grid-template-columns:1fr;gap:40px}
-    .build-grid h2{font-size:38px;margin-bottom:18px}
-    .box-builder{padding:28px 22px}
+    .collection{padding:64px 22px}
+    .collection h2{font-size:38px;margin-bottom:36px}
+    .menu-row{
+      grid-template-columns:28px 1fr auto;
+      gap:10px;padding:18px 0;
+      align-items:baseline;
+    }
+    .menu-leader{display:none}
+    .menu-desc{grid-column:2/4;font-size:14.5px;margin-top:6px;max-width:none}
+    .menu-name{font-size:22px}
+    .menu-price{font-size:19px}
+    .trio{margin-bottom:36px}
 
     .lifestyle{min-height:62vh}
     .lifestyle-overlay{padding:64px 22px;max-width:none}
-    .lifestyle-overlay h2{font-size:36px}
-    .narration{font-size:17px}
-    .lifestyle::after{background:linear-gradient(180deg,rgba(12,23,41,.5) 0%, rgba(12,23,41,.15) 40%, rgba(12,23,41,.7) 100%)}
+    .lifestyle h2{font-size:34px;margin-bottom:22px}
+    .lifestyle .narration{font-size:17px}
+    .lifestyle::after{background:linear-gradient(180deg,rgba(10,22,40,.45) 0%, rgba(10,22,40,.15) 40%, rgba(10,22,40,.7) 100%)}
 
-    .ingredients{grid-template-columns:1fr;gap:34px}
+    .ingredients{grid-template-columns:1fr;padding:64px 22px;gap:34px}
     .ing-text h2{font-size:38px}
     .ing-text .lead{font-size:18px}
     .ing-fig{position:relative;top:0}
 
-    .reception{padding:80px 22px}
-    .review-summary{grid-template-columns:1fr;gap:24px;margin-bottom:48px}
-    .summary-score{padding-right:0;padding-bottom:24px;border-right:0;border-bottom:1px solid var(--rule);width:100%}
-    .summary-score .num{font-size:64px}
-    .summary-blurb{font-size:22px}
-    .big-quote::before{font-size:100px;top:-26px;left:-6px}
-    .big-quote p{font-size:24px;line-height:1.25}
+    .reception{padding:72px 22px}
     .big-quote{margin-bottom:48px}
+    .big-quote::before{font-size:120px;top:-32px;left:-10px}
+    .big-quote p{font-size:26px;line-height:1.25}
     .small-quotes{grid-template-columns:1fr;gap:34px;padding-top:36px}
 
-    .faq{padding:80px 22px}
-    .faq-grid{grid-template-columns:1fr;gap:36px}
-    .faq h2{font-size:38px}
-    .faq-q-text{font-size:18px}
-    .faq-a{font-size:16px}
-
-    .subscribe{padding:80px 22px}
-    .sub-grid{grid-template-columns:1fr;gap:36px}
-    .sub-text h2{font-size:38px}
+    .subscribe{padding:72px 22px}
+    .sub-grid{grid-template-columns:1fr;gap:38px}
+    .sub-text h2{font-size:34px}
     .sub-text p{font-size:17px}
-    .price-body{padding:28px 24px 30px}
-    .price-line .amt{font-size:48px}
+    .sub-price .amt{font-size:68px}
+    .sub-cta{font-size:21px}
 
-    footer{padding:64px 22px 24px}
-    .foot-grid{grid-template-columns:1fr;gap:36px;margin-bottom:48px}
-    .foot-bottom{grid-template-columns:1fr;gap:14px;text-align:center}
-    .foot-bottom .note{justify-self:center}
-    .pay-icons{justify-content:center}
-
-    .sticky-bar{display:grid}
-    body{padding-bottom:64px}
+    .colophon{grid-template-columns:1fr;gap:14px;padding:30px 22px 36px;text-align:center}
+    .colophon .note{justify-self:center}
+    .colophon .yr{text-align:center}
   }
-  @media (max-width:480px){
+  @media (max-width:420px){
     .cover h1{font-size:48px}
-    .cover h1 .l2,.cover h1 .l3{margin-left:0}
-    .profile h2,.ing-text h2,.sub-text h2,.faq h2{font-size:32px}
-    .snap-text h2,.lifestyle-overlay h2{font-size:30px}
-    .dropcap{font-size:64px;margin-right:10px}
-    .price-line .amt{font-size:44px}
-    .build-grid h2{font-size:32px}
-    .summary-score .num{font-size:54px}
-    .summary-blurb{font-size:20px}
-    .big-quote p{font-size:22px;line-height:1.28}
-    .small-quotes blockquote p{font-size:18px}
-    .product{padding:20px 20px 22px}
-    .mark{font-size:20px}
-    .mark .seal{width:32px;height:32px;font-size:13px}
-    .cart-btn{padding:9px 12px;font-size:12px;letter-spacing:.12em}
-    .cart-btn .lbl{display:none}
-    .cart-btn svg{margin:0}
+    .profile h2,.collection h2,.ing-text h2,.sub-text h2{font-size:32px}
+    .big-quote p{font-size:23px;line-height:1.25}
+    .snap-text h2{font-size:30px}
+    .lifestyle h2{font-size:28px}
+    .dropcap{font-size:72px}
+    .sub-price .amt{font-size:58px}
+    .menu-name{font-size:20px}
+    .dossier h3{font-size:26px}
+    .dossier .pull{font-size:20px;padding-left:16px}
   }
 </style>
 </head>
 <body>
 
-<!-- ============== ANNOUNCEMENT ============== -->
-<div class="announce">
-  <em>Free shipping over $40</em> &nbsp;·&nbsp; 30-day taste-test guarantee &nbsp;·&nbsp; <a href="#sub">Subscribers save 13%</a>
-</div>
-
-<!-- ============== MASTHEAD ============== -->
+<!-- ============ MASTHEAD ============ -->
 <header class="masthead">
-  <div class="masthead-inner">
-    <div class="mark">
-      <span class="seal">P<span style="color:var(--burgundy);font-size:.7em;vertical-align:super;margin:0 -1px;">&middot;</span>C</span>
-      <span>Pat&eacute; for my Cat&eacute;<span class="punct">.</span></span>
-    </div>
-    <nav><ul class="topnav">
-      <li><a href="#collection">Shop</a></li>
-      <li><a href="#sub">Subscribe</a></li>
-      <li><a href="#profile">Le Comte</a></li>
-      <li><a href="#faq">Help</a></li>
-      <li><a href="../">v.I</a></li>
-    </ul></nav>
-    <div class="toptools">
-      <a href="#" class="tool acct">Account</a>
-      <button class="cart-btn" id="cart-btn" aria-label="Open cart">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M5 7h14l-1.5 11a2 2 0 0 1-2 1.8h-7a2 2 0 0 1-2-1.8L5 7Z"/><path d="M9 7V5a3 3 0 0 1 6 0v2"/></svg>
-        <span class="lbl">Cart</span>
-        <span class="cart-count" id="cart-count">0</span>
-      </button>
-      <button class="nav-toggle" id="nav-toggle" aria-label="Menu">
-        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 7h18M3 12h18M3 17h18"/></svg>
-      </button>
-    </div>
+  <div class="m-l">Pat&eacute; for my Cat&eacute;<span class="punct">.</span></div>
+  <div class="m-c">Issue No. 02 &nbsp;&middot;&nbsp; The Snap-Pack &nbsp;&middot;&nbsp; Spring 1995</div>
+  <div class="m-r">
+    <a href="../">v.I, the can edition</a>
+    <a href="#sub">Subscribe</a>
   </div>
 </header>
 
-<!-- ============== COVER ============== -->
-<section class="cover">
-  <div class="cover-text">
-    <p class="folio">
-      <span class="num">01.</span>
-      <span class="rule"></span>
-      <span>The Annual Cat Issue</span>
-    </p>
-    <h1 class="display">
-      Lifestyles<br>
-      <span class="l2"><em>of the</em> Rich</span>
-      <span class="l3"><em>and</em> Feline.</span>
-    </h1>
-    <p class="deck">A profile of Le Comte de Whiskersworth III &mdash; who has, on principle, never paid for a single thing in his life. And yet, <em>somehow,</em> has standards.</p>
-    <div class="cta-row">
-      <button class="cta-primary" data-add="trio">
-        <span class="label">Acquire the Trio</span>
-        <span class="price">$19.99</span>
-      </button>
-      <a href="#sub" class="cta-secondary">or subscribe &amp; save &mdash; from $19.99/mo &nbsp;<span>&rarr;</span></a>
-    </div>
-    <div class="rating">
-      <span class="stars" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
-      </span>
-      <span class="count">4.9 &mdash; from 4,127 paying judges</span>
-    </div>
-    <p class="cover-credit">Photographs by the editors &middot; Words withheld on advice of counsel &middot; Pat&eacute; by a small woman in Lyon.</p>
+<!-- ============ COVER ============ -->
+<article class="cover">
+  <div class="cover-left">
+    <p class="folio"><span class="num">01.</span>The Annual Cat Issue</p>
+    <h1>Lifestyles<br><em>of the</em> Rich<br><em>and</em> Feline.</h1>
+    <div class="swash"></div>
+    <p class="deck">A profile of Le Comte de Whiskersworth III &mdash; who has, on principle, never paid for a single thing in his life. And yet, somehow, has standards.</p>
+    <p class="credit">Photographs by the editors &middot; Words withheld on advice of counsel &middot; Pat&eacute; by a small woman in Lyon</p>
   </div>
   <figure class="cover-figure">
     <img src="images/image-01.jpg" alt="Le Comte de Whiskersworth III &mdash; a chubby tuxedo cat in a burgundy velvet bowtie &mdash; seated in a navy velvet wingback chair beside an open peel-foil snap-pack of Pat&eacute; for my Cat&eacute; on a gold side table, with a flute of mimosa and gilt mirrors in the background." />
     <figcaption>Le Comte at home, with breakfast and the morning mimosa. Photographed on a Tuesday, in his sitting room.</figcaption>
   </figure>
-</section>
+</article>
 
-<!-- ============== TRUST STRIP ============== -->
-<div class="trust">
-  <span><span class="dot"></span><strong>Real meat first</strong></span>
-  <span><span class="dot"></span><strong>Vet-formulated</strong></span>
-  <span><span class="dot"></span><strong>Small-batch</strong></span>
-  <span><span class="dot"></span><strong>Recyclable tray</strong></span>
-  <span><span class="dot"></span><strong>30-day taste-test guarantee</strong></span>
-</div>
-
-<!-- ============== PROFILE ============== -->
-<section class="section" id="profile">
-  <div class="profile">
-    <div>
-      <p class="folio"><span class="num">02.</span><span class="rule"></span><span>A Profile, in his own words</span></p>
-      <h2>An audience<br>with <em>the Comte.</em></h2>
-      <div class="prose">
-        <p class="lead"><span class="dropcap">L</span>e Comte de Whiskersworth III was born in a sunbeam on a stack of <em>Architectural Digest,</em> May 1991. He has never worked a day in his life. He has, however, developed strong opinions about cat food, and we have agreed to publish them.</p>
-        <p>He insists on real meat. He refuses anything described as a &ldquo;by-product.&rdquo; He will not eat from a can &mdash; the opener offends him personally. The snap-pack was his idea. The pricing was ours.</p>
-        <p>He is not for sale. The pat&eacute; is. <em>Adjacent.</em></p>
-      </div>
+<!-- ============ A PROFILE ============ -->
+<article class="profile" id="profile">
+  <div>
+    <p class="folio"><span class="num">02.</span>A Profile, in his own words</p>
+    <h2>An audience<br>with the Comte.</h2>
+    <div class="prose">
+      <p class="lead"><span class="dropcap">L</span>e Comte de Whiskersworth III was born in a sunbeam on a stack of <em>Architectural Digest</em>, May 1991. He has never worked a day in his life. He has, however, developed strong opinions about cat food, and we have agreed to publish them.</p>
+      <p>He insists on real meat. He refuses anything described as a &ldquo;by-product.&rdquo; He will not eat from a can &mdash; the opener offends him personally. The snap-pack was his idea. The pricing was ours.</p>
+      <p>He is not for sale. The pat&eacute; is. <em>Adjacent.</em></p>
     </div>
-    <aside class="dossier">
-      <h3>Le Comte de<br>Whiskersworth III</h3>
-      <p class="title">Spokescat &middot; Order of the Sunbeam, First Class &middot; b. May 1991</p>
-      <ul>
-        <li>Heir presumptive, the Lap of Susan</li>
-        <li>Honorary reviewer, every grocery-store pat&eacute; within a three-mile radius</li>
-        <li>Member, the Society for Cats Who Are Better Than This</li>
-        <li>Personally acquainted with approximately eleven sunbeams</li>
-        <li>Currently boycotting tap-water tuna, &ldquo;an embarrassment&rdquo;</li>
-      </ul>
-      <div class="pull">
-        &ldquo;If you cannot pronounce every ingredient, you are doing it correctly.&rdquo;
-        <cite>&mdash; Le Comte, in conversation, 4:13 AM on a Tuesday.</cite>
-      </div>
-    </aside>
   </div>
-</section>
 
-<!-- ============== SNAP-PACK (plate) ============== -->
-<section class="snap plate">
+  <aside class="dossier">
+    <h3>Le Comte de<br>Whiskersworth III</h3>
+    <p class="title">Spokescat &middot; Order of the Sunbeam, First Class &middot; b. May 1991</p>
+    <ul>
+      <li>Heir presumptive, the Lap of Susan</li>
+      <li>Honorary reviewer, every grocery-store pat&eacute; within a three-mile radius</li>
+      <li>Member, the Society for Cats Who Are Better Than This</li>
+      <li>Personally acquainted with approximately eleven sunbeams</li>
+      <li>Currently boycotting tap-water tuna, &ldquo;an embarrassment&rdquo;</li>
+    </ul>
+    <div class="pull">
+      &ldquo;If you cannot pronounce every ingredient, you are doing it correctly.&rdquo;
+      <span>&mdash; Le Comte, in conversation, 4:13 AM on a Tuesday.</span>
+    </div>
+  </aside>
+</article>
+
+<!-- ============ THE SNAP-PACK ============ -->
+<article class="snap plate" id="snap">
   <figure class="snap-figure">
-    <img src="images/image-02.jpg" alt="A macro close-up of a single Pat&eacute; for my Cat&eacute; snap-pack on marble, a white cat paw lifting the foil pull-tab to reveal salmon pat&eacute; garnished with dill." loading="lazy" />
+    <img src="images/image-02.jpg" alt="A close-up of a single Pat&eacute; for my Cat&eacute; snap-pack on marble, a white cat paw lifting the foil pull-tab to reveal salmon pat&eacute; garnished with dill." loading="lazy" />
   </figure>
   <div class="snap-text">
-    <p class="folio light"><span class="num">03.</span><span class="rule"></span><span>The Snap-Pack</span></p>
+    <p class="folio light"><span class="num" style="color:var(--foil)">03.</span>The Snap-Pack</p>
     <h2>One tray.<br>One foil. <em>One small woman in Lyon.</em></h2>
     <ol class="steps">
-      <li><span class="rn">i.</span>
-        <div><h4>Peel.</h4><p>A small foil pull-tab. The kind that makes a sound. Cats hear this sound from three rooms away.</p></div>
+      <li>
+        <span class="rn">I.</span>
+        <div>
+          <h4>Peel.</h4>
+          <p>A small foil pull-tab. The kind that makes a sound. Cats hear this sound from three rooms away.</p>
+        </div>
       </li>
-      <li><span class="rn">ii.</span>
-        <div><h4>Serve.</h4><p>Into a small dish, or, if you must, present it on the tray with both hands and a small bow.</p></div>
+      <li>
+        <span class="rn">II.</span>
+        <div>
+          <h4>Serve.</h4>
+          <p>Into a small dish, or, if you must, present it on the tray with both hands and a small bow.</p>
+        </div>
       </li>
-      <li><span class="rn">iii.</span>
-        <div><h4>Witness gratitude.</h4><p>Or don't. Cats are not contractually obligated to thank you. Smug eye contact is statistically likely.</p></div>
+      <li>
+        <span class="rn">III.</span>
+        <div>
+          <h4>Witness gratitude.</h4>
+          <p>Or don't. Cats are not contractually obligated to thank you. Smug eye contact is statistically likely.</p>
+        </div>
       </li>
     </ol>
     <p class="snap-aside">Recyclable tray. Biodegradable foil. The same five real ingredients we started with, in the same kitchen, by the same exhausted woman.</p>
   </div>
-</section>
+</article>
 
-<!-- ============== COLLECTION ============== -->
-<section class="section" id="collection">
-  <div class="section-head">
-    <p class="folio"><span class="num">04.</span><span class="rule"></span><span>The Collection</span></p>
-    <h2>Three flavors, <em>served at his discretion.</em></h2>
-    <p>Each tray is hand-spooned and sealed the morning it ships. Pick a single flavor, build a trio, or set up an ongoing subscription. Le Comte does not care; you will.</p>
-  </div>
-
-  <figure class="trio-figure">
+<!-- ============ THE COLLECTION ============ -->
+<article class="collection" id="collection">
+  <p class="folio"><span class="num">04.</span>The Collection</p>
+  <h2>Three flavors, <em>served at his discretion.</em></h2>
+  <figure class="trio">
     <img src="images/image-04.jpg" alt="Three open Pat&eacute; for my Cat&eacute; snap-packs in a gentle arc on cream marble, garnishes beside each, Le Comte watching from a blurred doorway behind." loading="lazy" />
     <figcaption>The Collection &mdash; photographed at home, Le Comte presiding from the doorway.</figcaption>
   </figure>
-
-  <div class="products">
-    <article class="product" data-flavor="saumon" data-name="Saumon Royale">
-      <div class="ribbon">Bestseller</div>
-      <div class="product-img"><img src="images/image-04.jpg" alt="Saumon Royale tray" /></div>
-      <div class="product-meta">
-        <span class="product-no">No. 01</span>
-        <span class="product-rating">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
-          4.9 (1,842)
-        </span>
-      </div>
-      <h3>Saumon Royale</h3>
-      <p class="desc">Wild-caught Atlantic salmon, a whisper of dill, a kiss of cold-pressed olive oil.</p>
-      <div class="product-foot">
-        <span class="product-price">$1.89<small>/ tray</small></span>
-        <button class="add-btn" data-add="saumon">Add to box</button>
-      </div>
-    </article>
-
-    <article class="product" data-flavor="thon" data-name="Thon Proven&ccedil;al">
-      <div class="product-img"><img src="images/image-04.jpg" alt="Thon Proven&ccedil;al tray" /></div>
-      <div class="product-meta">
-        <span class="product-no">No. 02</span>
-        <span class="product-rating">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
-          4.8 (1,121)
-        </span>
-      </div>
-      <h3>Thon Proven&ccedil;al</h3>
-      <p class="desc">Sustainably-caught yellowfin, sun-ripened tomato, a sprig of fresh thyme.</p>
-      <div class="product-foot">
-        <span class="product-price">$1.89<small>/ tray</small></span>
-        <button class="add-btn" data-add="thon">Add to box</button>
-      </div>
-    </article>
-
-    <article class="product" data-flavor="poulet" data-name="Poulet Champignon">
-      <div class="product-img"><img src="images/image-04.jpg" alt="Poulet Champignon tray" /></div>
-      <div class="product-meta">
-        <span class="product-no">No. 03</span>
-        <span class="product-rating">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
-          4.9 (1,164)
-        </span>
-      </div>
-      <h3>Poulet Champignon</h3>
-      <p class="desc">Free-range chicken, cremini mushroom, Italian parsley.</p>
-      <div class="product-foot">
-        <span class="product-price">$1.89<small>/ tray</small></span>
-        <button class="add-btn" data-add="poulet">Add to box</button>
-      </div>
-    </article>
-  </div>
-</section>
-
-<!-- ============== BUILD A BOX ============== -->
-<section class="build" id="build">
-  <div class="build-grid">
-    <div>
-      <p class="folio"><span class="num">04&frac12;.</span><span class="rule"></span><span>The Sampler</span></p>
-      <h2>Build the trio.<br><em>Or build twelve.</em></h2>
-      <p>Mix and match. Pay once, or subscribe and pay less. Le Comte does not care; <em>you will.</em></p>
-      <p style="color:var(--ink-mute);font-size:15.5px">Each tray is a single serving. Twelve trays = roughly two weeks for one cat. Adjust to taste &mdash; or to the volume of complaint.</p>
+  <div class="menu">
+    <div class="menu-row">
+      <span class="menu-no">i.</span>
+      <span class="menu-name">Saumon Royale</span>
+      <span class="menu-leader"></span>
+      <span class="menu-desc">Wild-caught Atlantic salmon, a whisper of dill, a kiss of cold-pressed olive oil.</span>
+      <span class="menu-price">$1.89</span>
     </div>
-
-    <div class="box-builder">
-      <h4>Compose your box</h4>
-      <p class="helper">Twelve trays minimum. Mix any flavors.</p>
-
-      <div class="box-flavor">
-        <div>
-          <span class="name">Saumon Royale</span>
-          <span class="note">Wild salmon &middot; dill &middot; olive oil</span>
-        </div>
-        <div class="qty-stepper" data-qty="saumon">
-          <button data-step="-1" aria-label="Less Saumon">&minus;</button>
-          <span class="val">4</span>
-          <button data-step="1" aria-label="More Saumon">+</button>
-        </div>
-      </div>
-
-      <div class="box-flavor">
-        <div>
-          <span class="name">Thon Proven&ccedil;al</span>
-          <span class="note">Yellowfin tuna &middot; tomato &middot; thyme</span>
-        </div>
-        <div class="qty-stepper" data-qty="thon">
-          <button data-step="-1" aria-label="Less Thon">&minus;</button>
-          <span class="val">4</span>
-          <button data-step="1" aria-label="More Thon">+</button>
-        </div>
-      </div>
-
-      <div class="box-flavor">
-        <div>
-          <span class="name">Poulet Champignon</span>
-          <span class="note">Chicken &middot; cremini &middot; parsley</span>
-        </div>
-        <div class="qty-stepper" data-qty="poulet">
-          <button data-step="-1" aria-label="Less Poulet">&minus;</button>
-          <span class="val">4</span>
-          <button data-step="1" aria-label="More Poulet">+</button>
-        </div>
-      </div>
-
-      <div class="box-summary">
-        <span class="lbl"><span id="box-count">12</span> trays &middot; one-time</span>
-        <span class="total">$<span id="box-total">22.99</span><small>or $19.99 subscribed</small></span>
-      </div>
-
-      <div class="build-cta">
-        <button class="btn" id="box-add-once">Buy once &mdash; $<span id="box-once-amt">22.99</span></button>
-        <button class="btn alt" id="box-add-sub">Subscribe &mdash; $<span id="box-sub-amt">19.99</span>/mo</button>
-        <span class="save">Subscribers save $3 every month &middot; cancel any time.</span>
-      </div>
+    <div class="menu-row">
+      <span class="menu-no">ii.</span>
+      <span class="menu-name">Thon Proven&ccedil;al</span>
+      <span class="menu-leader"></span>
+      <span class="menu-desc">Sustainably-caught yellowfin, sun-ripened tomato, a sprig of fresh thyme.</span>
+      <span class="menu-price">$1.89</span>
+    </div>
+    <div class="menu-row">
+      <span class="menu-no">iii.</span>
+      <span class="menu-name">Poulet Champignon</span>
+      <span class="menu-leader"></span>
+      <span class="menu-desc">Free-range chicken, cremini mushroom, Italian parsley.</span>
+      <span class="menu-price">$1.89</span>
     </div>
   </div>
-</section>
+</article>
 
-<!-- ============== LIFESTYLE (plate) ============== -->
-<section class="lifestyle plate">
+<!-- ============ A DAY IN HIS LIFE ============ -->
+<article class="lifestyle plate">
   <img class="bg" src="images/image-03.jpg" alt="Le Comte reclining on a tufted cream velvet chaise lounge as a white-gloved butler's hand extends a silver tray with an open Pat&eacute; for my Cat&eacute; snap-pack; a Mediterranean coastline visible through an arched window behind." loading="lazy" />
   <div class="lifestyle-overlay">
-    <p class="folio light"><span class="num">05.</span><span class="rule"></span><span>A Day in His Life</span></p>
-    <h2>Champagne wishes,<br><em>and Cat&eacute; pat&eacute; dreams.</em></h2>
+    <p class="folio light"><span class="num" style="color:var(--foil)">05.</span>A Day in His Life</p>
+    <h2>Champagne wishes,<br>and Cat&eacute; pat&eacute; dreams.</h2>
     <p class="narration">He rises at 4:13 AM, which is, of course, your problem. He inspects the kitchen. He inspects you. He returns to the chaise. By 4:14 he expects breakfast &mdash; on the silver tray, peeled, plated, garnished with a sprig of dill he will not eat.</p>
     <p class="byline">&mdash; In the voice of the late, great voiceover man.</p>
   </div>
-</section>
+</article>
 
-<!-- ============== INGREDIENTS ============== -->
-<section class="section" id="ingredients">
-  <div class="ingredients">
-    <div class="ing-text">
-      <p class="folio"><span class="num">06.</span><span class="rule"></span><span>Ingredients</span></p>
-      <h2>And now &mdash;<br><em>the actual food.</em></h2>
-      <p class="lead">The bit is funny. The food is serious. Le Comte is a character. The salmon is real.</p>
-      <p>Open any tray and the ingredients are the ingredients. Real meat is the first one. There is no &ldquo;by-product.&rdquo; No filler. No carrageenan. No mystery brown. Vet-formulated. Balanced for adult cats. Made by humans who would, in fact, eat it on a cracker.</p>
-      <ul class="ing-list">
-        <li><span>Wild-caught salmon</span><span class="src">Maine, USA</span></li>
-        <li><span>Free-range chicken</span><span class="src">Vermont, USA</span></li>
-        <li><span>Sustainable yellowfin</span><span class="src">Pacific</span></li>
-        <li><span>Cremini mushroom</span><span class="src">Pennsylvania, USA</span></li>
-        <li><span>Italian parsley</span><span class="src">Greenhouse, NJ</span></li>
-        <li><span>Fresh dill &amp; thyme</span><span class="src">Greenhouse, NJ</span></li>
-        <li><span>Cold-pressed olive oil</span><span class="src">Provence, France</span></li>
-        <li><span>French sea salt</span><span class="src">Gu&eacute;rande, France</span></li>
-      </ul>
-    </div>
-    <figure class="ing-fig">
-      <img src="images/image-05.jpg" alt="An overhead flatlay of ingredients on cream marble &mdash; salmon on a silver platter, chicken on a velvet pillow, mushrooms in a crystal bowl, herbs tied with burgundy ribbon &mdash; arranged around a sealed Pat&eacute; for my Cat&eacute; snap-pack." loading="lazy" />
-      <figcaption>The pantry, in repose. Photographed before lunch.</figcaption>
-    </figure>
+<!-- ============ INGREDIENTS ============ -->
+<article class="ingredients" id="ingredients">
+  <div class="ing-text">
+    <p class="folio"><span class="num">06.</span>Ingredients</p>
+    <h2>And now &mdash; <em>the actual food.</em></h2>
+    <p class="lead">The bit is funny. The food is serious. Le Comte is a character. The salmon is real.</p>
+    <p>Open any tray and the ingredients are the ingredients. Real meat is the first one. There is no &ldquo;by-product.&rdquo; No filler. No carrageenan. No mystery brown. Vet-formulated. Balanced for adult cats. Made by humans who would, in fact, eat it on a cracker.</p>
+    <ul class="ing-list">
+      <li><span>Wild-caught salmon</span><span>Maine, USA</span></li>
+      <li><span>Free-range chicken</span><span>Vermont, USA</span></li>
+      <li><span>Sustainable yellowfin</span><span>Pacific</span></li>
+      <li><span>Cremini mushroom</span><span>Pennsylvania, USA</span></li>
+      <li><span>Italian parsley</span><span>Greenhouse, NJ</span></li>
+      <li><span>Fresh dill &amp; thyme</span><span>Greenhouse, NJ</span></li>
+      <li><span>Cold-pressed olive oil</span><span>Provence, France</span></li>
+      <li><span>French sea salt</span><span>Gu&eacute;rande, France</span></li>
+    </ul>
   </div>
-</section>
+  <figure class="ing-fig">
+    <img src="images/image-05.jpg" alt="An overhead flatlay of ingredients on cream marble &mdash; salmon on a silver platter, chicken on a velvet pillow, mushrooms in a crystal bowl, herbs tied with burgundy ribbon &mdash; arranged around a sealed Pat&eacute; for my Cat&eacute; snap-pack." loading="lazy" />
+    <figcaption>The pantry, in repose. Photographed before lunch.</figcaption>
+  </figure>
+</article>
 
-<!-- ============== RECEPTION (reviews) ============== -->
-<section class="reception" id="reviews">
-  <div class="review-summary">
-    <div class="summary-score">
-      <span class="num">4.9</span>
-      <span class="stars-lg" aria-hidden="true">
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
-        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg>
-      </span>
-      <span class="qty">Reviewed by 4,127 paying judges</span>
-    </div>
-    <div>
-      <p class="folio"><span class="num">07.</span><span class="rule"></span><span>Reception</span></p>
-      <p class="summary-blurb">Cats are not contractually obligated to thank you. <em>Smug eye contact is statistically likely.</em></p>
-    </div>
-  </div>
-
+<!-- ============ RECEPTION ============ -->
+<article class="reception">
+  <p class="folio" style="text-align:center;max-width:none"><span class="num">07.</span>Reception</p>
   <blockquote class="big-quote">
     <p>He served it to me on the chaise. I refused, on principle. Then I tried it. I have not made eye contact with him since.</p>
     <footer>&mdash; Madame V&eacute;ronique du Sofa, Russian Blue, in conversation with the editors.</footer>
   </blockquote>
-
   <div class="small-quotes">
     <blockquote>
-      <span class="verified">Verified, on the radiator</span>
-      <p>The peeling. <em>The peeling,</em> darling. I now wait at the counter at 4:13 AM specifically for the sound.</p>
+      <p>The peeling. <em>The peeling</em>, darling. I now wait at the counter at 4:13 AM specifically for the sound.</p>
       <footer>&mdash; Lord Cumberbun. Maine Coon. The Radiator, Top Floor.</footer>
     </blockquote>
     <blockquote>
-      <span class="verified">Verified, in the linen closet</span>
       <p>$1.89? For pat&eacute;? In this economy? I assumed it was a typographical error. It was not. Le Comte, for once, was correct.</p>
       <footer>&mdash; Capitaine Biscuit-Whiskersworth. Tuxedo Shorthair. The Linen Closet, Portland.</footer>
     </blockquote>
   </div>
-</section>
+</article>
 
-<!-- ============== FAQ ============== -->
-<section class="faq" id="faq">
-  <div class="faq-grid">
-    <div>
-      <p class="folio"><span class="num">08.</span><span class="rule"></span><span>Particulars</span></p>
-      <h2>Questions <em>you may have.</em></h2>
-      <p class="faq-sub">If yours isn't here, write to us. We answer everything, eventually, in the order Le Comte permits.</p>
-    </div>
-    <div class="faq-list">
-      <div class="faq-q">
-        <div class="faq-q-text">When does my box ship?</div>
-        <span class="toggle" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 5v14M5 12h14"/></svg></span>
-        <div class="faq-a">Within 48 hours of order, on the same day Tuesday through Friday. Trays are hand-spooned the morning of shipment, then packed in a small insulated mailer. Most US orders arrive in 2&ndash;4 business days.</div>
-      </div>
-      <div class="faq-q">
-        <div class="faq-q-text">Can I pause or skip a month?</div>
-        <span class="toggle" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 5v14M5 12h14"/></svg></span>
-        <div class="faq-a">Yes. One click from your account or the confirmation email. Pause, skip a month, swap flavors, or cancel entirely. Le Comte will not be informed.</div>
-      </div>
-      <div class="faq-q">
-        <div class="faq-q-text">What if my cat refuses it?</div>
-        <span class="toggle" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 5v14M5 12h14"/></svg></span>
-        <div class="faq-a">The first tray is on us &mdash; full refund, no return. Keep the rest of the box to befriend the local strays. Roughly four percent of cats refuse on first contact and accept on second; we send a small note explaining this to your cat.</div>
-      </div>
-      <div class="faq-q">
-        <div class="faq-q-text">Is this real food, or is it a bit?</div>
-        <span class="toggle" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 5v14M5 12h14"/></svg></span>
-        <div class="faq-a">Both. The salmon is wild-caught Atlantic. The chicken is free-range from a small farm in Vermont. The &ldquo;one small woman in Lyon&rdquo; is a generalization &mdash; it's actually a kitchen of seven people. The bit is funny. The food is serious.</div>
-      </div>
-      <div class="faq-q">
-        <div class="faq-q-text">Why $1.89 per tray?</div>
-        <span class="toggle" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 5v14M5 12h14"/></svg></span>
-        <div class="faq-a">Because we cut the marketing budget. There is no celebrity-cat endorsement deal, no shelf-placement payment to retailers, no agency on retainer. The savings are passed directly to you. You're welcome.</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============== SUBSCRIBE / PRICING ============== -->
-<section class="subscribe" id="sub">
+<!-- ============ SUBSCRIBE ============ -->
+<article class="subscribe" id="sub">
+  <p class="folio"><span class="num">08.</span>Subscription</p>
   <div class="sub-grid">
     <div class="sub-text">
-      <p class="folio"><span class="num">09.</span><span class="rule"></span><span>Subscription</span></p>
       <h2>An ongoing subscription<br><em>to better cat food.</em></h2>
       <p>Twelve trays a month, all three flavors, delivered the day they're spooned. Cancel any time &mdash; we will not be hurt. We assume Le Comte already is.</p>
-      <ul class="sub-bullets">
-        <li>Twelve hand-spooned trays each month</li>
-        <li>All three flavors, in your chosen ratio</li>
-        <li>Free shipping in the continental US</li>
-        <li>Skip, swap, pause, or cancel from one click</li>
-        <li>First tray refundable on demand, no questions asked</li>
-      </ul>
     </div>
+    <div class="sub-price">
+      <p class="amt">$22.99<sub>/ mo</sub></p>
+      <a href="#" class="sub-cta">Begin<span class="arr">&nbsp;&rarr;</span></a>
+      <p class="ship">Ships within 48 hours from a small kitchen in Lyon, by way of a slightly bigger one in Newark.</p>
+    </div>
+  </div>
+</article>
 
-    <div class="price-card">
-      <div class="price-tabs">
-        <button class="price-tab" data-tab="once">One-time</button>
-        <button class="price-tab active" data-tab="sub">Subscription <span class="save">save 13%</span></button>
-      </div>
-      <div class="price-body">
-        <div class="price-line">
-          <span class="amt" id="price-amt">$19.99<sub id="price-suffix">/ mo</sub></span>
-          <span class="original" id="price-original">$22.99</span>
-        </div>
-        <ul class="price-features">
-          <li>Twelve trays, all three flavors</li>
-          <li>Free shipping, every month</li>
-          <li>Skip / swap / cancel any time</li>
-          <li>Priority on new flavor releases</li>
-        </ul>
-        <button class="price-cta" id="sub-cta">Begin subscription &nbsp;&rarr;</button>
-      </div>
-      <div class="price-foot">
-        Ships within 48 hours from a small kitchen in Lyon, by way of a slightly bigger one in Newark.
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============== FOOTER ============== -->
-<footer>
-  <div class="foot-grid">
-    <div class="foot-brand">
-      <h3>Pat&eacute; for my Cat&eacute;<span class="punct">.</span></h3>
-      <p>Hand-spooned French pat&eacute; for the cat who has, on principle, never paid for a single thing in his life. From a small kitchen in Lyon, by way of a slightly bigger one in Newark.</p>
-      <form class="newsletter" onsubmit="event.preventDefault();showToast('Subscribed. Le Comte will be notified.');this.reset();">
-        <input type="email" required placeholder="Your email address" aria-label="Email" />
-        <button type="submit">Subscribe &rarr;</button>
-      </form>
-      <p class="nl-helper">First-time newsletter signers receive $5 off their first box.</p>
-    </div>
-    <div class="foot-col">
-      <h4>Shop</h4>
-      <ul>
-        <li><a href="#collection">The Collection</a></li>
-        <li><a href="#collection">Saumon Royale</a></li>
-        <li><a href="#collection">Thon Proven&ccedil;al</a></li>
-        <li><a href="#collection">Poulet Champignon</a></li>
-        <li><a href="#build">Build a Box</a></li>
-        <li><a href="#sub">Subscription</a></li>
-      </ul>
-    </div>
-    <div class="foot-col">
-      <h4>Help</h4>
-      <ul>
-        <li><a href="#faq">FAQ</a></li>
-        <li><a href="#">Shipping</a></li>
-        <li><a href="#">Returns &amp; refunds</a></li>
-        <li><a href="#">Contact us</a></li>
-        <li><a href="#">Wholesale</a></li>
-      </ul>
-    </div>
-    <div class="foot-col">
-      <h4>About</h4>
-      <ul>
-        <li><a href="#profile">Le Comte</a></li>
-        <li><a href="#ingredients">Ingredients</a></li>
-        <li><a href="#">The atelier</a></li>
-        <li><a href="#">Our standards</a></li>
-        <li><a href="../">v.I &mdash; the can edition</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="foot-bottom">
-    <span>&copy; 2026 Pat&eacute; pour mon Cat&eacute;, Ltd.</span>
-    <span class="note">Set in Fraunces. Printed on recycled cream &mdash; wait, this is the internet. Le Comte does not endorse <a href="../">the can edition.</a> Loudly.</span>
-    <span class="pay-icons">
-      <span>Visa</span><span>MC</span><span>Amex</span><span>Apple Pay</span>
-    </span>
-  </div>
+<!-- ============ COLOPHON ============ -->
+<footer class="colophon">
+  <div class="mark">Pat&eacute; for my Cat&eacute;<span class="punct">.</span></div>
+  <div class="note">Set in Playfair Display and Source Serif. Printed on recycled cream &mdash; wait, this is the internet. The original is still <a href="../">at v.I, the can edition</a>. Le Comte does not endorse it. Loudly.</div>
+  <div class="yr">2026.</div>
 </footer>
 
-<!-- ============== STICKY MOBILE ATC ============== -->
-<div class="sticky-bar" id="sticky-bar">
-  <div class="pname"><strong>The Trio</strong>3 flavors &middot; 12 trays &middot; $19.99 / mo</div>
-  <button data-add="trio">Acquire &rarr;</button>
-</div>
-
-<!-- ============== CART DRAWER ============== -->
-<div class="drawer-bg" id="drawer-bg"></div>
-<aside class="drawer" id="drawer" aria-label="Cart">
-  <div class="drawer-head">
-    <h3>Your box</h3>
-    <button class="drawer-close" id="drawer-close" aria-label="Close cart">
-      <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg>
-    </button>
-  </div>
-  <div class="drawer-body" id="drawer-body">
-    <div class="drawer-empty" id="drawer-empty">
-      <p>Empty. Le Comte is disappointed.</p>
-      <p class="sub">Add a tray, a trio, or compose a box.</p>
-    </div>
-  </div>
-  <div class="drawer-foot" id="drawer-foot" style="display:none">
-    <div class="drawer-total">
-      <span class="lbl">Subtotal</span>
-      <span class="num">$<span id="cart-total">0.00</span></span>
-    </div>
-    <button class="drawer-cta">Proceed to checkout &nbsp;&rarr;</button>
-    <p class="drawer-ship">Free shipping over $40 &middot; Cancel any time</p>
-  </div>
-</aside>
-
-<!-- ============== TOAST ============== -->
-<div class="toast" id="toast">Added to your box.</div>
-
-<script>
-  // ====== CART STATE ======
-  const PRICES = { saumon:1.89, thon:1.89, poulet:1.89, trio:19.99, box:22.99, box_sub:19.99 };
-  const NAMES = { saumon:'Saumon Royale', thon:'Thon Provençal', poulet:'Poulet Champignon', trio:'The Trio (12 trays)', box:'Custom Box (12 trays)', box_sub:'Subscription Box (12 trays/mo)' };
-  let cart = JSON.parse(localStorage.getItem('pmc_cart') || '[]');
-
-  function saveCart(){ localStorage.setItem('pmc_cart', JSON.stringify(cart)); renderCart(); }
-  function cartCount(){ return cart.reduce((a,c)=>a+c.qty,0); }
-  function cartTotal(){ return cart.reduce((a,c)=>a+c.qty*c.price, 0); }
-  function renderCart(){
-    document.getElementById('cart-count').textContent = cartCount();
-    const body = document.getElementById('drawer-body');
-    const empty = document.getElementById('drawer-empty');
-    const foot = document.getElementById('drawer-foot');
-    if(!cart.length){
-      empty.style.display='block';
-      foot.style.display='none';
-      // remove any items rendered
-      body.querySelectorAll('.drawer-item').forEach(n=>n.remove());
-      return;
-    }
-    empty.style.display='none';
-    foot.style.display='block';
-    body.querySelectorAll('.drawer-item').forEach(n=>n.remove());
-    cart.forEach((it,i)=>{
-      const row = document.createElement('div');
-      row.className='drawer-item';
-      row.innerHTML = `
-        <div class="thumb"></div>
-        <div class="info">
-          <strong>${it.name}</strong>
-          <span class="qty-line"><em>Qty ${it.qty}</em> &middot; $${it.price.toFixed(2)} each</span>
-        </div>
-        <span class="price">$${(it.qty*it.price).toFixed(2)}</span>
-      `;
-      body.appendChild(row);
-    });
-    document.getElementById('cart-total').textContent = cartTotal().toFixed(2);
-  }
-
-  function addToCart(sku, qty=1){
-    const existing = cart.find(c=>c.sku===sku);
-    if(existing){ existing.qty += qty; }
-    else { cart.push({ sku, qty, price: PRICES[sku], name: NAMES[sku] }); }
-    saveCart();
-    showToast(`Added ${NAMES[sku]} to your box.`);
-  }
-
-  // ====== ADD-TO-CART BUTTONS ======
-  document.querySelectorAll('[data-add]').forEach(btn=>{
-    btn.addEventListener('click', e=>{
-      const sku = btn.dataset.add;
-      addToCart(sku, 1);
-      if(btn.classList.contains('add-btn')){
-        btn.classList.add('added');
-        const original = btn.textContent;
-        btn.textContent = 'Added';
-        setTimeout(()=>{ btn.classList.remove('added'); btn.textContent='Add to box'; }, 1400);
-      }
-    });
-  });
-
-  // ====== CART DRAWER ======
-  const drawer = document.getElementById('drawer');
-  const drawerBg = document.getElementById('drawer-bg');
-  function openDrawer(){ drawer.classList.add('open'); drawerBg.classList.add('open'); document.body.style.overflow='hidden'; }
-  function closeDrawer(){ drawer.classList.remove('open'); drawerBg.classList.remove('open'); document.body.style.overflow=''; }
-  document.getElementById('cart-btn').addEventListener('click', openDrawer);
-  document.getElementById('drawer-close').addEventListener('click', closeDrawer);
-  drawerBg.addEventListener('click', closeDrawer);
-
-  // ====== TOAST ======
-  const toast = document.getElementById('toast');
-  let toastTimer;
-  function showToast(msg){
-    toast.textContent = msg;
-    toast.classList.add('show');
-    clearTimeout(toastTimer);
-    toastTimer = setTimeout(()=>toast.classList.remove('show'), 2400);
-  }
-
-  // ====== BOX BUILDER ======
-  function updateBox(){
-    let count = 0;
-    document.querySelectorAll('.qty-stepper').forEach(stp=>{
-      count += parseInt(stp.querySelector('.val').textContent,10);
-    });
-    document.getElementById('box-count').textContent = count;
-    // base = 12 trays $22.99; each extra tray adds $1.89
-    const extra = Math.max(0, count-12);
-    const onceTotal = (22.99 + extra*1.89);
-    const subTotal = (19.99 + extra*1.59);
-    document.getElementById('box-total').textContent = onceTotal.toFixed(2);
-    document.getElementById('box-once-amt').textContent = onceTotal.toFixed(2);
-    document.getElementById('box-sub-amt').textContent = subTotal.toFixed(2);
-  }
-  document.querySelectorAll('.qty-stepper button').forEach(btn=>{
-    btn.addEventListener('click', e=>{
-      const stepper = btn.closest('.qty-stepper');
-      const val = stepper.querySelector('.val');
-      const step = parseInt(btn.dataset.step,10);
-      const newVal = Math.max(0, parseInt(val.textContent,10) + step);
-      val.textContent = newVal;
-      updateBox();
-    });
-  });
-  updateBox();
-
-  document.getElementById('box-add-once').addEventListener('click', ()=> addToCart('box',1));
-  document.getElementById('box-add-sub').addEventListener('click', ()=> addToCart('box_sub',1));
-
-  // ====== PRICE TABS ======
-  document.querySelectorAll('.price-tab').forEach(t=>{
-    t.addEventListener('click', e=>{
-      document.querySelectorAll('.price-tab').forEach(x=>x.classList.remove('active'));
-      t.classList.add('active');
-      const isSub = t.dataset.tab==='sub';
-      document.getElementById('price-amt').innerHTML = isSub
-        ? '$19.99<sub>/ mo</sub>'
-        : '$22.99<sub>one-time</sub>';
-      document.getElementById('price-original').textContent = isSub ? '$22.99' : '';
-      document.getElementById('sub-cta').textContent = isSub ? 'Begin subscription →' : 'Add this box to cart →';
-    });
-  });
-  document.getElementById('sub-cta').addEventListener('click', ()=>{
-    const active = document.querySelector('.price-tab.active').dataset.tab;
-    addToCart(active==='sub' ? 'box_sub' : 'box', 1);
-    openDrawer();
-  });
-
-  // ====== FAQ ACCORDION ======
-  document.querySelectorAll('.faq-q').forEach(q=>{
-    q.addEventListener('click', ()=>{
-      q.classList.toggle('open');
-    });
-  });
-
-  // ====== INIT ======
-  renderCart();
-</script>
 </body>
 </html>
