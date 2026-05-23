@@ -6,16 +6,18 @@ One-page brand site for **Paté for my Caté** — hand-spooned, French-style ca
 
 ```
 .
-├── index.html        Single-page site (inline CSS, no build step)
-├── images.md         5 nano-banana-2 text-to-image prompts for hero/product/lifestyle imagery
-├── netlify.toml      Netlify publish config
-└── images/           Place generated images here
-    ├── 01-hero-le-chat-royal.jpg
-    ├── 02a-saumon.jpg
-    ├── 02b-thon.jpg
-    ├── 02c-poulet.jpg
-    └── 05-latelier-kitchen.jpg
+├── index.html        v.I — original one-pager (tin packaging, romantic founder story)
+├── images.md         5 t2i prompts for v.I
+├── images/           v.I images (image-01 … image-05)
+├── v2/
+│   ├── index.html    v.II — Snap-Pack Edition (Le Comte mascot, Robin-Leach voice)
+│   ├── images.md     5 t2i prompts for v.II (new packaging + mascot)
+│   └── images/       v.II images (drop image-01 … image-05 here when generated)
+├── netlify.toml      Netlify publish config (publish = ".")
+└── README.md
 ```
+
+Both versions deploy from the same Netlify site. v.I is at `/`, v.II is at `/v2/`. They cross-link in their footers.
 
 ## Local preview
 
