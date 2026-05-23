@@ -3,1013 +3,501 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-<title>Paté for my Caté — Issue No. 02, The Snap-Pack</title>
-<meta name="description" content="A profile of Le Comte de Whiskersworth III, who has never paid for a single thing in his life, and yet — somehow — has standards. Featuring the Paté for my Caté snap-pack." />
+<title>Paté for my Caté — Lifestyles of the Rich and Feline.</title>
+<meta name="description" content="Paté for my Caté, the Snap-Pack Edition. Peel-and-serve French paté for the cat who tips zero and judges constantly. Endorsed by Le Comte de Whiskersworth III." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,800;1,400;1,700;1,800&family=Source+Serif+4:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500;1,600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600;1,700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   :root{
-    --paper:#efe5cf;
-    --paper-2:#e7dabc;
-    --paper-deep:#d8c89e;
-    --ink:#1c1612;
-    --ink-soft:#5b4d3c;
-    --rule:#b9a47e;
-    --rule-soft:#c9b896;
-    --burgundy:#6b1f2d;
-    --burgundy-d:#4a1620;
-    --plate:#0a1628;
-    --foil:#c9a961;
+    --navy:#0a1628;
+    --navy-2:#0e1c33;
+    --burgundy:#5c1f2e;
+    --burgundy-2:#3d141f;
+    --gold:#c9a961;
+    --gold-2:#a88636;
+    --gold-bright:#e0c587;
+    --cream:#f5ebd6;
+    --cream-2:#ece1c4;
+    --ink:#1a1a1a;
   }
   *{box-sizing:border-box;margin:0;padding:0}
-  html{background:var(--paper)}
-  body{
-    background:var(--paper);
-    color:var(--ink);
-    font-family:'Source Serif 4', 'EB Garamond', Georgia, serif;
-    font-weight:400;
-    font-size:17px;
-    line-height:1.65;
-    -webkit-font-smoothing:antialiased;
-    overflow-x:hidden;
-  }
+  html,body{background:var(--navy);color:var(--cream);font-family:'Inter',sans-serif;font-weight:300;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
   img{max-width:100%;display:block;height:auto}
   a{color:inherit;text-decoration:none}
-  a:hover{color:var(--burgundy)}
 
-  /* Paper grain — subtle multiply texture so it doesn't read as flat-rectangle CSS */
-  body::before{
-    content:'';
-    position:fixed;inset:0;
-    background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' seed='4'/><feColorMatrix values='0 0 0 0 0.11  0 0 0 0 0.08  0 0 0 0 0.05  0 0 0 0.22 0'/></filter><rect width='220' height='220' filter='url(%23n)'/></svg>");
-    opacity:.6;
-    mix-blend-mode:multiply;
-    pointer-events:none;
-    z-index:9;
-  }
+  .script{font-family:'Playfair Display',serif;font-style:italic;font-weight:600}
+  .display{font-family:'Cormorant Garamond',serif;font-weight:500;letter-spacing:.02em}
+  .eyebrow{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:500;letter-spacing:.32em;text-transform:uppercase;font-size:11px;color:var(--gold)}
+  .voiceover{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:400;color:var(--cream);opacity:.85;font-size:18px;line-height:1.65;letter-spacing:.005em}
 
-  /* Folio (section numbering, magazine-style) */
-  .folio{
-    font-family:'Source Serif 4',serif;
-    font-style:italic;
-    font-weight:400;
-    font-size:14px;
-    color:var(--ink-soft);
-    margin-bottom:18px;
-    letter-spacing:.01em;
-  }
-  .folio.light{color:var(--paper);opacity:.82}
-  .folio .num{
-    color:var(--burgundy);
-    font-style:normal;
-    font-weight:600;
-    margin-right:4px;
-    letter-spacing:.04em;
-  }
+  /* Corners */
+  .corner{position:absolute;width:50px;height:50px;border:1px solid var(--gold);opacity:.7}
+  .corner.tl{top:14px;left:14px;border-right:0;border-bottom:0}
+  .corner.tr{top:14px;right:14px;border-left:0;border-bottom:0}
+  .corner.bl{bottom:14px;left:14px;border-right:0;border-top:0}
+  .corner.br{bottom:14px;right:14px;border-left:0;border-top:0}
 
-  /* Headings */
-  h1,h2,h3,h4{
-    font-family:'Playfair Display',serif;
-    color:var(--ink);
-    font-weight:700;
-    letter-spacing:-.01em;
-  }
-  h2 em, h1 em, h3 em{
-    font-style:italic;
-    font-weight:400;
-    color:var(--burgundy);
-  }
-  .light h2, h2.light{color:var(--paper)}
-  .light h2 em{color:var(--foil)}
+  /* ============ NAV ============ */
+  nav{position:absolute;top:0;left:0;right:0;z-index:10;padding:22px 40px;display:flex;justify-content:space-between;align-items:center}
+  nav .brand{font-family:'Playfair Display',serif;font-style:italic;font-size:22px;color:var(--gold);letter-spacing:.01em}
+  nav .brand .ed{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--cream);opacity:.55;margin-left:10px;display:inline-block;vertical-align:middle;padding-left:10px;border-left:1px solid rgba(245,235,214,.25)}
+  nav ul{display:flex;gap:32px;list-style:none}
+  nav ul a{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:14px;letter-spacing:.2em;text-transform:uppercase;color:var(--cream);opacity:.85;transition:opacity .2s}
+  nav ul a:hover{opacity:1;color:var(--gold)}
+  nav .basket{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:13px;color:var(--gold);letter-spacing:.18em;text-transform:uppercase}
 
-  /* ============ MASTHEAD ============ */
-  .masthead{
-    display:grid;
-    grid-template-columns:1fr auto 1fr;
-    align-items:center;
-    padding:22px 56px;
-    border-bottom:1px solid var(--rule);
-    position:relative;
-    z-index:5;
-  }
-  .masthead .m-l{
-    font-family:'Playfair Display',serif;
-    font-style:italic;
-    font-weight:800;
-    font-size:24px;
-    letter-spacing:-.005em;
-  }
-  .masthead .m-l .punct{color:var(--burgundy);font-weight:700}
-  .masthead .m-c{
-    text-align:center;
-    font-family:'Source Serif 4',serif;
-    font-style:italic;
-    font-size:13px;
-    color:var(--ink-soft);
-  }
-  .masthead .m-r{
-    text-align:right;
-    font-family:'Source Serif 4',serif;
-    font-size:13px;
-    color:var(--ink-soft);
-  }
-  .masthead .m-r a{
-    text-decoration:none;
-    border-bottom:1px solid var(--rule);
-    padding-bottom:1px;
-    margin-left:14px;
-  }
+  /* ============ TV-AD BANNER (very 90s) ============ */
+  .tvband{background:linear-gradient(180deg,#5c1f2e,#3d141f);color:var(--gold-bright);text-align:center;padding:11px 20px;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:13px;letter-spacing:.32em;text-transform:uppercase;border-bottom:1px solid rgba(201,169,97,.4);position:relative;z-index:5}
+  .tvband .marquee{display:inline-block}
+  .tvband .dot{display:inline-block;margin:0 14px;color:var(--gold);opacity:.6}
 
-  /* ============ COVER ============ */
-  .cover{
-    display:grid;
-    grid-template-columns:0.88fr 1.12fr;
-    gap:72px;
-    align-items:end;
-    padding:88px 56px 110px;
-    position:relative;
-  }
-  .cover-left{padding-bottom:18px}
-  .cover h1{
-    font-size:clamp(56px,7.2vw,118px);
-    line-height:.92;
-    font-weight:800;
-    margin:18px 0 32px;
-    letter-spacing:-.015em;
-  }
-  .cover h1 em{
-    display:inline-block;
-    font-weight:400;
-    font-style:italic;
-    color:var(--burgundy);
-    transform:translateY(-0.04em);
-    margin-right:.05em;
-  }
-  .cover .swash{
-    display:inline-block;
-    width:90px;
-    height:1px;
-    background:var(--burgundy);
-    margin:0 0 22px 4px;
-    position:relative;
-  }
-  .cover .swash::after{
-    content:'';
-    position:absolute;
-    right:-1px;top:-3px;
-    width:7px;height:7px;
-    background:var(--burgundy);
-    transform:rotate(45deg);
-  }
-  .cover .deck{
-    font-family:'Source Serif 4',serif;
-    font-size:22px;
-    font-style:italic;
-    line-height:1.45;
-    color:var(--ink-soft);
-    max-width:480px;
-    margin-bottom:34px;
-  }
-  .cover .credit{
-    font-family:'Source Serif 4',serif;
-    font-size:12.5px;
-    font-style:italic;
-    color:var(--ink-soft);
-    opacity:.8;
-    line-height:1.5;
-  }
-  .cover-figure{margin:0}
-  .cover-figure img{
-    width:100%;
-    display:block;
-    box-shadow:0 30px 80px -34px rgba(28,22,18,.45);
-  }
-  .cover-figure figcaption{
-    font-family:'Source Serif 4',serif;
-    font-size:13px;
-    font-style:italic;
-    color:var(--ink-soft);
-    margin-top:14px;
-    padding-left:14px;
-    border-left:1px solid var(--rule);
-    max-width:520px;
-  }
+  /* ============ HERO ============ */
+  .hero{position:relative;min-height:100vh;background:radial-gradient(ellipse at 35% 55%, var(--navy-2) 0%, var(--navy) 60%, #06101e 100%);display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:110px 80px 80px;gap:60px;overflow:hidden}
+  .hero::before{content:"";position:absolute;inset:0;background:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="60" height="60"><circle cx="30" cy="30" r="1" fill="%23c9a961" opacity="0.06"/></svg>');pointer-events:none}
+  .hero-copy{position:relative;z-index:2}
+  .seen-on{display:inline-flex;align-items:center;gap:14px;padding:9px 18px;border:1px solid var(--gold);background:rgba(201,169,97,.05);font-family:'Cormorant Garamond',serif;font-style:italic;letter-spacing:.22em;font-size:11px;text-transform:uppercase;color:var(--gold-bright);margin-bottom:24px}
+  .seen-on::before{content:"●";color:#e02d2d;font-size:8px;letter-spacing:0}
+  .hero h1{font-family:'Playfair Display',serif;font-style:italic;font-weight:600;color:var(--gold-bright);font-size:clamp(48px,6.4vw,98px);line-height:.96;letter-spacing:-.01em;margin:6px 0 18px;text-shadow:0 2px 24px rgba(0,0,0,.4)}
+  .hero h1 .reg{font-style:normal;font-weight:400;color:var(--cream);font-size:.55em;display:block;letter-spacing:.06em;margin-bottom:6px}
+  .hero .tag{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:21px;color:var(--cream-2);margin:18px 0 8px;max-width:540px;line-height:1.45}
+  .hero .sub{font-size:14.5px;color:var(--cream);opacity:.7;max-width:480px;margin-bottom:32px}
+  .cta-row{display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+  .btn{display:inline-block;padding:16px 36px;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:16px;letter-spacing:.22em;text-transform:uppercase;border-radius:2px;transition:all .25s;cursor:pointer;border:none}
+  .btn-gold{background:linear-gradient(180deg,var(--gold-bright),var(--gold) 50%,var(--gold-2));color:var(--burgundy-2);box-shadow:0 8px 28px -10px rgba(201,169,97,.5),inset 0 1px 0 rgba(255,255,255,.4)}
+  .btn-gold:hover{transform:translateY(-2px);box-shadow:0 14px 32px -10px rgba(201,169,97,.7)}
+  .btn-ghost{color:var(--gold);border:1px solid var(--gold);background:transparent}
+  .btn-ghost:hover{background:rgba(201,169,97,.08)}
 
-  /* ============ PROFILE ============ */
-  .profile{
-    display:grid;
-    grid-template-columns:1.35fr 0.85fr;
-    gap:90px;
-    padding:110px 56px;
-    border-top:1px solid var(--rule);
-    position:relative;
-  }
-  .profile h2{
-    font-size:clamp(40px,4.6vw,72px);
-    line-height:.98;
-    margin-bottom:40px;
-    max-width:780px;
-  }
-  .prose p{
-    margin-bottom:20px;
-    font-size:18.5px;
-    line-height:1.7;
-    color:var(--ink);
-    max-width:580px;
-  }
-  .prose .lead{
-    font-size:20px;
-  }
-  .dropcap{
-    float:left;
-    font-family:'Playfair Display',serif;
-    font-weight:700;
-    font-size:92px;
-    line-height:.82;
-    margin:6px 14px 0 0;
-    color:var(--burgundy);
-    font-style:italic;
-  }
-  .prose em{color:var(--burgundy);font-style:italic}
+  .hero-img{position:relative;border-radius:3px;overflow:hidden;aspect-ratio:3/2;background:linear-gradient(135deg,#1a2540,#0c1830);box-shadow:0 30px 80px -20px rgba(0,0,0,.7),0 0 0 1px rgba(201,169,97,.18)}
+  .hero-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+  .hero-img::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 60%,rgba(10,22,40,.4));z-index:1;pointer-events:none}
+  .hero-img .stamp{position:absolute;top:24px;left:24px;background:rgba(10,22,40,.78);border:1px solid var(--gold);padding:8px 14px;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:11px;letter-spacing:.28em;color:var(--gold-bright);text-transform:uppercase;z-index:3}
+  .hero-img .corner{z-index:2}
+  .hero-img .quote-bubble{position:absolute;bottom:24px;right:24px;background:rgba(245,235,214,.96);color:var(--burgundy-2);padding:14px 18px;max-width:62%;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:14px;line-height:1.45;z-index:3;border-left:3px solid var(--gold);box-shadow:0 14px 30px -12px rgba(0,0,0,.5)}
+  .hero-img .quote-bubble .src{display:block;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--burgundy);margin-top:8px;font-style:normal;font-family:'Inter',sans-serif;font-weight:500}
 
-  /* Dossier — magazine sidebar style, not a "card" */
-  .dossier{
-    align-self:start;
-    padding-top:6px;
-  }
-  .dossier h3{
-    font-family:'Playfair Display',serif;
-    font-style:italic;
-    font-weight:700;
-    font-size:30px;
-    line-height:1.05;
-    margin-bottom:8px;
-  }
-  .dossier .title{
-    font-family:'Source Serif 4',serif;
-    font-style:italic;
-    font-size:13.5px;
-    color:var(--ink-soft);
-    margin-bottom:20px;
-    padding-bottom:22px;
-    border-bottom:1px solid var(--rule);
-    letter-spacing:.02em;
-  }
-  .dossier ul{list-style:none}
-  .dossier ul li{
-    font-family:'Source Serif 4',serif;
-    font-style:italic;
-    font-size:16px;
-    color:var(--ink);
-    padding:11px 0;
-    border-bottom:1px dotted var(--rule-soft);
-    line-height:1.5;
-  }
-  .dossier .pull{
-    margin-top:30px;
-    font-family:'Playfair Display',serif;
-    font-style:italic;
-    font-weight:400;
-    font-size:23px;
-    color:var(--ink);
-    line-height:1.32;
-    padding-left:22px;
-    border-left:2px solid var(--burgundy);
-  }
-  .dossier .pull span{
-    display:block;
-    font-family:'Source Serif 4',serif;
-    font-size:12.5px;
-    font-style:italic;
-    color:var(--ink-soft);
-    margin-top:12px;
-    font-weight:400;
-  }
+  /* ============ SECTION ============ */
+  .section{padding:120px 80px;position:relative}
+  .section-head{text-align:center;max-width:760px;margin:0 auto 60px}
+  .section-head h2{font-family:'Cormorant Garamond',serif;font-weight:500;color:var(--gold-bright);font-size:clamp(40px,4.6vw,64px);line-height:1.05;margin:14px 0 18px}
+  .section-head h2 em{font-family:'Playfair Display',serif;font-style:italic;font-weight:600}
+  .section-head p{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:19px;color:var(--cream);opacity:.78;max-width:600px;margin:0 auto;line-height:1.55}
 
-  /* ============ SNAP-PACK (PLATE) ============ */
-  .plate{
-    background:var(--plate);
-    color:var(--paper);
-    position:relative;
-  }
-  .plate::before{
-    /* tiny variance in the plate so it doesn't feel like a flat fill */
-    content:'';
-    position:absolute;inset:0;
-    background:radial-gradient(ellipse at 20% 30%, rgba(255,235,200,.04), transparent 60%);
-    pointer-events:none;
-  }
-  .snap{
-    display:grid;
-    grid-template-columns:1.05fr 0.95fr;
-    gap:0;
-    align-items:stretch;
-    border-top:1px solid var(--rule);
-  }
-  .snap-figure{margin:0;position:relative}
-  .snap-figure img{
-    width:100%;height:100%;
-    object-fit:cover;
-    min-height:560px;
-  }
-  .snap-text{
-    padding:96px 72px;
-    align-self:center;
-    position:relative;
-    z-index:2;
-  }
-  .snap-text h2{
-    color:var(--paper);
-    font-size:clamp(38px,4.4vw,62px);
-    line-height:1.02;
-    margin-bottom:42px;
-  }
-  .snap-text h2 em{color:var(--foil);font-style:italic;font-weight:400}
-  .steps{list-style:none}
-  .steps li{
-    display:grid;
-    grid-template-columns:64px 1fr;
-    gap:18px;
-    padding:24px 0;
-    border-top:1px solid rgba(245,229,207,.18);
-    align-items:baseline;
-  }
-  .steps li:last-child{border-bottom:1px solid rgba(245,229,207,.18)}
-  .steps .rn{
-    font-family:'Playfair Display',serif;
-    font-style:italic;
-    font-weight:400;
-    font-size:38px;
-    color:var(--foil);
-    line-height:1;
-  }
-  .steps h4{
-    font-family:'Playfair Display',serif;
-    font-style:italic;
-    font-weight:700;
-    font-size:24px;
-    color:var(--paper);
-    margin-bottom:5px;
-  }
-  .steps p{
-    font-family:'Source Serif 4',serif;
-    font-size:15.5px;
-    color:var(--paper);
-    opacity:.78;
-    line-height:1.6;
-    max-width:420px;
-  }
-  .snap-aside{
-    margin-top:36px;
-    font-family:'Source Serif 4',serif;
-    font-style:italic;
-    font-size:13px;
-    color:var(--foil);
-    opacity:.85;
-    line-height:1.5;
-    max-width:420px;
-  }
+  /* ============ MEET LE COMTE ============ */
+  .meet{background:linear-gradient(180deg,var(--navy) 0%,#0c1a30 100%);padding:110px 80px;display:grid;grid-template-columns:1.05fr 1fr;gap:80px;align-items:center}
+  .dossier{position:relative;background:rgba(245,235,214,.04);border:1px solid var(--gold);padding:48px 44px;max-width:540px}
+  .dossier::before{content:"DOSSIER";position:absolute;top:-12px;left:24px;background:var(--navy);padding:0 14px;font-family:'Cormorant Garamond',serif;font-style:italic;letter-spacing:.32em;font-size:11px;color:var(--gold-bright)}
+  .dossier h3{font-family:'Playfair Display',serif;font-style:italic;font-weight:600;color:var(--gold-bright);font-size:36px;line-height:1.05;margin-bottom:6px}
+  .dossier .title{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:14px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);opacity:.85;margin-bottom:22px}
+  .creds{list-style:none;border-top:1px solid rgba(201,169,97,.3);padding-top:18px}
+  .creds li{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:16px;color:var(--cream);padding:8px 0 8px 24px;position:relative;line-height:1.5}
+  .creds li::before{content:"\2734";color:var(--gold);position:absolute;left:0;top:8px;font-style:normal;font-size:12px}
+  .quote-box{margin-top:24px;padding:18px 22px;background:linear-gradient(180deg,rgba(92,31,46,.3),rgba(92,31,46,.1));border-left:3px solid var(--gold)}
+  .quote-box p{font-family:'Playfair Display',serif;font-style:italic;font-size:20px;color:var(--cream);line-height:1.4}
+  .quote-box .by{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);margin-top:10px;display:block}
+
+  .meet-copy h2{font-family:'Cormorant Garamond',serif;font-weight:500;color:var(--gold-bright);font-size:clamp(38px,4.4vw,60px);line-height:1.05;margin:14px 0 22px}
+  .meet-copy h2 em{font-family:'Playfair Display',serif;font-style:italic;font-weight:600}
+  .meet-copy p{margin-bottom:14px;line-height:1.8;color:var(--cream);opacity:.88;max-width:520px}
+
+  /* ============ THE SNAP-PACK ============ */
+  .snap{background:linear-gradient(180deg,#0c1a30 0%,var(--navy-2) 100%);padding:120px 80px}
+  .snap-grid{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;max-width:1280px;margin:0 auto}
+  .snap-img{aspect-ratio:16/10;position:relative;overflow:hidden;border-radius:2px;box-shadow:0 30px 80px -20px rgba(0,0,0,.7),0 0 0 1px rgba(201,169,97,.18);background:#0c1830}
+  .snap-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+  .snap-img .corner{z-index:2}
+  .snap-copy h2{font-family:'Cormorant Garamond',serif;font-weight:500;color:var(--gold-bright);font-size:clamp(38px,4.4vw,60px);line-height:1.05;margin:14px 0 22px}
+  .snap-copy h2 em{font-family:'Playfair Display',serif;font-style:italic;font-weight:600}
+  .steps{display:flex;flex-direction:column;gap:18px;margin:24px 0 32px;max-width:520px}
+  .step{display:flex;gap:18px;align-items:flex-start;padding-bottom:18px;border-bottom:1px solid rgba(201,169,97,.18)}
+  .step:last-child{border-bottom:none}
+  .step .n{font-family:'Playfair Display',serif;font-style:italic;font-weight:600;color:var(--gold-bright);font-size:34px;line-height:1;min-width:42px}
+  .step .t{flex:1}
+  .step .t h4{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:21px;color:var(--cream);margin-bottom:4px;letter-spacing:.01em}
+  .step .t p{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:15px;color:var(--cream);opacity:.7;line-height:1.5}
+  .snap-copy .aside{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:14px;color:var(--gold);opacity:.85;padding-top:12px;letter-spacing:.04em}
 
   /* ============ COLLECTION ============ */
-  .collection{
-    padding:110px 56px;
-    border-top:1px solid var(--rule);
-  }
-  .collection h2{
-    font-size:clamp(40px,4.6vw,72px);
-    line-height:.98;
-    margin-bottom:48px;
-    max-width:780px;
-  }
-  .trio{margin:0 0 56px;position:relative}
-  .trio img{width:100%;display:block;box-shadow:0 30px 80px -34px rgba(28,22,18,.45)}
-  .trio figcaption{
-    font-family:'Source Serif 4',serif;
-    font-size:13px;
-    font-style:italic;
-    color:var(--ink-soft);
-    margin-top:14px;
-    padding-left:14px;
-    border-left:1px solid var(--rule);
-    max-width:560px;
-  }
-  .menu{border-top:1px solid var(--rule)}
-  .menu-row{
-    display:grid;
-    grid-template-columns:42px minmax(180px,auto) 1fr auto 80px;
-    gap:18px;
-    padding:22px 0;
-    border-bottom:1px solid var(--rule);
-    align-items:baseline;
-  }
-  .menu-no{
-    font-family:'Source Serif 4',serif;
-    font-style:italic;
-    color:var(--ink-soft);
-    font-size:15px;
-  }
-  .menu-name{
-    font-family:'Playfair Display',serif;
-    font-style:italic;
-    font-weight:700;
-    font-size:26px;
-    color:var(--ink);
-    line-height:1.1;
-  }
-  .menu-leader{
-    border-bottom:1px dotted var(--rule);
-    align-self:end;
-    margin-bottom:8px;
-    height:1px;
-  }
-  .menu-desc{
-    font-family:'Source Serif 4',serif;
-    font-style:italic;
-    font-size:15.5px;
-    color:var(--ink-soft);
-    max-width:440px;
-    text-align:left;
-    line-height:1.5;
-  }
-  .menu-price{
-    font-family:'Playfair Display',serif;
-    font-weight:700;
-    font-size:22px;
-    color:var(--burgundy);
-    text-align:right;
-  }
+  .collection{background:var(--navy);padding:120px 80px}
+  .collection-hero{max-width:1240px;margin:0 auto 56px;position:relative;border-radius:2px;overflow:hidden;box-shadow:0 30px 80px -20px rgba(0,0,0,.7),0 0 0 1px rgba(201,169,97,.22);aspect-ratio:16/9}
+  .collection-hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+  .collection-hero .corner{z-index:2;opacity:.85}
+  .flavors{display:grid;grid-template-columns:repeat(3,1fr);gap:36px;max-width:1140px;margin:0 auto}
+  .flavor{position:relative;background:linear-gradient(180deg,rgba(245,235,214,.04),rgba(245,235,214,.015));border:1px solid rgba(201,169,97,.2);padding:36px 28px 30px;text-align:center;border-radius:2px;transition:all .35s}
+  .flavor::before{content:"";position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+  .flavor:hover{transform:translateY(-4px);border-color:var(--gold)}
+  .flavor h3{font-family:'Playfair Display',serif;font-style:italic;font-weight:600;font-size:30px;color:var(--gold-bright);margin:6px 0 10px}
+  .flavor .robin{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:15px;color:var(--cream);opacity:.78;margin-bottom:18px;line-height:1.55;min-height:84px}
+  .price{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:22px;color:var(--gold);letter-spacing:.04em}
+  .price small{font-size:12px;color:var(--cream);opacity:.55;letter-spacing:.16em;text-transform:uppercase;font-style:italic;margin-left:6px}
 
-  /* ============ LIFESTYLE (PLATE) ============ */
-  .lifestyle{
-    position:relative;
-    min-height:88vh;
-    overflow:hidden;
-    border-top:1px solid var(--rule);
-    background:var(--plate);
-  }
-  .lifestyle .bg{
-    position:absolute;inset:0;
-    width:100%;height:100%;
-    object-fit:cover;
-    z-index:0;
-  }
-  .lifestyle::after{
-    content:'';
-    position:absolute;inset:0;
-    background:linear-gradient(115deg, rgba(10,22,40,.75) 0%, rgba(10,22,40,.3) 42%, rgba(10,22,40,0) 68%);
-    z-index:1;
-  }
-  .lifestyle-overlay{
-    position:relative;
-    z-index:2;
-    padding:110px 56px;
-    max-width:620px;
-  }
-  .lifestyle h2{
-    font-family:'Playfair Display',serif;
-    font-weight:700;
-    font-style:italic;
-    color:var(--paper);
-    font-size:clamp(38px,4.8vw,68px);
-    line-height:1.02;
-    margin-bottom:30px;
-    letter-spacing:-.005em;
-  }
-  .lifestyle .narration{
-    font-family:'Source Serif 4',serif;
-    font-style:italic;
-    font-size:20px;
-    color:var(--paper);
-    line-height:1.55;
-    max-width:500px;
-    opacity:.94;
-  }
-  .lifestyle .byline{
-    font-family:'Source Serif 4',serif;
-    font-style:italic;
-    font-size:13px;
-    color:var(--foil);
-    margin-top:30px;
-    opacity:.92;
-    letter-spacing:.02em;
-  }
+  /* ============ A DAY IN HIS LIFE (lifestyle band) ============ */
+  .day{position:relative;min-height:80vh;display:flex;align-items:center;justify-content:center;overflow:hidden;background:#0a0f1c}
+  .day img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.82;z-index:0}
+  .day::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,22,40,.55) 0%,rgba(10,22,40,.2) 40%,rgba(10,22,40,.7) 100%);z-index:1}
+  .day-copy{position:relative;z-index:2;text-align:center;padding:100px 30px;max-width:780px}
+  .day-copy .eyebrow{color:var(--gold-bright);margin-bottom:16px;display:block}
+  .day-copy h2{font-family:'Playfair Display',serif;font-style:italic;font-weight:600;color:var(--cream);font-size:clamp(34px,4.4vw,58px);line-height:1.12;margin-bottom:26px;text-shadow:0 4px 30px rgba(0,0,0,.85)}
+  .day-copy .narr{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:19px;color:var(--cream);opacity:.92;max-width:620px;margin:0 auto;line-height:1.6;text-shadow:0 2px 20px rgba(0,0,0,.6)}
+  .day-copy .narr-by{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:12px;color:var(--gold);letter-spacing:.26em;text-transform:uppercase;margin-top:24px;opacity:.95}
 
-  /* ============ INGREDIENTS ============ */
-  .ingredients{
-    padding:110px 56px;
-    display:grid;
-    grid-template-columns:1.05fr 0.95fr;
-    gap:80px;
-    align-items:start;
-    border-top:1px solid var(--rule);
-  }
-  .ing-text h2{
-    font-size:clamp(40px,4.6vw,68px);
-    line-height:.98;
-    margin-bottom:22px;
-  }
-  .ing-text .lead{
-    font-family:'Source Serif 4',serif;
-    font-style:italic;
-    font-size:20px;
-    color:var(--burgundy);
-    margin-bottom:20px;
-    line-height:1.45;
-    max-width:520px;
-  }
-  .ing-text p{
-    font-size:17px;
-    margin-bottom:18px;
-    color:var(--ink);
-    line-height:1.7;
-    max-width:520px;
-  }
-  .ing-list{
-    list-style:none;
-    border-top:1px solid var(--rule);
-    margin-top:30px;
-    max-width:520px;
-  }
-  .ing-list li{
-    display:grid;
-    grid-template-columns:1fr auto;
-    padding:12px 0;
-    border-bottom:1px dotted var(--rule-soft);
-    font-family:'Source Serif 4',serif;
-    font-style:italic;
-    font-size:16.5px;
-    color:var(--ink);
-    align-items:baseline;
-  }
-  .ing-list li span:last-child{
-    color:var(--ink-soft);
-    font-size:13px;
-    letter-spacing:.02em;
-    font-style:italic;
-  }
-  .ing-fig{margin:0;position:sticky;top:30px}
-  .ing-fig img{width:100%;box-shadow:0 30px 80px -34px rgba(28,22,18,.4)}
-  .ing-fig figcaption{
-    font-family:'Source Serif 4',serif;
-    font-size:13px;
-    font-style:italic;
-    color:var(--ink-soft);
-    margin-top:14px;
-    padding-left:14px;
-    border-left:1px solid var(--rule);
-  }
+  /* ============ REAL INGREDIENTS (the serious break) ============ */
+  .real{background:linear-gradient(180deg,var(--navy) 0%,#0c1830 100%);padding:120px 80px;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+  .real-copy h2{font-family:'Cormorant Garamond',serif;font-weight:500;color:var(--gold-bright);font-size:clamp(38px,4.4vw,60px);line-height:1.05;margin:14px 0 18px}
+  .real-copy h2 em{font-family:'Playfair Display',serif;font-style:italic;font-weight:600}
+  .real-copy .lead{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:18px;color:var(--cream);opacity:.85;margin-bottom:18px;line-height:1.55;max-width:520px}
+  .real-copy p{margin-bottom:14px;line-height:1.8;color:var(--cream);opacity:.85;max-width:520px}
+  .real-list{list-style:none;margin-top:24px;column-count:2;column-gap:24px;max-width:520px}
+  .real-list li{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:16px;color:var(--cream);padding:6px 0 6px 22px;position:relative;break-inside:avoid}
+  .real-list li::before{content:"";position:absolute;left:0;top:14px;width:10px;height:1px;background:var(--gold)}
+  .real-img{aspect-ratio:1;position:relative;overflow:hidden;border-radius:2px;box-shadow:0 30px 80px -20px rgba(0,0,0,.7),0 0 0 1px rgba(201,169,97,.18);background:#0c1830}
+  .real-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+  .real-img .corner{z-index:2}
 
-  /* ============ RECEPTION ============ */
-  .reception{
-    padding:120px 56px;
-    border-top:1px solid var(--rule);
-    background:var(--paper-2);
-    position:relative;
-  }
-  .big-quote{
-    max-width:900px;
-    margin:0 auto 70px;
-    position:relative;
-  }
-  .big-quote::before{
-    content:'\201C';
-    position:absolute;
-    top:-44px;left:-22px;
-    font-family:'Playfair Display',serif;
-    font-style:italic;
-    font-size:160px;
-    line-height:1;
-    color:var(--burgundy);
-    opacity:.28;
-  }
-  .big-quote p{
-    font-family:'Playfair Display',serif;
-    font-style:italic;
-    font-weight:400;
-    font-size:clamp(30px,3.8vw,54px);
-    line-height:1.15;
-    color:var(--ink);
-    position:relative;
-  }
-  .big-quote footer{
-    font-family:'Source Serif 4',serif;
-    font-style:italic;
-    font-size:15px;
-    color:var(--ink-soft);
-    margin-top:28px;
-  }
-  .small-quotes{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:70px;
-    max-width:1040px;
-    margin:0 auto;
-    padding-top:54px;
-    border-top:1px solid var(--rule);
-  }
-  .small-quotes blockquote p{
-    font-family:'Source Serif 4',serif;
-    font-style:italic;
-    font-size:19px;
-    line-height:1.55;
-    color:var(--ink);
-    margin-bottom:16px;
-  }
-  .small-quotes blockquote p em{font-style:normal;font-weight:600}
-  .small-quotes blockquote footer{
-    font-family:'Source Serif 4',serif;
-    font-style:italic;
-    font-size:13px;
-    color:var(--ink-soft);
-    line-height:1.5;
-  }
+  /* ============ LE COMTE'S SET (testimonials) ============ */
+  .set{background:linear-gradient(180deg,#0c1830 0%,var(--burgundy-2) 100%);padding:120px 80px}
+  .endors{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;max-width:1200px;margin:0 auto}
+  .endor{background:rgba(245,235,214,.03);border:1px solid rgba(201,169,97,.2);padding:38px 30px 30px;position:relative;border-radius:2px}
+  .endor::before{content:"\201C";position:absolute;top:-4px;left:18px;font-family:'Playfair Display',serif;font-style:italic;font-size:80px;color:var(--gold);line-height:1;opacity:.85}
+  .endor .stars{color:var(--gold);letter-spacing:.18em;font-size:12px;margin-bottom:12px}
+  .endor p{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:18px;line-height:1.55;color:var(--cream);margin:6px 0 22px}
+  .endor .name{font-family:'Playfair Display',serif;font-style:italic;font-weight:600;color:var(--gold-bright);font-size:17px;line-height:1.2}
+  .endor .estate{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:12px;color:var(--cream);opacity:.6;letter-spacing:.14em;text-transform:uppercase;margin-top:4px}
 
-  /* ============ SUBSCRIBE ============ */
-  .subscribe{
-    padding:120px 56px;
-    border-top:1px solid var(--rule);
-    background:var(--paper-deep);
-  }
-  .sub-grid{
-    display:grid;
-    grid-template-columns:1.3fr 0.7fr;
-    gap:90px;
-    align-items:center;
-    max-width:1180px;
-    margin:0 auto;
-  }
-  .sub-text h2{
-    font-size:clamp(40px,4.6vw,66px);
-    line-height:.98;
-    margin-bottom:24px;
-  }
-  .sub-text p{
-    font-family:'Source Serif 4',serif;
-    font-style:italic;
-    font-size:19px;
-    color:var(--ink-soft);
-    max-width:480px;
-    line-height:1.5;
-  }
-  .sub-price{text-align:left}
-  .sub-price .amt{
-    font-family:'Playfair Display',serif;
-    font-weight:800;
-    font-size:96px;
-    color:var(--burgundy);
-    line-height:.9;
-    margin-bottom:4px;
-    letter-spacing:-.02em;
-  }
-  .sub-price .amt sub{
-    font-family:'Source Serif 4',serif;
-    font-weight:400;
-    font-style:italic;
-    font-size:18px;
-    color:var(--ink-soft);
-    margin-left:6px;
-    vertical-align:baseline;
-  }
-  .sub-cta{
-    display:inline-block;
-    margin:18px 0 16px;
-    font-family:'Playfair Display',serif;
-    font-style:italic;
-    font-weight:700;
-    font-size:24px;
-    color:var(--ink);
-    border-bottom:2px solid var(--burgundy);
-    text-decoration:none;
-    padding-bottom:3px;
-    transition:color .2s, border-color .2s;
-  }
-  .sub-cta:hover{color:var(--burgundy);border-color:var(--ink)}
-  .sub-cta .arr{display:inline-block;margin-left:6px;font-family:'Source Serif 4',serif;font-style:italic}
-  .sub-price .ship{
-    font-family:'Source Serif 4',serif;
-    font-size:13px;
-    font-style:italic;
-    color:var(--ink-soft);
-    max-width:340px;
-    line-height:1.55;
-    margin-top:4px;
-  }
+  /* ============ FINAL CTA ============ */
+  .final{background:linear-gradient(180deg,var(--burgundy-2) 0%,var(--burgundy) 100%);padding:140px 80px;text-align:center;position:relative;overflow:hidden}
+  .final::before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(201,169,97,.1),transparent 60%);pointer-events:none}
+  .final h2{font-family:'Playfair Display',serif;font-style:italic;font-weight:600;color:var(--gold-bright);font-size:clamp(46px,5.8vw,84px);line-height:1.02;letter-spacing:-.01em;margin-bottom:18px;position:relative}
+  .final .sub{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:22px;color:var(--cream);opacity:.92;max-width:620px;margin:0 auto 36px;position:relative;line-height:1.4}
+  .final .pre{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:13px;color:var(--gold-bright);letter-spacing:.32em;text-transform:uppercase;margin-bottom:18px;position:relative;display:block}
+  .final .btn-gold{font-size:18px;padding:20px 56px;position:relative}
+  .final .ship{margin-top:22px;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:13px;color:var(--cream);opacity:.55;letter-spacing:.18em;text-transform:uppercase;position:relative}
 
-  /* ============ COLOPHON ============ */
-  .colophon{
-    padding:40px 56px 50px;
-    border-top:1px solid var(--rule);
-    display:grid;
-    grid-template-columns:auto 1fr auto;
-    gap:30px;
-    align-items:center;
-    font-family:'Source Serif 4',serif;
-    font-style:italic;
-    font-size:13px;
-    color:var(--ink-soft);
-  }
-  .colophon .mark{
-    font-family:'Playfair Display',serif;
-    font-style:italic;
-    font-weight:700;
-    font-size:18px;
-    color:var(--ink);
-  }
-  .colophon .mark .punct{color:var(--burgundy)}
-  .colophon .note{text-align:center;max-width:580px;justify-self:center;line-height:1.55}
-  .colophon .note a{border-bottom:1px solid var(--rule);padding-bottom:1px}
-  .colophon .yr{text-align:right;letter-spacing:.04em}
+  /* ============ FOOTER ============ */
+  footer{background:#06101e;padding:46px 80px 32px;text-align:center;border-top:1px solid rgba(201,169,97,.18)}
+  footer .mark{font-family:'Playfair Display',serif;font-style:italic;font-size:26px;color:var(--gold);margin-bottom:14px}
+  footer .links{display:flex;gap:30px;justify-content:center;margin-bottom:20px;flex-wrap:wrap}
+  footer .links a{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:14px;letter-spacing:.18em;text-transform:uppercase;color:var(--cream);opacity:.7;transition:opacity .2s}
+  footer .links a:hover{opacity:1;color:var(--gold)}
+  footer .fine{font-size:12px;color:var(--cream);opacity:.4;letter-spacing:.06em;margin-top:6px}
+  footer .robin-tag{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:11px;letter-spacing:.24em;color:var(--gold);opacity:.55;text-transform:uppercase;margin-top:14px}
 
   /* ============ RESPONSIVE ============ */
-  @media (max-width:1024px){
-    .cover{padding:72px 40px 90px;gap:48px}
-    .profile{padding:90px 40px;gap:60px}
-    .snap-text{padding:80px 48px}
-    .collection,.ingredients,.reception,.subscribe{padding:90px 40px}
-    .lifestyle-overlay{padding:90px 40px}
-    .masthead{padding:20px 40px}
-    .colophon{padding:32px 40px 40px}
+  @media (max-width:960px){
+    nav{padding:18px 22px}
+    nav ul{display:none}
+    nav .brand .ed{display:none}
+    .hero{grid-template-columns:1fr;padding:110px 24px 60px;gap:38px;min-height:auto}
+    .hero h1{font-size:60px}
+    .hero .tag{font-size:18px}
+    .section{padding:80px 24px}
+    .meet,.snap,.real{grid-template-columns:1fr;padding:80px 24px;gap:42px}
+    .snap-grid{grid-template-columns:1fr;gap:42px}
+    .flavors{grid-template-columns:1fr;gap:24px}
+    .collection{padding:80px 24px}
+    .day{min-height:58vh}
+    .day-copy{padding:70px 24px}
+    .real-list{column-count:1}
+    .endors{grid-template-columns:1fr;gap:24px}
+    .set{padding:80px 24px}
+    .final{padding:90px 24px}
+    .final h2{font-size:50px}
+    footer{padding:38px 24px 28px}
+    .dossier{padding:36px 28px;max-width:none}
+    .hero-img .quote-bubble{left:14px;right:14px;bottom:14px;max-width:none;font-size:13px;padding:12px 16px}
+    .hero-img .stamp{top:14px;left:14px;font-size:10px;letter-spacing:.22em;padding:7px 12px}
   }
-  @media (max-width:780px){
-    .masthead{grid-template-columns:1fr auto;padding:16px 22px;gap:14px}
-    .masthead .m-c{display:none}
-    .masthead .m-r{font-size:12px}
-    .masthead .m-r a{margin-left:10px}
-
-    .cover{grid-template-columns:1fr;padding:48px 22px 64px;gap:34px;align-items:start}
-    .cover h1{font-size:60px;margin:14px 0 22px}
-    .cover .deck{font-size:19px}
-    .cover-figure{order:-1}
-
-    .profile{grid-template-columns:1fr;padding:64px 22px;gap:48px}
-    .profile h2{font-size:42px}
-    .prose p{font-size:17px}
-    .dossier{padding-top:30px;border-top:1px solid var(--rule)}
-
-    .snap{grid-template-columns:1fr}
-    .snap-figure img{min-height:0;aspect-ratio:16/10}
-    .snap-text{padding:56px 22px}
-    .snap-text h2{font-size:36px}
-    .steps li{grid-template-columns:46px 1fr;gap:12px;padding:18px 0}
-    .steps .rn{font-size:30px}
-    .steps h4{font-size:21px}
-    .steps p{font-size:14.5px}
-
-    .collection{padding:64px 22px}
-    .collection h2{font-size:38px;margin-bottom:36px}
-    .menu-row{
-      grid-template-columns:28px 1fr auto;
-      gap:10px;padding:18px 0;
-      align-items:baseline;
-    }
-    .menu-leader{display:none}
-    .menu-desc{grid-column:2/4;font-size:14.5px;margin-top:6px;max-width:none}
-    .menu-name{font-size:22px}
-    .menu-price{font-size:19px}
-    .trio{margin-bottom:36px}
-
-    .lifestyle{min-height:62vh}
-    .lifestyle-overlay{padding:64px 22px;max-width:none}
-    .lifestyle h2{font-size:34px;margin-bottom:22px}
-    .lifestyle .narration{font-size:17px}
-    .lifestyle::after{background:linear-gradient(180deg,rgba(10,22,40,.45) 0%, rgba(10,22,40,.15) 40%, rgba(10,22,40,.7) 100%)}
-
-    .ingredients{grid-template-columns:1fr;padding:64px 22px;gap:34px}
-    .ing-text h2{font-size:38px}
-    .ing-text .lead{font-size:18px}
-    .ing-fig{position:relative;top:0}
-
-    .reception{padding:72px 22px}
-    .big-quote{margin-bottom:48px}
-    .big-quote::before{font-size:120px;top:-32px;left:-10px}
-    .big-quote p{font-size:26px;line-height:1.25}
-    .small-quotes{grid-template-columns:1fr;gap:34px;padding-top:36px}
-
-    .subscribe{padding:72px 22px}
-    .sub-grid{grid-template-columns:1fr;gap:38px}
-    .sub-text h2{font-size:34px}
-    .sub-text p{font-size:17px}
-    .sub-price .amt{font-size:68px}
-    .sub-cta{font-size:21px}
-
-    .colophon{grid-template-columns:1fr;gap:14px;padding:30px 22px 36px;text-align:center}
-    .colophon .note{justify-self:center}
-    .colophon .yr{text-align:center}
+  @media (max-width:600px){
+    nav{padding:16px 18px}
+    nav .brand{font-size:19px}
+    nav .basket{font-size:11px;letter-spacing:.14em}
+    .hero{padding:94px 20px 48px;gap:32px}
+    .hero h1{font-size:48px}
+    .hero .tag{font-size:17px;margin:14px 0 6px}
+    .hero .sub{font-size:14px;margin-bottom:26px}
+    .section,.meet,.snap,.real,.collection,.set{padding:64px 20px}
+    .section-head{margin-bottom:42px}
+    .section-head h2{font-size:36px}
+    .section-head p{font-size:17px}
+    .meet-copy h2,.snap-copy h2,.real-copy h2{font-size:34px}
+    .meet-copy p{font-size:15px}
+    .dossier{padding:30px 22px}
+    .dossier h3{font-size:28px;line-height:1.1}
+    .dossier .title{font-size:13px;letter-spacing:.18em;margin-bottom:18px}
+    .creds li{font-size:15px;padding:6px 0 6px 22px}
+    .quote-box{padding:14px 18px;margin-top:20px}
+    .quote-box p{font-size:18px;line-height:1.4}
+    .snap-img{aspect-ratio:4/3}
+    .step .n{font-size:30px;min-width:34px}
+    .step .t h4{font-size:19px}
+    .step .t p{font-size:14px}
+    .snap-copy .aside{font-size:13px}
+    .collection-hero{aspect-ratio:16/11}
+    .flavor{padding:30px 22px 26px}
+    .flavor h3{font-size:27px}
+    .flavor .robin{font-size:14.5px;min-height:0;line-height:1.5}
+    .day{min-height:50vh}
+    .day-copy{padding:62px 20px}
+    .day-copy h2{font-size:30px;line-height:1.15;margin-bottom:20px}
+    .day-copy .narr{font-size:17px;line-height:1.55}
+    .day-copy .narr-by{font-size:11px;letter-spacing:.2em;margin-top:18px}
+    .real-img{aspect-ratio:4/5}
+    .endor{padding:34px 24px 26px}
+    .endor p{font-size:17px;line-height:1.5;margin:4px 0 18px}
+    .endor::before{font-size:62px;top:0;left:14px}
+    .endor .name{font-size:16px}
+    .final{padding:74px 20px}
+    .final h2{font-size:42px}
+    .final .sub{font-size:18px;margin-bottom:30px;line-height:1.4}
+    .final .pre{font-size:11px;letter-spacing:.22em}
+    .final .btn-gold{font-size:16px;padding:18px 42px}
+    .final .ship{font-size:11px;letter-spacing:.14em}
+    footer{padding:34px 20px 24px}
+    footer .mark{font-size:22px}
+    footer .links{gap:18px;margin-bottom:18px}
+    footer .links a{font-size:13px;letter-spacing:.14em}
+    footer .robin-tag{font-size:10px;letter-spacing:.18em}
   }
-  @media (max-width:420px){
-    .cover h1{font-size:48px}
-    .profile h2,.collection h2,.ing-text h2,.sub-text h2{font-size:32px}
-    .big-quote p{font-size:23px;line-height:1.25}
-    .snap-text h2{font-size:30px}
-    .lifestyle h2{font-size:28px}
-    .dropcap{font-size:72px}
-    .sub-price .amt{font-size:58px}
-    .menu-name{font-size:20px}
-    .dossier h3{font-size:26px}
-    .dossier .pull{font-size:20px;padding-left:16px}
+  @media (max-width:400px){
+    nav .basket{display:none}
+    .hero h1{font-size:42px}
+    .cta-row{flex-direction:column;align-items:stretch}
+    .btn{text-align:center;padding:15px 28px}
+    .day-copy h2{font-size:26px}
+    .final h2{font-size:36px}
+    .final{padding:64px 18px}
+    .section,.meet,.snap,.real,.collection,.set{padding:56px 18px}
+    .hero{padding:88px 18px 44px}
   }
 </style>
 </head>
 <body>
 
-<!-- ============ MASTHEAD ============ -->
-<header class="masthead">
-  <div class="m-l">Pat&eacute; for my Cat&eacute;<span class="punct">.</span></div>
-  <div class="m-c">Issue No. 02 &nbsp;&middot;&nbsp; The Snap-Pack &nbsp;&middot;&nbsp; Spring 1995</div>
-  <div class="m-r">
-    <a href="../">v.I, the can edition</a>
-    <a href="#sub">Subscribe</a>
-  </div>
-</header>
+<!-- ============ NAV ============ -->
+<nav>
+  <div class="brand">Pat&eacute;<span class="ed">v.II &middot; The Snap-Pack Edition</span></div>
+  <ul>
+    <li><a href="#meet">Le Comte</a></li>
+    <li><a href="#snap">The Pack</a></li>
+    <li><a href="#collection">La Collection</a></li>
+    <li><a href="#order">Commander</a></li>
+  </ul>
+  <div class="basket">Panier (0)</div>
+</nav>
 
-<!-- ============ COVER ============ -->
-<article class="cover">
-  <div class="cover-left">
-    <p class="folio"><span class="num">01.</span>The Annual Cat Issue</p>
-    <h1>Lifestyles<br><em>of the</em> Rich<br><em>and</em> Feline.</h1>
-    <div class="swash"></div>
-    <p class="deck">A profile of Le Comte de Whiskersworth III &mdash; who has, on principle, never paid for a single thing in his life. And yet, somehow, has standards.</p>
-    <p class="credit">Photographs by the editors &middot; Words withheld on advice of counsel &middot; Pat&eacute; by a small woman in Lyon</p>
-  </div>
-  <figure class="cover-figure">
-    <img src="images/image-01.jpg" alt="Le Comte de Whiskersworth III &mdash; a chubby tuxedo cat in a burgundy velvet bowtie &mdash; seated in a navy velvet wingback chair beside an open peel-foil snap-pack of Pat&eacute; for my Cat&eacute; on a gold side table, with a flute of mimosa and gilt mirrors in the background." />
-    <figcaption>Le Comte at home, with breakfast and the morning mimosa. Photographed on a Tuesday, in his sitting room.</figcaption>
-  </figure>
-</article>
-
-<!-- ============ A PROFILE ============ -->
-<article class="profile" id="profile">
-  <div>
-    <p class="folio"><span class="num">02.</span>A Profile, in his own words</p>
-    <h2>An audience<br>with the Comte.</h2>
-    <div class="prose">
-      <p class="lead"><span class="dropcap">L</span>e Comte de Whiskersworth III was born in a sunbeam on a stack of <em>Architectural Digest</em>, May 1991. He has never worked a day in his life. He has, however, developed strong opinions about cat food, and we have agreed to publish them.</p>
-      <p>He insists on real meat. He refuses anything described as a &ldquo;by-product.&rdquo; He will not eat from a can &mdash; the opener offends him personally. The snap-pack was his idea. The pricing was ours.</p>
-      <p>He is not for sale. The pat&eacute; is. <em>Adjacent.</em></p>
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="hero-copy">
+    <div class="eyebrow" style="color:var(--gold-bright);margin-bottom:22px;display:inline-block">&mdash;&nbsp;&nbsp;Endorsed by Le Comte &middot; Hand-Spooned, Snap-Sealed&nbsp;&nbsp;&mdash;</div>
+    <h1>
+      <span class="reg">Lifestyles of the</span>
+      Rich<br>&amp; Feline.
+    </h1>
+    <p class="tag">He's never paid for a single thing in his life. He still has standards. We made the paté anyway.</p>
+    <p class="sub">A peel-and-serve French paté in a snap-pack tray. Real meat first. Vet-approved. $1.89 a serving. Endorsed, very loudly, by <em>Le Comte de Whiskersworth III</em>.</p>
+    <div class="cta-row">
+      <a href="#order" class="btn btn-gold">Join the Inner Circle</a>
+      <a href="#meet" class="btn btn-ghost">Meet Le Comte</a>
     </div>
   </div>
+  <div class="hero-img">
+    <img src="images/image-01.jpg" alt="Le Comte de Whiskersworth III — a chubby tuxedo cat in a tiny burgundy velvet bowtie — sits in a velvet wingback chair beside a peeled-open snap-pack of Paté for my Caté" />
+    <span class="stamp">No. 01 &middot; Le Comte Enthroned</span>
+    <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
+    <div class="quote-bubble">
+      &ldquo;I do not eat from cans, darling. <em>I peel.</em>&rdquo;
+      <span class="src">&mdash; Le Comte, in conversation</span>
+    </div>
+  </div>
+</section>
 
-  <aside class="dossier">
-    <h3>Le Comte de<br>Whiskersworth III</h3>
-    <p class="title">Spokescat &middot; Order of the Sunbeam, First Class &middot; b. May 1991</p>
-    <ul>
+<!-- ============ MEET LE COMTE ============ -->
+<section class="meet" id="meet">
+  <div class="meet-copy">
+    <div class="eyebrow">Meet the Spokescat</div>
+    <h2>The brand's only employee, <em>and easily the worst-paid.</em></h2>
+    <p>Le Comte de Whiskersworth III was born in a sunbeam on a stack of <em>Architectural Digest</em>, May 1991. He has never worked a day in his life. He has, however, developed strong opinions about cat food, and we have agreed to publish them.</p>
+    <p>He insists on real meat. He refuses anything described as a &ldquo;by-product.&rdquo; He will not eat from a can &mdash; the tin opener offends him personally. The snap-pack was his idea. The pricing was ours.</p>
+    <p style="opacity:.7">He is not for sale. The paté is. Adjacent.</p>
+  </div>
+
+  <div class="dossier">
+    <h3>Le Comte de Whiskersworth III</h3>
+    <div class="title">Official Spokescat &middot; Order of the Sunbeam, First Class</div>
+    <ul class="creds">
       <li>Heir presumptive, the Lap of Susan</li>
-      <li>Honorary reviewer, every grocery-store pat&eacute; within a three-mile radius</li>
-      <li>Member, the Society for Cats Who Are Better Than This</li>
-      <li>Personally acquainted with approximately eleven sunbeams</li>
-      <li>Currently boycotting tap-water tuna, &ldquo;an embarrassment&rdquo;</li>
+      <li>Honorary Reviewer, every grocery-store pat&eacute; within a 3-mile radius</li>
+      <li>Lifetime Member, the Society for Cats Who Are Better Than This</li>
+      <li>Personal Acquaintance of approximately eleven sunbeams</li>
+      <li>Currently boycotting tap-water tuna &mdash; in his words, &ldquo;an embarrassment&rdquo;</li>
     </ul>
-    <div class="pull">
-      &ldquo;If you cannot pronounce every ingredient, you are doing it correctly.&rdquo;
-      <span>&mdash; Le Comte, in conversation, 4:13 AM on a Tuesday.</span>
+    <div class="quote-box">
+      <p>&ldquo;If you cannot pronounce every ingredient, you are doing it correctly.&rdquo;</p>
+      <span class="by">&mdash; Le Comte, 4:13 AM, Tuesday</span>
     </div>
-  </aside>
-</article>
+  </div>
+</section>
 
 <!-- ============ THE SNAP-PACK ============ -->
-<article class="snap plate" id="snap">
-  <figure class="snap-figure">
-    <img src="images/image-02.jpg" alt="A close-up of a single Pat&eacute; for my Cat&eacute; snap-pack on marble, a white cat paw lifting the foil pull-tab to reveal salmon pat&eacute; garnished with dill." loading="lazy" />
-  </figure>
-  <div class="snap-text">
-    <p class="folio light"><span class="num" style="color:var(--foil)">03.</span>The Snap-Pack</p>
-    <h2>One tray.<br>One foil. <em>One small woman in Lyon.</em></h2>
-    <ol class="steps">
-      <li>
-        <span class="rn">I.</span>
-        <div>
-          <h4>Peel.</h4>
-          <p>A small foil pull-tab. The kind that makes a sound. Cats hear this sound from three rooms away.</p>
+<section class="snap" id="snap">
+  <div class="snap-grid">
+    <div class="snap-img">
+      <img src="images/image-02.jpg" alt="Macro close-up of a single cream-and-gold snap-pack of Paté for my Caté with a cat paw peeling back the foil lid to reveal salmon paté garnished with dill" loading="lazy" />
+      <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
+    </div>
+    <div class="snap-copy">
+      <div class="eyebrow">The Snap-Pack</div>
+      <h2>One tray. One foil. <em>One small woman in Lyon.</em></h2>
+      <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:18px;color:var(--cream);opacity:.85;line-height:1.5;max-width:520px">We retired the can. It was loud, it had a sharp lid, and Le Comte refused to look at it. The snap-pack is quieter, prettier, and peels.</p>
+      <div class="steps">
+        <div class="step">
+          <div class="n">i.</div>
+          <div class="t">
+            <h4>Peel.</h4>
+            <p>A small foil pull-tab. The kind that makes a satisfying sound. Cats hear this sound from three rooms away.</p>
+          </div>
         </div>
-      </li>
-      <li>
-        <span class="rn">II.</span>
-        <div>
-          <h4>Serve.</h4>
-          <p>Into a small dish, or, if you must, present it on the tray with both hands and a small bow.</p>
+        <div class="step">
+          <div class="n">ii.</div>
+          <div class="t">
+            <h4>Serve.</h4>
+            <p>Slide the pat&eacute; into a small dish, or, if your cat is Le Comte, present it directly on the tray with both hands and a small bow.</p>
+          </div>
         </div>
-      </li>
-      <li>
-        <span class="rn">III.</span>
-        <div>
-          <h4>Witness gratitude.</h4>
-          <p>Or don't. Cats are not contractually obligated to thank you. Smug eye contact is statistically likely.</p>
+        <div class="step">
+          <div class="n">iii.</div>
+          <div class="t">
+            <h4>Witness gratitude.</h4>
+            <p>Or don't. Cats are not contractually obligated to say thank you. (Reaction not guaranteed. Smug eye contact, however, is statistically likely.)</p>
+          </div>
         </div>
-      </li>
-    </ol>
-    <p class="snap-aside">Recyclable tray. Biodegradable foil. The same five real ingredients we started with, in the same kitchen, by the same exhausted woman.</p>
+      </div>
+      <div class="aside">&mdash;&nbsp; Recyclable tray. Biodegradable foil. Same five real ingredients we started with. &nbsp;&mdash;</div>
+    </div>
   </div>
-</article>
+</section>
 
-<!-- ============ THE COLLECTION ============ -->
-<article class="collection" id="collection">
-  <p class="folio"><span class="num">04.</span>The Collection</p>
-  <h2>Three flavors, <em>served at his discretion.</em></h2>
-  <figure class="trio">
-    <img src="images/image-04.jpg" alt="Three open Pat&eacute; for my Cat&eacute; snap-packs in a gentle arc on cream marble, garnishes beside each, Le Comte watching from a blurred doorway behind." loading="lazy" />
-    <figcaption>The Collection &mdash; photographed at home, Le Comte presiding from the doorway.</figcaption>
-  </figure>
-  <div class="menu">
-    <div class="menu-row">
-      <span class="menu-no">i.</span>
-      <span class="menu-name">Saumon Royale</span>
-      <span class="menu-leader"></span>
-      <span class="menu-desc">Wild-caught Atlantic salmon, a whisper of dill, a kiss of cold-pressed olive oil.</span>
-      <span class="menu-price">$1.89</span>
-    </div>
-    <div class="menu-row">
-      <span class="menu-no">ii.</span>
-      <span class="menu-name">Thon Proven&ccedil;al</span>
-      <span class="menu-leader"></span>
-      <span class="menu-desc">Sustainably-caught yellowfin, sun-ripened tomato, a sprig of fresh thyme.</span>
-      <span class="menu-price">$1.89</span>
-    </div>
-    <div class="menu-row">
-      <span class="menu-no">iii.</span>
-      <span class="menu-name">Poulet Champignon</span>
-      <span class="menu-leader"></span>
-      <span class="menu-desc">Free-range chicken, cremini mushroom, Italian parsley.</span>
-      <span class="menu-price">$1.89</span>
-    </div>
+<!-- ============ COLLECTION ============ -->
+<section class="collection section" id="collection">
+  <div class="section-head">
+    <div class="eyebrow">La Collection</div>
+    <h2>Three flavors. <em>Le Comte approved.</em></h2>
+    <p>Each described, against our better judgment, in the voice of a 1987 television voiceover.</p>
   </div>
-</article>
+
+  <div class="collection-hero">
+    <img src="images/image-04.jpg" alt="Three Paté for my Caté snap-packs in a gentle arc on cream marble, foils mid-peel, with Le Comte the tuxedo cat watching intently from a blurred doorway behind" loading="lazy" />
+    <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
+  </div>
+
+  <div class="flavors">
+    <article class="flavor">
+      <div class="eyebrow">No. 01</div>
+      <h3>Saumon Royale</h3>
+      <p class="robin">&ldquo;Wild-caught North Atlantic salmon. Hand-flaked. Hinted with dill. Notes of sunbeam, soft yacht, and a long lunch nobody intended to attend.&rdquo;</p>
+      <div class="price">$1.89<small>/ tray</small></div>
+    </article>
+    <article class="flavor">
+      <div class="eyebrow">No. 02</div>
+      <h3>Thon Proven&ccedil;al</h3>
+      <p class="robin">&ldquo;Sustainably-caught yellowfin. Sun-ripened tomato. A whisper of thyme. Reminiscent of a stone terrace, a chilled ros&eacute;, and someone else paying.&rdquo;</p>
+      <div class="price">$1.89<small>/ tray</small></div>
+    </article>
+    <article class="flavor">
+      <div class="eyebrow">No. 03</div>
+      <h3>Poulet Champignon</h3>
+      <p class="robin">&ldquo;Free-range chicken. Cremini mushroom. Italian parsley. Evocative of a country house, an exhausted housekeeper, and three afternoons of doing absolutely nothing.&rdquo;</p>
+      <div class="price">$1.89<small>/ tray</small></div>
+    </article>
+  </div>
+</section>
 
 <!-- ============ A DAY IN HIS LIFE ============ -->
-<article class="lifestyle plate">
-  <img class="bg" src="images/image-03.jpg" alt="Le Comte reclining on a tufted cream velvet chaise lounge as a white-gloved butler's hand extends a silver tray with an open Pat&eacute; for my Cat&eacute; snap-pack; a Mediterranean coastline visible through an arched window behind." loading="lazy" />
-  <div class="lifestyle-overlay">
-    <p class="folio light"><span class="num" style="color:var(--foil)">05.</span>A Day in His Life</p>
-    <h2>Champagne wishes,<br>and Cat&eacute; pat&eacute; dreams.</h2>
-    <p class="narration">He rises at 4:13 AM, which is, of course, your problem. He inspects the kitchen. He inspects you. He returns to the chaise. By 4:14 he expects breakfast &mdash; on the silver tray, peeled, plated, garnished with a sprig of dill he will not eat.</p>
-    <p class="byline">&mdash; In the voice of the late, great voiceover man.</p>
+<section class="day">
+  <img src="images/image-03.jpg" alt="Le Comte reclining on a tufted cream velvet chaise lounge as a white-gloved butler's hand extends a silver tray bearing a peeled Paté for my Caté snap-pack, a blurred Mediterranean coastline through arched window behind" loading="lazy" />
+  <div class="day-copy">
+    <span class="eyebrow">A Day in His Life</span>
+    <h2>&ldquo;Champagne wishes,<br>and Cat&eacute; pat&eacute; dreams.&rdquo;</h2>
+    <p class="narr">He rises at 4:13 AM, which is, of course, your problem. He inspects the kitchen. He inspects you. He returns to the chaise. By 4:14 he expects breakfast &mdash; on the silver tray, peeled, plated, garnished with a sprig of dill he will not eat.</p>
+    <p class="narr-by">&mdash;&nbsp; In the voice of the late, great voiceover man &nbsp;&mdash;</p>
   </div>
-</article>
+</section>
 
-<!-- ============ INGREDIENTS ============ -->
-<article class="ingredients" id="ingredients">
-  <div class="ing-text">
-    <p class="folio"><span class="num">06.</span>Ingredients</p>
-    <h2>And now &mdash; <em>the actual food.</em></h2>
-    <p class="lead">The bit is funny. The food is serious. Le Comte is a character. The salmon is real.</p>
-    <p>Open any tray and the ingredients are the ingredients. Real meat is the first one. There is no &ldquo;by-product.&rdquo; No filler. No carrageenan. No mystery brown. Vet-formulated. Balanced for adult cats. Made by humans who would, in fact, eat it on a cracker.</p>
-    <ul class="ing-list">
-      <li><span>Wild-caught salmon</span><span>Maine, USA</span></li>
-      <li><span>Free-range chicken</span><span>Vermont, USA</span></li>
-      <li><span>Sustainable yellowfin</span><span>Pacific</span></li>
-      <li><span>Cremini mushroom</span><span>Pennsylvania, USA</span></li>
-      <li><span>Italian parsley</span><span>Greenhouse, NJ</span></li>
-      <li><span>Fresh dill &amp; thyme</span><span>Greenhouse, NJ</span></li>
-      <li><span>Cold-pressed olive oil</span><span>Provence, France</span></li>
-      <li><span>French sea salt</span><span>Gu&eacute;rande, France</span></li>
+<!-- ============ REAL INGREDIENTS ============ -->
+<section class="real">
+  <div class="real-copy">
+    <div class="eyebrow">A brief, sincere interruption</div>
+    <h2>Okay &mdash; now <em>the actual food.</em></h2>
+    <p class="lead">The bit is funny. The food is serious. Le Comte is a character; the salmon is real.</p>
+    <p>Open any tray and the ingredients are the ingredients. Real meat is the first one. There is no &ldquo;meat by-product.&rdquo; No filler. No carrageenan. No &ldquo;mystery brown.&rdquo; Vet-approved. Balanced for adult cats. Made by humans who would, in fact, eat it on a cracker.</p>
+    <ul class="real-list">
+      <li>Wild-caught salmon</li>
+      <li>Free-range chicken</li>
+      <li>Sustainable tuna</li>
+      <li>Cremini mushroom</li>
+      <li>Fresh dill &amp; thyme</li>
+      <li>Italian parsley</li>
+      <li>Cold-pressed olive oil</li>
+      <li>French sea salt</li>
     </ul>
   </div>
-  <figure class="ing-fig">
-    <img src="images/image-05.jpg" alt="An overhead flatlay of ingredients on cream marble &mdash; salmon on a silver platter, chicken on a velvet pillow, mushrooms in a crystal bowl, herbs tied with burgundy ribbon &mdash; arranged around a sealed Pat&eacute; for my Cat&eacute; snap-pack." loading="lazy" />
-    <figcaption>The pantry, in repose. Photographed before lunch.</figcaption>
-  </figure>
-</article>
-
-<!-- ============ RECEPTION ============ -->
-<article class="reception">
-  <p class="folio" style="text-align:center;max-width:none"><span class="num">07.</span>Reception</p>
-  <blockquote class="big-quote">
-    <p>He served it to me on the chaise. I refused, on principle. Then I tried it. I have not made eye contact with him since.</p>
-    <footer>&mdash; Madame V&eacute;ronique du Sofa, Russian Blue, in conversation with the editors.</footer>
-  </blockquote>
-  <div class="small-quotes">
-    <blockquote>
-      <p>The peeling. <em>The peeling</em>, darling. I now wait at the counter at 4:13 AM specifically for the sound.</p>
-      <footer>&mdash; Lord Cumberbun. Maine Coon. The Radiator, Top Floor.</footer>
-    </blockquote>
-    <blockquote>
-      <p>$1.89? For pat&eacute;? In this economy? I assumed it was a typographical error. It was not. Le Comte, for once, was correct.</p>
-      <footer>&mdash; Capitaine Biscuit-Whiskersworth. Tuxedo Shorthair. The Linen Closet, Portland.</footer>
-    </blockquote>
+  <div class="real-img">
+    <img src="images/image-05.jpg" alt="Overhead flatlay of ingredients on cream marble — each staged comically reverently — surrounding a sealed Paté for my Caté snap-pack" loading="lazy" />
+    <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
   </div>
-</article>
+</section>
 
-<!-- ============ SUBSCRIBE ============ -->
-<article class="subscribe" id="sub">
-  <p class="folio"><span class="num">08.</span>Subscription</p>
-  <div class="sub-grid">
-    <div class="sub-text">
-      <h2>An ongoing subscription<br><em>to better cat food.</em></h2>
-      <p>Twelve trays a month, all three flavors, delivered the day they're spooned. Cancel any time &mdash; we will not be hurt. We assume Le Comte already is.</p>
-    </div>
-    <div class="sub-price">
-      <p class="amt">$22.99<sub>/ mo</sub></p>
-      <a href="#" class="sub-cta">Begin<span class="arr">&nbsp;&rarr;</span></a>
-      <p class="ship">Ships within 48 hours from a small kitchen in Lyon, by way of a slightly bigger one in Newark.</p>
-    </div>
+<!-- ============ LE COMTE'S SET ============ -->
+<section class="set">
+  <div class="section-head">
+    <div class="eyebrow">Le Comte's Set</div>
+    <h2>Endorsements from his <em>inner circle.</em></h2>
+    <p>Names changed to protect the felines. Estates are real. Probably.</p>
   </div>
-</article>
+  <div class="endors">
+    <article class="endor">
+      <div class="stars">&#9733; &#9733; &#9733; &#9733; &#9733;</div>
+      <p>He served it to me on the chaise. I refused, on principle. Then I tried it. I have not made eye contact with him since.</p>
+      <div class="name">Madame V&eacute;ronique du Sofa</div>
+      <div class="estate">Russian Blue &middot; The West Wing, Brooklyn</div>
+    </article>
+    <article class="endor">
+      <div class="stars">&#9733; &#9733; &#9733; &#9733; &#9733;</div>
+      <p>The peeling. The peeling, darling. I now wait at the counter at 4:13 AM specifically for the sound.</p>
+      <div class="name">Lord Cumberbun</div>
+      <div class="estate">Maine Coon &middot; The Radiator, Top Floor</div>
+    </article>
+    <article class="endor">
+      <div class="stars">&#9733; &#9733; &#9733; &#9733; &#9733;</div>
+      <p>$1.89? For paté? In this economy? I assumed it was a typo. It was not. Le Comte was, for once, correct.</p>
+      <div class="name">Capitaine Biscuit-Whiskersworth</div>
+      <div class="estate">Tuxedo Shorthair &middot; The Linen Closet, Portland</div>
+    </article>
+  </div>
+</section>
 
-<!-- ============ COLOPHON ============ -->
-<footer class="colophon">
-  <div class="mark">Pat&eacute; for my Cat&eacute;<span class="punct">.</span></div>
-  <div class="note">Set in Playfair Display and Source Serif. Printed on recycled cream &mdash; wait, this is the internet. The original is still <a href="../">at v.I, the can edition</a>. Le Comte does not endorse it. Loudly.</div>
-  <div class="yr">2026.</div>
+<!-- ============ FINAL CTA ============ -->
+<section class="final" id="order">
+  <span class="pre">&mdash;&nbsp;&nbsp;Free shipping over $40 &middot; Cancel anytime &middot; Comes in a small velvet pouch&nbsp;&nbsp;&mdash;</span>
+  <h2>Join Le Comte's<br>Inner Circle.</h2>
+  <p class="sub">Twelve snap-packs. All three flavors. Delivered monthly. Your cat will pretend not to care. <em>Your cat will care.</em></p>
+  <a href="#" class="btn btn-gold">Subscribe &mdash; $22.99 / month</a>
+  <div class="ship">Ships within 48 hours &middot; from a small kitchen in Lyon &middot; via a slightly bigger one in Newark</div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="mark">Pat&eacute; for my Cat&eacute; &middot; v.II</div>
+  <div class="links">
+    <a href="../">v.I &middot; The Original</a>
+    <a href="#">Ingredients</a>
+    <a href="#">Subscribe &amp; Save</a>
+    <a href="#">Wholesale</a>
+    <a href="#">Contact</a>
+  </div>
+  <div class="robin-tag">&loz;&nbsp;&nbsp;Champagne wishes. Cat&eacute; pat&eacute; dreams.&nbsp;&nbsp;&loz;</div>
+  <div class="fine">&copy; 2026 Pat&eacute; pour mon Cat&eacute;, Ltd. &middot; All cats reserved. &middot; Le Comte does not endorse any other paté. Loudly.</div>
 </footer>
 
 </body>
