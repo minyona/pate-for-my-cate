@@ -187,46 +187,92 @@
   @media (max-width:960px){
     nav{padding:18px 22px}
     nav ul{display:none}
+    nav .brand .ed{display:none}
     .hero{grid-template-columns:1fr;padding:110px 24px 60px;gap:38px;min-height:auto}
     .hero h1{font-size:60px}
     .hero .tag{font-size:18px}
     .section{padding:80px 24px}
-    .meet,.snap,.real{grid-template-columns:1fr;padding:80px 24px;gap:40px}
-    .snap-grid{grid-template-columns:1fr;gap:40px}
+    .meet,.snap,.real{grid-template-columns:1fr;padding:80px 24px;gap:42px}
+    .snap-grid{grid-template-columns:1fr;gap:42px}
     .flavors{grid-template-columns:1fr;gap:24px}
     .collection{padding:80px 24px}
-    .day{min-height:54vh}
+    .day{min-height:58vh}
     .day-copy{padding:70px 24px}
     .real-list{column-count:1}
     .endors{grid-template-columns:1fr;gap:24px}
     .set{padding:80px 24px}
     .final{padding:90px 24px}
-    .final h2{font-size:48px}
+    .final h2{font-size:50px}
     footer{padding:38px 24px 28px}
-    .dossier{padding:36px 28px}
-    .tvband{font-size:11px;letter-spacing:.24em}
-    .hero-img .quote-bubble{max-width:75%;font-size:13px}
+    .dossier{padding:36px 28px;max-width:none}
+    .hero-img .quote-bubble{left:14px;right:14px;bottom:14px;max-width:none;font-size:13px;padding:12px 16px}
+    .hero-img .stamp{top:14px;left:14px;font-size:10px;letter-spacing:.22em;padding:7px 12px}
   }
-  @media (max-width:480px){
-    .hero h1{font-size:52px}
+  @media (max-width:600px){
+    nav{padding:16px 18px}
+    nav .brand{font-size:19px}
+    nav .basket{font-size:11px;letter-spacing:.14em}
+    .hero{padding:94px 20px 48px;gap:32px}
+    .hero h1{font-size:48px}
+    .hero .tag{font-size:17px;margin:14px 0 6px}
+    .hero .sub{font-size:14px;margin-bottom:26px}
+    .section,.meet,.snap,.real,.collection,.set{padding:64px 20px}
+    .section-head{margin-bottom:42px}
+    .section-head h2{font-size:36px}
+    .section-head p{font-size:17px}
+    .meet-copy h2,.snap-copy h2,.real-copy h2{font-size:34px}
+    .meet-copy p{font-size:15px}
+    .dossier{padding:30px 22px}
+    .dossier h3{font-size:28px;line-height:1.1}
+    .dossier .title{font-size:13px;letter-spacing:.18em;margin-bottom:18px}
+    .creds li{font-size:15px;padding:6px 0 6px 22px}
+    .quote-box{padding:14px 18px;margin-top:20px}
+    .quote-box p{font-size:18px;line-height:1.4}
+    .snap-img{aspect-ratio:4/3}
+    .step .n{font-size:30px;min-width:34px}
+    .step .t h4{font-size:19px}
+    .step .t p{font-size:14px}
+    .snap-copy .aside{font-size:13px}
+    .collection-hero{aspect-ratio:16/11}
+    .flavor{padding:30px 22px 26px}
+    .flavor h3{font-size:27px}
+    .flavor .robin{font-size:14.5px;min-height:0;line-height:1.5}
+    .day{min-height:50vh}
+    .day-copy{padding:62px 20px}
+    .day-copy h2{font-size:30px;line-height:1.15;margin-bottom:20px}
+    .day-copy .narr{font-size:17px;line-height:1.55}
+    .day-copy .narr-by{font-size:11px;letter-spacing:.2em;margin-top:18px}
+    .real-img{aspect-ratio:4/5}
+    .endor{padding:34px 24px 26px}
+    .endor p{font-size:17px;line-height:1.5;margin:4px 0 18px}
+    .endor::before{font-size:62px;top:0;left:14px}
+    .endor .name{font-size:16px}
+    .final{padding:74px 20px}
+    .final h2{font-size:42px}
+    .final .sub{font-size:18px;margin-bottom:30px;line-height:1.4}
+    .final .pre{font-size:11px;letter-spacing:.22em}
+    .final .btn-gold{font-size:16px;padding:18px 42px}
+    .final .ship{font-size:11px;letter-spacing:.14em}
+    footer{padding:34px 20px 24px}
+    footer .mark{font-size:22px}
+    footer .links{gap:18px;margin-bottom:18px}
+    footer .links a{font-size:13px;letter-spacing:.14em}
+    footer .robin-tag{font-size:10px;letter-spacing:.18em}
+  }
+  @media (max-width:400px){
+    nav .basket{display:none}
+    .hero h1{font-size:42px}
     .cta-row{flex-direction:column;align-items:stretch}
-    .btn{text-align:center}
-    .tvband .marquee span:nth-child(n+5){display:none}
+    .btn{text-align:center;padding:15px 28px}
+    .day-copy h2{font-size:26px}
+    .final h2{font-size:36px}
+    .final{padding:64px 18px}
+    .section,.meet,.snap,.real,.collection,.set{padding:56px 18px}
+    .hero{padding:88px 18px 44px}
   }
 </style>
 </head>
 <body>
-
-<!-- ============ TV-AD MARQUEE ============ -->
-<div class="tvband">
-  <span class="marquee">
-    <span>Now Streaming</span><span class="dot">&loz;</span>
-    <span>Lifestyles of the Rich &amp; Feline</span><span class="dot">&loz;</span>
-    <span>Episode 04 &mdash; The Snap-Pack</span><span class="dot">&loz;</span>
-    <span>Narrated by Robin Leach's Spiritual Successor</span><span class="dot">&loz;</span>
-    <span>Sponsored by Pat&eacute; for my Cat&eacute;</span>
-  </span>
-</div>
 
 <!-- ============ NAV ============ -->
 <nav>
@@ -243,7 +289,7 @@
 <!-- ============ HERO ============ -->
 <section class="hero">
   <div class="hero-copy">
-    <div class="seen-on">&nbsp;Live &middot; Episode 04 &middot; Recorded on Location&nbsp;</div>
+    <div class="eyebrow" style="color:var(--gold-bright);margin-bottom:22px;display:inline-block">&mdash;&nbsp;&nbsp;Endorsed by Le Comte &middot; Hand-Spooned, Snap-Sealed&nbsp;&nbsp;&mdash;</div>
     <h1>
       <span class="reg">Lifestyles of the</span>
       Rich<br>&amp; Feline.
