@@ -65,8 +65,9 @@
   .btn-ghost{color:var(--gold);border:1px solid var(--gold);background:transparent}
   .btn-ghost:hover{background:rgba(201,169,97,.08)}
   .hero-img{position:relative;border-radius:3px;overflow:hidden;aspect-ratio:3/2;background:linear-gradient(135deg,#1a2540,#0c1830);box-shadow:0 30px 80px -20px rgba(0,0,0,.7),0 0 0 1px rgba(201,169,97,.18)}
-  .hero-img::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 60%,rgba(10,22,40,.6))}
-  .hero-img .ph{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;color:var(--gold);opacity:.5;font-family:'Cormorant Garamond',serif;font-style:italic}
+  .hero-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+  .hero-img::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 60%,rgba(10,22,40,.4));z-index:1;pointer-events:none}
+  .hero-img .stamp,.hero-img .corner{z-index:2}
   .corner{position:absolute;width:50px;height:50px;border:1px solid var(--gold);opacity:.7}
   .corner.tl{top:14px;left:14px;border-right:0;border-bottom:0}
   .corner.tr{top:14px;right:14px;border-left:0;border-bottom:0}
@@ -94,9 +95,10 @@
   .price small{font-size:13px;color:var(--cream);opacity:.6;letter-spacing:.1em;text-transform:uppercase;font-style:italic;margin-left:6px}
 
   /* ============= HISTOIRE ============= */
-  .histoire{background:linear-gradient(180deg,#0c1a30 0%,var(--burgundy-2) 100%);display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;padding:120px 80px}
-  .histoire-img{aspect-ratio:16/9;background:linear-gradient(135deg,#2d0e18,#1a0710);position:relative;overflow:hidden;border-radius:2px;box-shadow:0 30px 80px -20px rgba(0,0,0,.7),0 0 0 1px rgba(201,169,97,.18)}
-  .histoire-img .ph{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:var(--gold);opacity:.5;font-family:'Cormorant Garamond',serif;font-style:italic}
+  .histoire{background:linear-gradient(180deg,#0c1a30 0%,var(--burgundy-2) 100%);display:grid;grid-template-columns:1fr 1.05fr;gap:80px;align-items:center;padding:120px 80px}
+  .histoire-img{aspect-ratio:4/5;background:linear-gradient(135deg,#2d0e18,#1a0710);position:relative;overflow:hidden;border-radius:2px;box-shadow:0 30px 80px -20px rgba(0,0,0,.7),0 0 0 1px rgba(201,169,97,.18)}
+  .histoire-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+  .histoire-img .corner{z-index:2}
   .histoire-copy h2{font-family:'Cormorant Garamond',serif;font-weight:500;color:var(--gold-bright);font-size:clamp(38px,4.2vw,58px);line-height:1.05;margin:14px 0 24px}
   .histoire-copy h2 em{font-family:'Playfair Display',serif;font-style:italic}
   .histoire-copy p{font-size:16px;line-height:1.8;color:var(--cream);opacity:.85;margin-bottom:16px;max-width:520px}
@@ -137,6 +139,37 @@
   footer .links a:hover{opacity:1;color:var(--gold)}
   footer .fine{font-size:12px;color:var(--cream);opacity:.4;letter-spacing:.06em}
 
+  /* ============= COLLECTION HERO + FLAVOR CARDS ============= */
+  .collection-hero{max-width:1200px;margin:0 auto 56px;position:relative;border-radius:2px;overflow:hidden;box-shadow:0 30px 80px -20px rgba(0,0,0,.7),0 0 0 1px rgba(201,169,97,.22);aspect-ratio:16/9}
+  .collection-hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+  .collection-hero .corner{z-index:2;opacity:.85}
+  .flavor-row{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;max-width:1100px;margin:0 auto}
+  .flavor{text-align:center;padding:0 14px}
+  .flavor::before{content:"";display:block;width:46px;height:1px;background:var(--gold);margin:0 auto 22px;opacity:.7}
+  .flavor h3{font-family:'Playfair Display',serif;font-style:italic;font-weight:600;font-size:30px;color:var(--gold-bright);margin:8px 0}
+  .flavor .desc{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:16px;color:var(--cream);opacity:.78;margin-bottom:16px;min-height:48px;line-height:1.5}
+
+  /* ============= LIFESTYLE BAND (L'Atelier) ============= */
+  .lifestyle{position:relative;min-height:72vh;display:flex;align-items:center;justify-content:center;background:#0a0f1c;overflow:hidden}
+  .lifestyle img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.82;z-index:0}
+  .lifestyle::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,22,40,.5) 0%,rgba(10,22,40,.15) 50%,rgba(10,22,40,.65) 100%);z-index:1}
+  .lifestyle-copy{position:relative;z-index:2;text-align:center;padding:100px 30px;max-width:760px}
+  .lifestyle-copy .eyebrow{color:var(--gold-bright);margin-bottom:18px;display:block}
+  .lifestyle-copy h2{font-family:'Playfair Display',serif;font-style:italic;font-weight:600;color:var(--cream);font-size:clamp(34px,4.4vw,58px);line-height:1.15;text-shadow:0 4px 30px rgba(0,0,0,.8)}
+  .lifestyle-copy .attrib{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:13px;color:var(--gold);letter-spacing:.24em;text-transform:uppercase;margin-top:28px;opacity:.95}
+
+  /* ============= INGREDIENTS ============= */
+  .ingredients{background:linear-gradient(180deg,#0c1a30 0%,var(--navy) 100%);display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;padding:120px 80px}
+  .ingredients-copy h2{font-family:'Cormorant Garamond',serif;font-weight:500;color:var(--gold-bright);font-size:clamp(38px,4.2vw,58px);line-height:1.05;margin:14px 0 24px}
+  .ingredients-copy h2 em{font-family:'Playfair Display',serif;font-style:italic}
+  .ingredients-copy p{font-size:16px;line-height:1.8;color:var(--cream);opacity:.85;margin-bottom:16px;max-width:520px}
+  .ingredients-list{list-style:none;margin-top:22px;column-count:2;column-gap:24px;max-width:520px}
+  .ingredients-list li{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:16px;color:var(--cream);padding:6px 0 6px 22px;position:relative;break-inside:avoid}
+  .ingredients-list li::before{content:"";position:absolute;left:0;top:14px;width:10px;height:1px;background:var(--gold)}
+  .ingredients-img{aspect-ratio:1;background:#0c1830;position:relative;overflow:hidden;border-radius:2px;box-shadow:0 30px 80px -20px rgba(0,0,0,.7),0 0 0 1px rgba(201,169,97,.18)}
+  .ingredients-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+  .ingredients-img .corner{z-index:2}
+
   /* ============= RESPONSIVE ============= */
   @media (max-width:900px){
     nav{padding:18px 22px}
@@ -151,6 +184,12 @@
     .benefits{padding:80px 24px}
     .quotes{grid-template-columns:1fr;gap:24px}
     .testimonials{padding:80px 24px}
+    .flavor-row{grid-template-columns:1fr;gap:36px}
+    .collection-hero{margin-bottom:36px;aspect-ratio:16/10}
+    .lifestyle{min-height:54vh}
+    .lifestyle-copy{padding:70px 24px}
+    .ingredients{grid-template-columns:1fr;gap:40px;padding:80px 24px}
+    .ingredients-list{column-count:1}
     .final{padding:90px 24px}
     .final h2{font-size:48px}
     footer{padding:40px 24px 30px}
@@ -190,9 +229,9 @@
     </div>
   </div>
   <div class="hero-img">
+    <img src="images/image-01.jpg" alt="A regal silver Persian cat sits on midnight-blue velvet beside a cream-and-gold tin of Paté for my Caté" />
     <span class="stamp">No. 01 &middot; Le Chat Royal</span>
     <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
-    <div class="ph">[ images/01-hero-le-chat-royal.jpg ]</div>
   </div>
 </section>
 
@@ -207,24 +246,25 @@
     <p>Each tin is hand-spooned and sealed with a gold foil rosette. Then it's priced like it isn't. Because feeding your cat well shouldn't require a second mortgage.</p>
   </div>
 
-  <div class="tins">
-    <article class="tin-card">
-      <div class="tin-img"><span class="ph">[ images/02a-saumon.jpg ]</span></div>
-      <div class="eyebrow" style="margin-bottom:6px">No. 01</div>
+  <div class="collection-hero">
+    <img src="images/image-02.jpg" alt="Three tins of Paté for my Caté arranged on cream marble — Saumon Royale, Thon Provençal, Poulet Champignon — each garnished with its key ingredient" loading="lazy" />
+    <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
+  </div>
+  <div class="flavor-row">
+    <article class="flavor">
+      <div class="eyebrow">No. 01</div>
       <h3>Saumon Royale</h3>
       <p class="desc">Wild-caught Atlantic salmon, a whisper of dill, a kiss of olive oil.</p>
       <div class="price">$1.89<small>/ tin</small></div>
     </article>
-    <article class="tin-card">
-      <div class="tin-img"><span class="ph">[ images/02b-thon.jpg ]</span></div>
-      <div class="eyebrow" style="margin-bottom:6px">No. 02</div>
+    <article class="flavor">
+      <div class="eyebrow">No. 02</div>
       <h3>Thon Proven&ccedil;al</h3>
       <p class="desc">Sustainably-caught tuna, sun-ripened tomato, fresh thyme.</p>
       <div class="price">$1.89<small>/ tin</small></div>
     </article>
-    <article class="tin-card">
-      <div class="tin-img"><span class="ph">[ images/02c-poulet.jpg ]</span></div>
-      <div class="eyebrow" style="margin-bottom:6px">No. 03</div>
+    <article class="flavor">
+      <div class="eyebrow">No. 03</div>
       <h3>Poulet Champignon</h3>
       <p class="desc">Free-range chicken, cremini mushroom, parsley, a tiny gold thread of love.</p>
       <div class="price">$1.89<small>/ tin</small></div>
@@ -235,8 +275,8 @@
 <!-- ============== HISTOIRE ============== -->
 <section class="histoire" id="histoire">
   <div class="histoire-img">
+    <img src="images/image-03.jpg" alt="A grey Russian Blue cat eats Paté for my Caté from a gold-rimmed china dish at a candlelit dining table, a framed cat portrait on the wall behind her" loading="lazy" />
     <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
-    <div class="ph">[ images/05-latelier-kitchen.jpg ]</div>
   </div>
   <div class="histoire-copy">
     <div class="eyebrow">Une Histoire</div>
@@ -244,6 +284,16 @@
     <p>It started, of course, with a cat. A small grey Russian Blue named Mademoiselle who refused to eat anything from a can that didn't taste like food. The shelf at the grocery store was full of $0.79 mystery and $5.99 boutique. There was nothing in the middle.</p>
     <p>So we built the middle. A proper paté &mdash; real meat first, no fillers, no marketing math &mdash; that costs what cat food <em>should</em> cost. We named it the only way a French cat would have it.</p>
     <p class="sig">&mdash; for Mademoiselle &mdash;</p>
+  </div>
+</section>
+
+<!-- ============== L'ATELIER LIFESTYLE BAND ============== -->
+<section class="lifestyle">
+  <img src="images/image-05.jpg" alt="A sunlit Provençal kitchen with copper pots hanging from an iron rail, a marble counter, a cutting board with a shallot and fresh thyme, and a tin of Paté for my Caté beside a burgundy linen apron" loading="lazy" />
+  <div class="lifestyle-copy">
+    <span class="eyebrow">L'Atelier</span>
+    <h2>Hand-spooned. Small batches.<br>In a kitchen with too many copper pots.</h2>
+    <div class="attrib">&mdash;&nbsp; Just outside Lyon &nbsp;&mdash;</div>
   </div>
 </section>
 
@@ -282,6 +332,30 @@
       <h4>Under $2 a Tin</h4>
       <p>Hand-spooned, gold-foiled, and somehow still cheaper than the bag of treats your cat ignored.</p>
     </div>
+  </div>
+</section>
+
+<!-- ============== LES INGRÉDIENTS ============== -->
+<section class="ingredients" id="ingredients">
+  <div class="ingredients-copy">
+    <div class="eyebrow">Les Ingr&eacute;dients</div>
+    <h2>Real food. <em>Named. Pronounceable.</em></h2>
+    <p>Open any tin and you'll find the same thing: food. Fish or chicken, a fresh herb, a single oil, a touch of sea salt. That's it. No "meat by-products." No fillers with seven syllables. No mystery brown.</p>
+    <p style="opacity:.7">If you wouldn't put it on a cracker, we don't put it in the tin.</p>
+    <ul class="ingredients-list">
+      <li>Wild-caught salmon</li>
+      <li>Free-range chicken</li>
+      <li>Sustainable tuna</li>
+      <li>Cremini mushroom</li>
+      <li>Fresh dill &amp; thyme</li>
+      <li>Italian parsley</li>
+      <li>Cold-pressed olive oil</li>
+      <li>French sea salt</li>
+    </ul>
+  </div>
+  <div class="ingredients-img">
+    <img src="images/image-04.jpg" alt="Overhead flatlay on marble — wild salmon, free-range chicken, cremini mushrooms, a shallot, fresh parsley and thyme, lemon, olive oil — arranged around a closed tin of Paté for my Caté" loading="lazy" />
+    <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
   </div>
 </section>
 
